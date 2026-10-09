@@ -3,121 +3,113 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Momomi – Baby Play Mats, Anti-Allergy Bedding & Kids Essentials</title>
-<meta name="description" content="Curated Momomi picks: baby play mats, anti-allergy bedding, Moofu sofa, travel gear and screen-free activity books for kids.">
+<title>Momi.Picks – Cozy Play, Sweet Dreams & Screen-Free Fun for Kids</title>
+<meta name="description" content="Five hand-picked Momomi favorites: Round Mat for Happy Tent, Buddy Bag backpack, Good Sleep Bundle, 101 Cute Things to Draw and 50 Magical Bedtime Stories.">
 <style>
-:root{--pink:#f9e3a1;--pink-d:#f2c14e;--ink:#2d2a2b;--mut:#6f6a6b;--bg:#fffbf0;--card:#fff;--line:#f0e6c8}
+:root{--y:#f2c14e;--y-d:#e8b23a;--y-l:#fdf2c9;--y-xl:#fff8e1;--ink:#2d2a2b;--mut:#6f6a6b;--bg:#fffbf0;--card:#fff;--line:#f0e6c8}
 *{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth}
 body{font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;color:var(--ink);background:var(--bg);line-height:1.6}
 a{color:inherit;text-decoration:none}
-.wrap{max-width:1100px;margin:0 auto;padding:0 20px}
+.wrap{max-width:1120px;margin:0 auto;padding:0 20px}
 header{position:sticky;top:0;background:rgba(255,251,240,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--line);z-index:5}
 header .wrap{display:flex;justify-content:space-between;align-items:center;height:60px}
-.logo{font-weight:800;font-size:22px;letter-spacing:.5px}.logo span{color:var(--pink-d)}
-.btn{display:inline-block;background:var(--pink-d);color:var(--ink);padding:12px 24px;border-radius:999px;font-weight:600;transition:.2s}
-.btn:hover{background:#e8b23a;transform:translateY(-1px)}
-.btn.sm{padding:8px 18px;font-size:14px}
-.btn.ghost{background:#fff;color:var(--ink);border:1px solid var(--line)}
-.hero{padding:56px 0 40px}
-.hero .wrap{display:grid;grid-template-columns:1.05fr 1fr;gap:40px;align-items:center}
-.tag{display:inline-block;background:#fdf2c9;color:#8a6414;padding:4px 14px;border-radius:999px;font-size:13px;font-weight:600}
-h1{font-size:clamp(30px,5vw,48px);line-height:1.15;margin:16px 0}
-.hero p{color:var(--mut);font-size:18px;margin-bottom:24px}
-.hero .cta{display:flex;gap:12px;flex-wrap:wrap}
-.hero img{width:100%;border-radius:24px;aspect-ratio:4/3;object-fit:cover;background:#fdf0c4}
-.perks{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;padding:8px 0 40px}
+.logo{font-weight:800;font-size:22px;letter-spacing:.5px}.logo span{color:var(--y-d)}
+.btn{display:inline-block;background:var(--y);color:var(--ink);padding:13px 28px;border-radius:999px;font-weight:700;transition:.2s;box-shadow:0 6px 16px rgba(242,193,78,.35)}
+.btn:hover{background:var(--y-d);transform:translateY(-2px)}
+.btn.sm{padding:9px 20px;font-size:14px;box-shadow:none}
+.btn.ghost{background:#fff;border:1px solid var(--line);box-shadow:none}
+.btn.ghost:hover{background:var(--y-xl)}
+.hero{padding:56px 0 36px;background:radial-gradient(1200px 400px at 85% -10%,var(--y-l),transparent)}
+.hero .wrap{display:grid;grid-template-columns:1.05fr 1fr;gap:44px;align-items:center}
+.tag{display:inline-block;background:var(--y-l);color:#8a6414;padding:5px 16px;border-radius:999px;font-size:13px;font-weight:700}
+h1{font-size:clamp(32px,5vw,52px);line-height:1.12;margin:16px 0}
+h1 em{font-style:normal;background:linear-gradient(transparent 62%,var(--y) 62%)}
+.hero p{color:var(--mut);font-size:18px;margin-bottom:26px;max-width:520px}
+.cta{display:flex;gap:12px;flex-wrap:wrap}
+.collage{position:relative;height:420px}
+.collage img{position:absolute;object-fit:cover;border-radius:28px;border:6px solid #fff;box-shadow:0 18px 40px rgba(120,90,10,.18);background:var(--y-l)}
+.collage .a{width:62%;height:78%;left:0;top:0;transform:rotate(-3deg)}
+.collage .b{width:54%;height:60%;right:0;bottom:0;transform:rotate(3deg)}
+.perks{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;padding:16px 0 12px}
 .perk{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:16px;font-size:14px;text-align:center}
-.perk b{display:block;font-size:22px}
-section{padding:40px 0}
-h2{font-size:clamp(24px,3.5vw,34px);margin-bottom:8px}
-.sub{color:var(--mut);margin-bottom:28px}
-.tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:24px}
-.tabs button{border:1px solid var(--line);background:#fff;padding:8px 18px;border-radius:999px;cursor:pointer;font:inherit;font-size:14px}
-.tabs button.on{background:var(--ink);color:#fff;border-color:var(--ink)}
-.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:20px}
-.card{background:var(--card);border:1px solid var(--line);border-radius:20px;overflow:hidden;display:flex;flex-direction:column;transition:.2s}
-.card:hover{box-shadow:0 10px 30px rgba(242,193,78,.28);transform:translateY(-3px)}
-.thumb{aspect-ratio:1;background:linear-gradient(135deg,#fdf0c4,#fff8e1);display:flex;align-items:center;justify-content:center;font-size:64px;position:relative;overflow:hidden}
-.thumb img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
-.badge{position:absolute;top:10px;left:10px;background:var(--pink-d);color:var(--ink);font-size:12px;font-weight:700;padding:3px 10px;border-radius:999px;z-index:1}
-.body{padding:16px;display:flex;flex-direction:column;gap:6px;flex:1}
-.body h3{font-size:17px}
-.body p{color:var(--mut);font-size:14px;flex:1}
-.price{display:flex;align-items:baseline;gap:8px;margin:6px 0 10px}
-.price b{font-size:20px}.price s{color:#aaa;font-size:14px}
-.bundle{background:linear-gradient(135deg,#fdf0c4,#fff8e1);border-radius:24px;padding:32px;display:grid;grid-template-columns:1fr auto;gap:20px;align-items:center}
-.faq details{background:#fff;border:1px solid var(--line);border-radius:14px;padding:14px 18px;margin-bottom:10px}
-.faq summary{cursor:pointer;font-weight:600}
-.faq p{color:var(--mut);margin-top:8px;font-size:15px}
-footer{border-top:1px solid var(--line);padding:32px 0;color:var(--mut);font-size:13px;margin-top:20px}
+.perk b{display:block;font-size:24px}
+section{padding:44px 0}
+h2{font-size:clamp(26px,3.6vw,36px);margin-bottom:8px;text-align:center}
+.sub{color:var(--mut);margin:0 auto 32px;text-align:center;max-width:560px}
+.grid{display:grid;grid-template-columns:repeat(6,1fr);gap:22px}
+.card{grid-column:span 2;background:var(--card);border:1px solid var(--line);border-radius:24px;overflow:hidden;display:flex;flex-direction:column;transition:.25s}
+.card:nth-child(-n+2){grid-column:span 3}
+.card:hover{box-shadow:0 16px 40px rgba(242,193,78,.35);transform:translateY(-4px)}
+.thumb{aspect-ratio:4/3;background:linear-gradient(135deg,var(--y-l),var(--y-xl));display:flex;align-items:center;justify-content:center;font-size:76px;position:relative;overflow:hidden}
+.thumb img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:.4s}
+.card:hover .thumb img{transform:scale(1.05)}
+.badge{position:absolute;top:14px;left:14px;background:var(--y);color:var(--ink);font-size:13px;font-weight:800;padding:4px 14px;border-radius:999px;z-index:1;box-shadow:0 4px 10px rgba(0,0,0,.08)}
+.body{padding:20px;display:flex;flex-direction:column;gap:8px;flex:1}
+.kind{font-size:12px;font-weight:700;letter-spacing:.8px;text-transform:uppercase;color:#a07a1c}
+.body h3{font-size:20px;line-height:1.3}
+.body p{color:var(--mut);font-size:15px}
+.body ul{list-style:none;padding:0;color:var(--mut);font-size:14px;flex:1}
+.body li:before{content:"✓ ";color:var(--y-d);font-weight:800}
+.body .btn{text-align:center;margin-top:10px}
+.final{background:var(--y-l);border-radius:28px;padding:44px 24px;text-align:center}
+.final h2{margin-bottom:12px}
+footer{border-top:1px solid var(--line);padding:30px 0;color:var(--mut);font-size:13px;margin-top:24px}
 footer p{margin-bottom:8px}
-@media(max-width:760px){.hero .wrap{grid-template-columns:1fr}.perks{grid-template-columns:1fr 1fr}.bundle{grid-template-columns:1fr}}
+@media(max-width:900px){.card,.card:nth-child(-n+2){grid-column:span 3}}
+@media(max-width:760px){.hero .wrap{grid-template-columns:1fr}.collage{height:320px}.perks{grid-template-columns:1fr 1fr}.grid{grid-template-columns:1fr}.card,.card:nth-child(-n+2){grid-column:auto}}
 </style>
 </head>
 <body>
 
 <header><div class="wrap">
-  <a class="logo" href="#">Momomi<span>.</span>Picks</a>
-  <a class="btn sm" data-aff="main" href="#">Shop now</a>
+  <a class="logo" href="#">Momi<span>.</span>Picks</a>
+  <a class="btn sm" data-main href="#">Learn More Now</a>
 </div></header>
 
 <main>
 <section class="hero"><div class="wrap">
   <div>
-    <span class="tag">Save 20% – 70% on selected items</span>
-    <h1>Soft, safe essentials for your baby and your whole family</h1>
-    <p>Non-slip play mats, anti-allergy bedding, modular sofas, travel gear and screen-free activity books – hand-picked from the Momomi® brand.</p>
+    <span class="tag">Hand-picked favorites</span>
+    <h1>Cozy play, <em>sweet dreams</em> and screen-free fun</h1>
+    <p>Five Momomi® picks for happy kids and calm evenings: a soft round mat, a lightweight backpack, a sleep bundle and two creative eBooks.</p>
     <div class="cta">
-      <a class="btn" data-aff="main" href="#">Shop Momomi® Mat</a>
-      <a class="btn ghost" href="#products">Browse all products</a>
+      <a class="btn" data-main href="#">Learn More Now</a>
+      <a class="btn ghost" href="#picks">See the 5 picks</a>
     </div>
   </div>
-  <img id="heroImg" alt="Momomi Mat" src="https://momomiworld.com/cdn/shop/files/momomimat-greentea-hero_f9955a29-d9ba-43a4-ae34-3ad79c350968.webp?v=1777973617&width=1200">
+  <div class="collage">
+    <img class="a" alt="Momomi Round Mat for Happy Tent" src="https://momomiworld.com/cdn/shop/files/happy-tent-mat.webp?v=1789272077&width=900">
+    <img class="b" alt="Buddy Bag kids backpack" src="https://momomiworld.com/cdn/shop/files/buddy-bag-kids-backpack-3.webp?v=1782875336&width=900">
+  </div>
 </div></section>
 
 <div class="wrap perks">
   <div class="perk"><b>🛡️</b>30-day product guarantee</div>
-  <div class="perk"><b>🌍</b>Worldwide shipping, incl. Vietnam</div>
-  <div class="perk"><b>🧼</b>Easy to clean and care for</div>
+  <div class="perk"><b>🌍</b>Worldwide shipping</div>
+  <div class="perk"><b>⚡</b>Instant download for eBooks</div>
   <div class="perk"><b>🌳</b>Every order funds reforestation in Kenya</div>
 </div>
 
-<section id="products"><div class="wrap">
-  <h2>Featured products</h2>
-  <p class="sub">Click a product to see details and order on the official Momomi store.</p>
-  <div class="tabs" id="tabs"></div>
+<section id="picks"><div class="wrap">
+  <h2>Our 5 favorite picks</h2>
+  <p class="sub">Tap any product to see full details and order on the official Momomi store.</p>
   <div class="grid" id="grid"></div>
 </div></section>
 
 <section><div class="wrap">
-  <div class="bundle">
-    <div>
-      <h2>Save up to 50% on bundles</h2>
-      <p class="sub" style="margin:0">Happy Family, Super Family, Happy Pet, Good Sleep, Happy Holiday – buy as a set and save more.</p>
-    </div>
-    <a class="btn" data-aff="bundles" href="#">View bundles</a>
+  <div class="final">
+    <h2>Ready to make home a little happier?</h2>
+    <p class="sub" style="margin-bottom:22px">Explore the full Momomi® world on the official store.</p>
+    <a class="btn" data-main href="#">Learn More Now</a>
   </div>
-</div></section>
-
-<section><div class="wrap">
-  <h2>Family eBooks</h2>
-  <p class="sub">Games, bedtime stories, drawing books and quick family meals – from about $10, instant download.</p>
-  <a class="btn ghost" data-aff="ebooks" href="#">View eBooks</a>
-</div></section>
-
-<section class="faq"><div class="wrap">
-  <h2>Frequently asked questions</h2><p class="sub"></p>
-  <details><summary>Where do I buy, and how do I pay?</summary><p>You will be taken to the official Momomi store to place your order. It supports Visa, Mastercard, PayPal, Apple Pay, Google Pay and more.</p></details>
-  <details><summary>Do they ship to Vietnam?</summary><p>Yes. Momomi lists Vietnam among its shipping countries. Shipping fees and delivery times are shown at checkout.</p></details>
-  <details><summary>What if the product is defective?</summary><p>Momomi offers a 30-day guarantee: if a defect is confirmed after delivery, you can replace the product with the same model for free.</p></details>
-  <details><summary>Can prices change?</summary><p>Prices and promotions are set by Momomi and may change. Please check the final price on the order page.</p></details>
 </div></section>
 </main>
 
 <footer><div class="wrap">
   <p><b>Affiliate disclosure:</b> This page contains affiliate links. If you buy through these links we may earn a commission, at no extra cost to you.</p>
-  <p>This is an independent review page, not the official Momomi website. Brands, images and product names belong to their respective owners.</p>
-  <p>© <span id="y"></span> Momomi Picks</p>
+  <p>This is an independent review page, not the official Momomi website. Brands, images and product names belong to their respective owners. Prices and offers are set by Momomi and may change.</p>
+  <p>© <span id="y"></span> Momi.Picks</p>
 </div></footer>
 
 <script>
@@ -125,76 +117,53 @@ footer p{margin-bottom:8px}
    SETTINGS – EDIT ONLY THIS PART
    ===================================================================== */
 
-// 1) Global affiliate code. Automatically appended to EVERY link that has no own affiliate link.
-//    Example: "?ref=YOURNAME"  or  "?aff=12345"  (leave "" if unused)
-const AFFILIATE_SUFFIX = "";
+// Link for the "Learn More Now" buttons
+const MAIN_LINK = "https://momomiworld.com?bg_ref=OX212FlCn2";
 
-// 2) Links for the general buttons (header, bundles, eBooks).
-//    Leave "" to use the default Momomi link + AFFILIATE_SUFFIX.
-const SITE = "https://momomiworld.com/en-us";
-const GENERAL_LINKS = {
-  main:    { aff: "", url: SITE + "/collections/all-momomi-products" },
-  bundles: { aff: "", url: SITE + "/collections/bundles" },
-  ebooks:  { aff: "", url: SITE + "/collections/happy-family-ebook-selection" }
-};
-
-// 3) Product list. Paste your own affiliate link into "aff" (if any).
-//    Empty "aff" => uses "url" + AFFILIATE_SUFFIX.
-//    To hide a product: delete its whole line. To add one: copy a line and edit it.
-const P = SITE + "/products/";
+// The 5 products. To change an affiliate link, replace the text inside link:"..."
+// To hide a product: delete its block. To add one: copy a block and edit it.
 const IMG = "https://momomiworld.com/cdn/shop/files/";
 const PRODUCTS = [
- {cat:"Baby & Home", name:"Momomi® Mat", desc:"Soft, thick baby play mat that is easy to wipe clean. Many colors.", price:"from $200", old:"$250", badge:"-20%", emoji:"🧸",
-  img:IMG+"momomimat-greentea-hero_f9955a29-d9ba-43a4-ae34-3ad79c350968.webp?v=1777973617&width=800", url:P+"momomi-mat", aff:""},
- {cat:"Baby & Home", name:"Momomi® Round Mat", desc:"Round mat for a tidy little play corner.", price:"", old:"", badge:"", emoji:"⭕", img:"", url:P+"momomi-round-mat", aff:""},
- {cat:"Baby & Home", name:"Moofu™ 6-in-1 Sofa", desc:"Modular kids sofa that transforms into many layouts.", price:"from $1,631", old:"$2,039", badge:"-20%", emoji:"🛋️",
-  img:IMG+"GeneratedImageSeptember03_2025-5_23PM.jpg?v=1760789945&width=800", url:P+"moofu-sofa", aff:""},
- {cat:"Bedding", name:"Anti-Allergy Bedding", desc:"Anti-allergy bedding set, soft for sensitive skin.", price:"from $375", old:"", badge:"", emoji:"🛏️", img:"", url:P+"momomi-anti-allergy-bedding", aff:""},
- {cat:"Bedding", name:"Anti-Allergy Duvet", desc:"Plush anti-allergy duvet, light and warm.", price:"from $138", old:"$458", badge:"-70%", emoji:"☁️", img:"", url:P+"momomi-anti-allergy-duvet", aff:""},
- {cat:"Pets", name:"Momomi® Pet Mat", desc:"Soft non-slip mat for dogs and cats, easy to clean.", price:"from $80", old:"$100", badge:"-20%", emoji:"🐶",
-  img:IMG+"IMG_1495_square.jpg?v=1746531598&width=800", url:P+"momomi-pet-mat", aff:""},
- {cat:"Travel", name:"Buddy Bag™ Kids Backpack", desc:"Ultra-light backpack for school and play. Newly launched.", price:"from $64", old:"$80", badge:"New", emoji:"🎒",
-  img:IMG+"buddy-bag-kids-backpack-3.webp?v=1782875336&width=800", url:P+"buddy-bag-lightweight-kids-backpack", aff:""},
- {cat:"Travel", name:"Little Travellers Luggage", desc:"Compact kids luggage for family trips.", price:"$213", old:"$267", badge:"-20%", emoji:"🧳",
-  img:IMG+"IMG_3163_square.jpg?v=1745296056&width=800", url:P+"little-travellers-kids-luggage", aff:""},
- {cat:"Travel", name:"Happy Family Beach Mat", desc:"Beach mat for the whole family.", price:"", old:"", badge:"", emoji:"🏖️", img:"", url:P+"happy-family-beach-mat", aff:""},
- {cat:"Play & Learn", name:"Busy Book", desc:"Screen-free activity book that keeps toddlers busy for around 40 minutes.", price:"$59", old:"", badge:"", emoji:"📖",
-  img:IMG+"busybook-car.webp?v=1786685070&width=800", url:P+"busy-book-screen-free-toddler-activity-book", aff:""},
- {cat:"Play & Learn", name:"360 Balance Board", desc:"Balance board to build movement and coordination.", price:"", old:"", badge:"", emoji:"🤸", img:"", url:P+"360-balance-board", aff:""},
- {cat:"Play & Learn", name:"Mushi Stool Chair", desc:"Kids stool chair. Buy 3 get 1 free offer available.", price:"$42", old:"", badge:"Buy 3 get 1", emoji:"🪑", img:"", url:P+"mushi-stool-chair", aff:""},
- {cat:"Play & Learn", name:"Kuki Foldable Table", desc:"Foldable table for kids to learn and play.", price:"$54", old:"$67", badge:"-19%", emoji:"🪵", img:"", url:P+"kuki-foldable-table", aff:""},
- {cat:"Baby & Home", name:"Happy Towel", desc:"100% cotton towel in 12 colors.", price:"", old:"", badge:"", emoji:"🧺",
-  img:IMG+"IMGL5381_square_navy_web.jpg?v=1749536073&width=800", url:P+"happy-towel", aff:""}
+ { kind:"Play & Home", name:"Momomi® Round Mat (110cm) for Happy Tent™", badge:"Save 20%", emoji:"⭕",
+   img: IMG+"happy-tent-mat.webp?v=1789272077&width=900",
+   points:["Designed to fit inside Happy Tent™","Soft, comfy and waterproof","Great for kids and pets"],
+   link:"https://momomiworld.com/products/momomi-round-mat-for-happy-tent?bg_ref=OX212FlCn2" },
+
+ { kind:"Travel & School", name:"Buddy Bag™ Lightweight Kids Backpack", badge:"6 colors", emoji:"🎒",
+   img: IMG+"buddy-bag-kids-backpack-3.webp?v=1782875336&width=900",
+   points:["Lightweight and easy for small shoulders","Tomato, Pinkie, Orange, Banana, Olive, Navy","Optional personalised name tag"],
+   link:"https://momomiworld.com/products/buddy-bag-lightweight-kids-backpack?bg_ref=OX212FlCn2" },
+
+ { kind:"Sleep", name:"Good Sleep Bundle", badge:"Save 50%", emoji:"🌙",
+   img: IMG+"momomi-bundle-goodsleep.webp?v=1786946813&width=900",
+   points:["1 Anti-Allergy Duvet + 2 Anti-Allergy Bedding Sets","2 Happy Bath Towels + 2 Happy Hand Towels","Great for families with sensitive skin and allergies"],
+   link:"https://momomiworld.com/products/good-sleep-bundle?bg_ref=OX212FlCn2" },
+
+ { kind:"eBook · Creativity", name:"101 Cute Things to Draw", badge:"Save 19%", emoji:"✏️",
+   img: IMG+"101CuteThingstoDraw_cover_3d.jpg?v=1787052883&width=900",
+   points:["101 step-by-step drawings for ages 4–10+","Screen-free creative fun","Instant PDF download"],
+   link:"https://momomiworld.com/products/101-cute-things-to-draw?bg_ref=OX212FlCn2" },
+
+ { kind:"eBook · Bedtime", name:"50 Magical Bedtime Stories", badge:"Save 20%", emoji:"📖",
+   img: IMG+"ebook-50MagicalBedtimeStories_mockup.png?v=1758692049&width=900",
+   points:["50 heartwarming stories for ages 3–10","Gentle, calming themes to help kids wind down","Instant PDF download"],
+   link:"https://momomiworld.com/products/50-magical-bedtime-stories?bg_ref=OX212FlCn2" }
 ];
 /* ===================== END OF SETTINGS ===================== */
 
-function link(a, url){ return a ? a : url + AFFILIATE_SUFFIX; }
-
-document.querySelectorAll("[data-aff]").forEach(function(el){
-  var g = GENERAL_LINKS[el.dataset.aff];
-  el.href = link(g.aff, g.url);
-  el.target = "_blank"; el.rel = "sponsored noopener";
+document.querySelectorAll("[data-main]").forEach(function(el){
+  el.href = MAIN_LINK; el.target = "_blank"; el.rel = "sponsored noopener";
 });
 
-var cats = ["All"].concat(Array.from(new Set(PRODUCTS.map(function(p){return p.cat}))));
-var cur = "All";
-function render(){
-  document.getElementById("tabs").innerHTML = cats.map(function(c){
-    return '<button class="'+(c===cur?'on':'')+'" data-c="'+c+'">'+c+'</button>';
-  }).join("");
-  document.getElementById("grid").innerHTML = PRODUCTS.filter(function(p){return cur==="All"||p.cat===cur}).map(function(p){
-    return '<a class="card" target="_blank" rel="sponsored noopener" href="'+link(p.aff,p.url)+'">'+
-      '<div class="thumb">'+(p.badge?'<span class="badge">'+p.badge+'</span>':'')+p.emoji+
-      (p.img?'<img loading="lazy" alt="'+p.name+'" src="'+p.img+'" onerror="this.remove()">':'')+'</div>'+
-      '<div class="body"><h3>'+p.name+'</h3><p>'+p.desc+'</p>'+
-      (p.price?'<div class="price"><b>'+p.price+'</b>'+(p.old?'<s>'+p.old+'</s>':'')+'</div>':'<div class="price"></div>')+
-      '<span class="btn sm" style="text-align:center">View & buy</span></div></a>';
-  }).join("");
-  document.querySelectorAll("#tabs button").forEach(function(b){
-    b.onclick = function(){ cur = b.dataset.c; render(); };
-  });
-}
-render();
+document.getElementById("grid").innerHTML = PRODUCTS.map(function(p){
+  return '<a class="card" target="_blank" rel="sponsored noopener" href="'+p.link+'">'+
+    '<div class="thumb">'+(p.badge?'<span class="badge">'+p.badge+'</span>':'')+p.emoji+
+    (p.img?'<img loading="lazy" alt="'+p.name+'" src="'+p.img+'" onerror="this.remove()">':'')+'</div>'+
+    '<div class="body"><span class="kind">'+p.kind+'</span><h3>'+p.name+'</h3>'+
+    '<ul>'+p.points.map(function(t){return '<li>'+t+'</li>'}).join("")+'</ul>'+
+    '<span class="btn sm">Learn more</span></div></a>';
+}).join("");
+
 document.getElementById("y").textContent = new Date().getFullYear();
 </script>
 </body>

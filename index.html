@@ -2,105 +2,170 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%23f2c14e'/%3E%3Ccircle cx='26' cy='28' r='10' fill='%232d2a2b'/%3E%3Ccircle cx='40' cy='38' r='7' fill='%23fff8e1'/%3E%3C/svg%3E">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%23fbe3cf'/%3E%3Cpath d='M32 10l6.6 14.4 15.6 1.2-11.8 10.4 3.6 15.4L32 43.2l-14 8.2 3.6-15.4L9.8 25.6l15.6-1.2z' fill='%23f6c95f' stroke='%23e2a238' stroke-width='2' stroke-linejoin='round'/%3E%3C/svg%3E">
 <title>MamiPicks | Baby and Toddler Picks by Age, plus Wellness for Mum</title>
 <meta name="description" content="Pick your child's age, from newborn to five, and see the playmats, books and toys that suit that stage. Plus collagen, fibre and matcha for mum, and family home picks.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600&family=Nunito:wght@400;600;700;800&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Nunito:wght@400;600;700;800&display=swap">
 <style>
-:root{--y:#f2c14e;--y-d:#e8b23a;--y-ink:#8a6414;--y-l:#fdf2c9;--y-xl:#fff8e1;--ink:#2d2a2b;--mut:#6f6a6b;--bg:#fffbf0;--card:#fff;--line:#f0e6c8;--rose:#f6d8cf;color-scheme:light}
+/* Paper-cut lightbox palette, shared by the hero and the product list */
+:root{
+  --paper:#fff8ec; --bg:#fbf1e4; --card:#fffdf8; --ink:#4a2e2a; --mut:#7d665c; --line:#efdcc6;
+  --rose:#cf6f80; --rose-d:#b75a6b; --rose-l:#fbe3e6; --gold:#f6c95f; --gold-d:#e2a238; --gold-l:#fdf0c8; --peach:#fde4d3; --mint:#d6ecd9;
+  --shadow:0 1px 0 rgba(255,255,255,.9) inset,0 2px 4px rgba(120,60,50,.07),0 14px 26px -18px rgba(120,60,50,.45);
+  color-scheme:light;
+}
 *{box-sizing:border-box;margin:0}
 html{scroll-behavior:smooth}
-body{font-family:Nunito,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;color:var(--ink);background:var(--bg);line-height:1.6;font-size:16px}
+body{font-family:Nunito,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;color:var(--ink);line-height:1.6;font-size:16px;overflow-x:hidden;
+  background:var(--bg) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .55 0 0 0 0 .4 0 0 0 0 .3 0 0 0 .07 0'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)'/%3E%3C/svg%3E")}
 a{color:inherit;text-decoration:none}
 .wrap{max-width:1160px;margin:0 auto;padding-inline:24px}
 h1,h2,h3{font-family:Fraunces,Georgia,serif;font-weight:600;line-height:1.1;text-wrap:balance;letter-spacing:-.01em}
-a:focus-visible,button:focus-visible{outline:2px solid var(--y-ink);outline-offset:3px}
+a:focus-visible,button:focus-visible,[role="slider"]:focus-visible{outline:3px solid var(--gold-d);outline-offset:3px}
 
-header{position:sticky;top:0;z-index:20;background:rgba(255,251,240,.92);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+/* ---------- header: a strip of cream paper ---------- */
+header{position:sticky;top:0;z-index:20;background:rgba(255,248,236,.94);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);box-shadow:0 1px 0 #fff inset,0 4px 14px -8px rgba(120,60,50,.35)}
 header .wrap{display:flex;justify-content:space-between;align-items:center;height:64px;gap:12px}
-.logo{font-weight:800;font-size:24px;letter-spacing:.3px}.logo span{color:var(--y-d)}
+.logo{font-family:Fraunces,Georgia,serif;font-weight:700;font-size:25px;letter-spacing:.2px;display:flex;align-items:center;gap:8px}
+.logo b{color:var(--rose);font-weight:700}
+.logo svg{width:24px;height:24px;filter:drop-shadow(1px 2px 1.5px rgba(120,60,50,.3))}
 nav.top{display:flex;gap:6px}
-nav.top a{padding:8px 14px;border-radius:999px;font-weight:700;font-size:15px;color:var(--mut);border:1px solid transparent}
-nav.top a:hover{color:var(--ink);background:var(--y-xl)}
-nav.top a.on{color:var(--ink);background:var(--card);border-color:var(--line);box-shadow:inset 0 -2px 0 var(--y-d)}
+nav.top a{padding:8px 15px;border-radius:999px;font-weight:800;font-size:15px;color:var(--mut);transition:background .2s,color .2s,box-shadow .2s}
+nav.top a:hover{color:var(--ink);background:var(--paper)}
+nav.top a.on{color:var(--ink);background:var(--card);box-shadow:var(--shadow)}
 
-.btn{display:inline-flex;align-items:center;justify-content:center;background:var(--y);color:var(--ink);padding:12px 22px;border-radius:999px;font-weight:800;font-size:15px;border:0;cursor:pointer;font-family:inherit;transition:background .2s}
-.btn:hover{background:var(--y-d)}
-.btn.sm{padding:8px 15px;font-size:14px}
-.btn.ghost{background:var(--card);border:1px solid var(--line)}
+.btn{display:inline-flex;align-items:center;justify-content:center;background:var(--rose);color:#fff;padding:12px 22px;border-radius:14px;font-weight:800;font-size:15px;border:0;cursor:pointer;font-family:inherit;
+  box-shadow:0 2px 0 var(--rose-d),0 8px 16px -8px rgba(150,60,70,.5),inset 0 1px 0 rgba(255,255,255,.35);transition:transform .15s,background .2s}
+.btn:hover{background:var(--rose-d);transform:translateY(-1px)}
+.btn:active{transform:translateY(1px);box-shadow:0 1px 0 var(--rose-d)}
+.btn.sm{padding:9px 15px;font-size:14px;border-radius:12px}
 
-/* hero: simple box now; the animated mother-and-baby scene comes later */
-.hero{padding-block:40px 20px}
-.hero-box{display:grid;grid-template-columns:1.2fr .8fr;gap:28px;background:linear-gradient(140deg,var(--y-l),var(--y-xl) 60%,#fff);border:1px solid var(--line);border-radius:28px;padding:clamp(24px,4.5vw,52px)}
-.tag{display:inline-block;background:#fff;color:var(--y-ink);border:1px solid var(--line);padding:5px 14px;border-radius:999px;font-size:13px;font-weight:800;margin-bottom:14px}
-.hero h1{font-size:clamp(36px,5vw,58px)}
-.hero p{color:var(--mut);font-size:18px;margin:14px 0 22px;max-width:52ch}
-.cta{display:flex;gap:10px;flex-wrap:wrap}
-.agecol{background:#fff;border:1px solid var(--line);border-radius:22px;padding:18px;display:flex;flex-direction:column;gap:8px;align-self:center}
-.agecol h2{font-size:20px;margin-bottom:4px}
-.agecol small{color:var(--mut);font-size:13px}
+/* =====================================================================
+   HERO: paper-cut lightbox filling the top of the page
+   ===================================================================== */
+.hero{position:relative;width:100%;height:clamp(600px,calc(100svh - 64px),860px);overflow:hidden;background:#fbe3cf;isolation:isolate}
+.hero canvas.scene{position:absolute;inset:0;width:100%;height:100%;display:block}
+.hero-in{position:absolute;inset:0;display:grid;grid-template-rows:auto 1fr auto;padding:clamp(26px,3.2vw,40px) clamp(28px,4vw,56px) clamp(50px,4.4vw,60px)}
+.hero .topbar{display:flex;justify-content:flex-end}
+.hero .sound{display:inline-flex;align-items:center;gap:8px;font:700 14px/1 Nunito,sans-serif;color:var(--ink);background:rgba(255,248,236,.88);border:1px solid rgba(160,110,80,.25);border-radius:999px;padding:9px 14px 9px 11px;cursor:pointer;box-shadow:0 3px 8px rgba(120,60,50,.14),inset 0 1px 0 #fff}
+.hero .sound svg{width:18px;height:18px}
+.hero .sound .off{display:none}
+.hero .sound[aria-pressed="true"]{background:#fff2c9;border-color:rgba(200,150,60,.5)}
+.hero .copy{align-self:center;max-width:min(560px,46vw);display:grid;gap:18px;justify-items:start;margin-top:-4vh}
+.hero h1{font-weight:700;font-size:clamp(36px,4.6vw,66px);line-height:1.04;color:var(--ink);text-shadow:0 1px 0 rgba(255,252,244,.9),0 0 26px rgba(255,246,228,.85)}
+.hero-cta{display:inline-flex;align-items:center;gap:8px;font-weight:800;font-size:17px;line-height:1;color:#fff;background:var(--rose);padding:15px 22px;border-radius:14px;
+  box-shadow:0 2px 0 var(--rose-d),0 8px 18px rgba(150,60,70,.25),inset 0 1px 0 rgba(255,255,255,.35);transition:transform .15s,background .2s}
+.hero-cta:hover{transform:translateY(-1px);background:var(--rose-d)}
+.hero-cta .arr{transition:transform .2s}.hero-cta:hover .arr{transform:translateY(2px)}
+.hero .age-ui{position:relative;justify-self:start;width:min(600px,44vw);padding-top:74px;margin-left:8px}
+.hero .spark{position:absolute;left:-40px;top:-30px;width:calc(100% + 80px);height:calc(100% + 60px);pointer-events:none}
+.hero .hint{position:absolute;left:0;right:0;top:0;text-align:center;opacity:0;transition:opacity .5s;pointer-events:none}
+.hero .hint i{display:inline-block;font-weight:700;font-size:15px;font-style:normal;line-height:1.2;color:var(--ink);background:rgba(255,249,238,.9);padding:7px 13px;border-radius:999px;box-shadow:0 3px 8px rgba(120,60,50,.15)}
+.hero .hint.show{opacity:1}
+.hero .hint span{color:var(--gold-d)}
+.hero .slider{position:relative;height:44px;touch-action:none;cursor:pointer;-webkit-tap-highlight-color:transparent;border-radius:22px}
+.hero .track{position:absolute;left:0;right:0;top:50%;height:14px;margin-top:-7px;border-radius:8px;background:var(--paper);overflow:hidden;
+  box-shadow:0 4px 8px rgba(120,60,50,.22),0 1px 2px rgba(120,60,50,.2),inset 0 1.5px 0 #fff,inset 0 -1.5px 0 rgba(160,110,80,.18)}
+.hero .track::before{content:"";position:absolute;inset:0;opacity:.35;background:repeating-linear-gradient(100deg,transparent 0 7px,rgba(190,150,110,.12) 7px 8px)}
+.hero .fill{position:absolute;left:0;top:0;bottom:0;width:0;background:linear-gradient(90deg,#fbe0a4,var(--gold));box-shadow:inset 0 1.5px 0 rgba(255,255,255,.7)}
+.hero .shine{position:absolute;top:0;bottom:0;width:90px;left:-90px;background:linear-gradient(90deg,transparent,rgba(255,255,255,.95),transparent);opacity:0}
+.hero .idle .shine{animation:shine 3s ease-in-out infinite}
+@keyframes shine{0%,55%{left:-90px;opacity:0}60%{opacity:1}92%{left:100%;opacity:.9}100%{left:100%;opacity:0}}
+.hero .ticks{position:absolute;left:0;right:0;top:100%;margin-top:2px;height:22px}
+.hero .tick{position:absolute;transform:translateX(-50%);font-weight:700;font-size:12.5px;line-height:1;color:var(--mut);text-shadow:0 1px 0 rgba(255,252,244,.9);padding-top:9px;white-space:nowrap}
+.hero .tick::before{content:"";position:absolute;left:50%;top:0;width:2px;height:6px;margin-left:-1px;border-radius:1px;background:rgba(150,100,70,.45)}
+.hero .tick.on{color:var(--ink)}
+.hero .knob{position:absolute;top:50%;left:0;width:46px;height:46px;margin:-23px 0 0 -23px;pointer-events:none;transition:transform .2s}
+.hero .knob svg{width:100%;height:100%;overflow:visible;filter:drop-shadow(2px 5px 4px rgba(120,60,50,.32))}
+.hero .idle .knob{animation:knobGlow 3s ease-in-out infinite}
+@keyframes knobGlow{0%,70%,100%{filter:none;transform:scale(1)}80%{filter:drop-shadow(0 0 10px rgba(255,214,110,.95));transform:scale(1.12)}}
+.hero .dragging .knob{transform:scale(1.12)}
+.hero .bubble{position:absolute;bottom:100%;left:50%;transform:translateX(calc(-50% + var(--dx,0px)));margin-bottom:12px;font-weight:800;font-size:14px;line-height:1;color:var(--ink);background:var(--paper);padding:8px 12px;border-radius:10px;white-space:nowrap;box-shadow:0 4px 10px rgba(120,60,50,.2),inset 0 1px 0 #fff}
+.hero .bubble::after{content:"";position:absolute;left:calc(50% - var(--dx,0px));top:100%;margin-left:-6px;border:6px solid transparent;border-top-color:var(--paper)}
+@media (max-width:760px), (max-aspect-ratio:11/10){
+  .hero{height:clamp(620px,calc(100svh - 58px),880px)}
+  .hero-in{padding:18px 16px 46px}
+  .hero .copy{align-self:start;max-width:none;margin-top:6px;gap:14px}
+  .hero h1{font-size:clamp(32px,8.6vw,46px)}
+  .hero-cta{font-size:16px;padding:13px 18px}
+  .hero .age-ui{justify-self:center;width:calc(100% - 24px);margin:0;padding-top:96px}
+  .hero .tick{font-size:11.5px}
+  .hero .sound span{display:none}
+  .hero .sound{padding:9px}
+}
 
-/* age buttons (used in hero column and above the grid) */
-.ages{display:flex;flex-direction:column;gap:6px}
-.ages button{font:inherit;font-weight:800;font-size:15px;text-align:left;cursor:pointer;background:var(--y-xl);color:var(--ink);border:1px solid var(--line);border-radius:14px;padding:10px 14px;display:flex;justify-content:space-between;align-items:center;transition:background .2s,border-color .2s}
-.ages button span{font-weight:600;font-size:13px;color:var(--mut)}
-.ages button.on{background:var(--y);border-color:var(--y-d)}
-.ages button.on span{color:var(--ink)}
-.ages.row{flex-direction:row;overflow-x:auto;padding-bottom:4px}
-.ages.row button{flex:none;border-radius:999px;padding:8px 14px}
-.ages.row button span{display:none}
-
-/* tabs */
-.tabs{display:flex;gap:8px;margin:8px 0 22px;border-bottom:1px solid var(--line)}
-.tabs button{font:inherit;font-weight:800;font-size:17px;background:none;border:0;border-bottom:3px solid transparent;padding:10px 6px;margin-bottom:-1px;cursor:pointer;color:var(--mut)}
-.tabs button.on{color:var(--ink);border-color:var(--y-d)}
-section{padding-block:28px 56px}
-section[id]{scroll-margin-top:80px}
+/* =====================================================================
+   PRODUCT LIST: paper tabs, paper chips, paper cards
+   ===================================================================== */
+.tabs{display:flex;gap:10px;margin:6px 0 26px;padding:6px;background:rgba(239,220,198,.45);border-radius:20px;width:max-content;max-width:100%;box-shadow:inset 0 2px 4px rgba(120,60,50,.1)}
+.tabs button{font:inherit;font-weight:800;font-size:17px;background:none;border:0;border-radius:15px;padding:11px 22px;cursor:pointer;color:var(--mut);display:inline-flex;align-items:center;gap:8px;transition:color .2s,background .2s,box-shadow .2s,transform .2s}
+.tabs button svg{width:18px;height:18px;transition:transform .4s}
+.tabs button:hover{color:var(--ink)}
+.tabs button.on{color:var(--ink);background:var(--card);box-shadow:var(--shadow);transform:translateY(-1px)}
+.tabs button.on svg{transform:rotate(-12deg) scale(1.1)}
+section{padding-block:44px 64px}
+section[id]{scroll-margin-top:72px}
 .intro{display:grid;grid-template-columns:1fr 1fr;gap:10px 40px;align-items:end;margin-bottom:18px}
-.intro h2{font-size:clamp(26px,3.4vw,36px)}
+.intro h2{font-size:clamp(28px,3.6vw,40px)}
+.intro h2 em{font-style:normal;color:var(--rose)}
 .intro p{color:var(--mut)}
-.sticky{position:sticky;top:64px;z-index:5;background:rgba(255,251,240,.95);padding:10px 0;margin-bottom:12px}
-.sub{font-size:22px;margin:26px 0 12px}
+.sticky{position:sticky;top:64px;z-index:5;padding:10px 0 12px;margin-bottom:14px;background:linear-gradient(var(--bg) 70%,rgba(251,241,228,0))}
+.sub{font-size:24px;margin:30px 0 14px;display:flex;align-items:center;gap:10px}
+.sub:before{content:"";width:18px;height:18px;flex:none;background:var(--gold);clip-path:polygon(50% 0,61% 35%,98% 35%,68% 57%,79% 91%,50% 70%,21% 91%,32% 57%,2% 35%,39% 35%);filter:drop-shadow(1px 2px 1px rgba(120,60,50,.3))}
 
-.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:18px}
-.card{background:var(--card);border:1px solid var(--line);border-radius:22px;overflow:hidden;display:flex;flex-direction:column;transition:transform .25s,box-shadow .25s}
-.card:hover{transform:translateY(-3px);box-shadow:0 18px 34px -22px rgba(138,100,20,.45)}
-.card .pic{aspect-ratio:1/1;background:var(--y-xl);display:block;position:relative}
-.card .pic img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
-.badge{position:absolute;z-index:1;top:12px;left:12px;background:#fff;color:var(--ink);font-size:12px;font-weight:800;padding:4px 10px;border-radius:999px;box-shadow:0 4px 10px rgba(0,0,0,.08)}
-.badge.ours{background:var(--rose)}
+.ages{display:flex;gap:8px;overflow-x:auto;padding:4px 2px 6px;scrollbar-width:none}
+.ages::-webkit-scrollbar{display:none}
+.ages button{flex:none;font:inherit;font-weight:800;font-size:15px;cursor:pointer;background:var(--card);color:var(--ink);border:0;border-radius:999px;padding:9px 16px;box-shadow:var(--shadow);display:inline-flex;align-items:center;gap:6px;transition:transform .2s,background .2s,color .2s}
+.ages button:hover{transform:translateY(-2px)}
+.ages button span{display:none}
+.ages button:before{content:"";width:12px;height:12px;background:var(--line);clip-path:polygon(50% 0,61% 35%,98% 35%,68% 57%,79% 91%,50% 70%,21% 91%,32% 57%,2% 35%,39% 35%);transition:background .2s,transform .3s}
+.ages button.on{background:var(--rose);color:#fff;box-shadow:0 2px 0 var(--rose-d),0 8px 16px -8px rgba(150,60,70,.5)}
+.ages button.on:before{background:var(--gold);transform:rotate(-15deg) scale(1.25)}
+
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:22px}
+.card{background:var(--card);border-radius:22px;overflow:hidden;display:flex;flex-direction:column;box-shadow:var(--shadow);position:relative;transition:transform .35s cubic-bezier(.2,.8,.3,1.2),box-shadow .35s}
+.card:after{content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;box-shadow:inset 0 0 0 1px rgba(160,110,80,.12)}
+.card:hover{transform:translateY(-6px) rotate(-.6deg);box-shadow:0 1px 0 #fff inset,0 4px 8px rgba(120,60,50,.08),0 26px 40px -22px rgba(120,60,50,.55)}
+.card:nth-child(even):hover{transform:translateY(-6px) rotate(.6deg)}
+.card .pic{aspect-ratio:1/1;background:var(--peach);display:block;position:relative;overflow:hidden}
+.card .pic img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .6s ease}
+.card:hover .pic img{transform:scale(1.05)}
+.badge{position:absolute;z-index:1;top:12px;left:12px;background:var(--paper);color:var(--ink);font-size:12px;font-weight:800;padding:5px 11px;border-radius:999px;box-shadow:0 3px 8px rgba(120,60,50,.18),inset 0 1px 0 #fff}
+.badge.ours{background:var(--rose-l)}
 .card .body{padding:16px 18px 18px;display:flex;flex-direction:column;gap:8px;flex:1}
-.kind{font-size:12px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:var(--y-ink)}
+.kind{font-size:12px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:var(--rose)}
 .card h3{font-family:Nunito,sans-serif;font-weight:800;font-size:18px;line-height:1.3}
 .card p{color:var(--mut);font-size:15px}
 .card ul{list-style:none;padding:0;color:var(--mut);font-size:14px;flex:1;display:flex;flex-direction:column;gap:3px}
-.card li{padding-left:18px;position:relative}
-.card li:before{content:"";position:absolute;left:2px;top:.55em;width:8px;height:8px;border-radius:50%;background:var(--y)}
-.foot{display:flex;justify-content:space-between;align-items:center;gap:8px 10px;margin-top:6px;flex-wrap:wrap}
+.card li{padding-left:20px;position:relative}
+.card li:before{content:"";position:absolute;left:1px;top:.4em;width:12px;height:12px;background:var(--gold);clip-path:polygon(50% 0,61% 35%,98% 35%,68% 57%,79% 91%,50% 70%,21% 91%,32% 57%,2% 35%,39% 35%)}
+.foot{display:flex;justify-content:space-between;align-items:center;gap:8px 10px;margin-top:8px;padding-top:12px;border-top:1.5px dashed var(--line);flex-wrap:wrap}
 .foot .btn{white-space:nowrap}
 .pr{font-size:20px;font-weight:800}
 .pr s{font-size:14px;color:var(--mut);font-weight:600;margin-left:4px}
 .pr small{font-size:13px;color:var(--mut);font-weight:600}
-.note{color:var(--mut);font-size:13px;margin-top:14px}
-.care{background:#fff4ec;border:1px solid #f3dccb;border-radius:16px;padding:12px 16px;font-size:14.5px;color:#7a4a2a;margin-bottom:16px}
+.note{color:var(--mut);font-size:13px;margin-top:18px}
+.care{background:var(--peach);border-radius:16px;padding:12px 16px;font-size:14.5px;color:#7a4a2a;margin-bottom:16px;box-shadow:var(--shadow)}
 .empty{color:var(--mut);padding:20px 0}
 
-footer{border-top:1px solid var(--line);padding-block:30px;color:var(--mut);font-size:13px;background:#fff}
+footer{padding-block:34px;color:var(--mut);font-size:13px;background:var(--paper);box-shadow:0 -1px 0 #fff inset,0 -6px 18px -12px rgba(120,60,50,.3)}
 footer .wrap{display:flex;flex-direction:column;gap:8px}
 footer a.pp{text-decoration:underline;font-weight:700;color:var(--ink)}
-@media(max-width:860px){.hero-box{grid-template-columns:1fr}.intro{grid-template-columns:1fr}}
-@media(max-width:760px){.wrap{padding-inline:16px}.hero{padding-block:20px 8px}.hero p{font-size:16.5px}header .wrap{height:58px}.logo{font-size:21px}nav.top a{padding:7px 10px;font-size:14px}.sticky{top:58px}.grid{grid-template-columns:1fr 1fr;gap:12px}.card .body{padding:12px}.card h3{font-size:16px}.card p{font-size:14px}.foot{flex-direction:column;align-items:stretch}.foot .btn{width:100%}}
+@media(max-width:860px){.intro{grid-template-columns:1fr}}
+@media(max-width:760px){.wrap{padding-inline:16px}header .wrap{height:58px}.logo{font-size:22px}nav.top a{padding:7px 11px;font-size:14px}.sticky{top:58px}section[id]{scroll-margin-top:64px}
+  .tabs{width:100%}.tabs button{flex:1;justify-content:center;padding:10px 12px;font-size:16px}
+  .grid{grid-template-columns:1fr 1fr;gap:12px}.card .body{padding:12px}.card h3{font-size:16px}.card p{font-size:14px}.foot{flex-direction:column;align-items:stretch}.foot .btn{width:100%}}
 @media(max-width:440px){.grid{grid-template-columns:1fr}}
-@media(prefers-reduced-motion:reduce){*{transition:none!important}html{scroll-behavior:auto}}
+@media(prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}html{scroll-behavior:auto}}
 </style>
 </head>
 <body>
 
 <header><div class="wrap">
-  <a class="logo" href="./">Mami<span>Picks</span></a>
+  <a class="logo" href="./"><svg viewBox="-24 -24 48 48" aria-hidden="true"><path d="M0 -21 L6.2 -7.4 L20.4 -6.6 L9.6 3.2 L12.9 17.4 L0 9.8 L-12.9 17.4 L-9.6 3.2 L-20.4 -6.6 L-6.2 -7.4 Z" fill="#f6c95f" stroke="#e2a238" stroke-width="2" stroke-linejoin="round"/></svg><span class="w">Mami<b>Picks</b></span></a>
   <nav class="top" id="nav">
     <a href="#baby" data-tab="baby" class="on">For baby</a>
     <a href="#mom" data-tab="mom">For mum</a>
@@ -108,30 +173,44 @@ footer a.pp{text-decoration:underline;font-weight:700;color:var(--ink)}
 </div></header>
 
 <main>
-<!-- HERO (simple for now; the animated mother-and-baby scene comes later) -->
-<section class="hero"><div class="wrap">
-  <div class="hero-box">
-    <div>
-      <span class="tag">From newborn to five</span>
-      <h1>Picks that grow with your little one</h1>
-      <p>Choose your child's age and we'll show the playmats, books and toys that fit that stage. Mum gets her own corner too, with wellness basics and calm-home picks.</p>
-      <div class="cta">
-        <a class="btn" href="#baby">Shop by age</a>
-        <a class="btn ghost" href="#mom" data-tab="mom">For mum</a>
+<!-- HERO: paper-cut lightbox, the child grows as you slide the age (assets/js/mami-hero.js) -->
+<div class="hero" aria-label="Choose your child's age">
+  <canvas class="scene" aria-hidden="true"></canvas>
+  <div class="hero-in">
+    <div class="topbar">
+      <button class="sound" type="button" aria-pressed="false" aria-label="Music box">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M9 17.5a3 3 0 1 1-2-2.83V5.5l11-2v10.5a3 3 0 1 1-2-2.83V7.2l-7 1.3z"/></svg>
+        <span>Music box</span>
+      </button>
+    </div>
+    <div class="copy">
+      <h1>From first cuddle to first day of school</h1>
+      <a class="hero-cta" href="#baby">See picks for <span class="hero-cta-age">0–6 months</span> <span class="arr" aria-hidden="true">↓</span></a>
+    </div>
+    <div class="age-ui">
+      <canvas class="spark" aria-hidden="true"></canvas>
+      <div class="hint" aria-hidden="true"><i>Slide to your baby's age <span>✦</span></i></div>
+      <div class="slider idle" role="slider" tabindex="0" aria-label="Your child's age" aria-valuemin="1" aria-valuemax="60" aria-valuenow="1" aria-valuetext="1 month">
+        <div class="track"><div class="fill"></div><div class="shine"></div></div>
+        <div class="ticks"></div>
+        <div class="knob">
+          <div class="bubble">1 month</div>
+          <svg viewBox="-24 -24 48 48" aria-hidden="true">
+            <defs><linearGradient id="sg" x1="0" y1="-1" x2="0" y2="1"><stop offset="0" stop-color="#ffe49a"/><stop offset="1" stop-color="#f1b742"/></linearGradient></defs>
+            <path d="M0 -21 L6.2 -7.4 L20.4 -6.6 L9.6 3.2 L12.9 17.4 L0 9.8 L-12.9 17.4 L-9.6 3.2 L-20.4 -6.6 L-6.2 -7.4 Z" fill="url(#sg)" stroke="#e2a238" stroke-width="1" stroke-linejoin="round"/>
+            <path d="M0 -19 L5.6 -6.6 L18.6 -6" fill="none" stroke="rgba(255,252,230,.9)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+            <circle cx="-4" cy="-3" r="2.2" fill="rgba(255,255,240,.85)"/>
+          </svg>
+        </div>
       </div>
     </div>
-    <div class="agecol">
-      <h2>How old is your little one?</h2>
-      <div class="ages" id="agesHero"></div>
-      <small>Saved on this device only.</small>
-    </div>
   </div>
-</div></section>
+</div>
 
 <section id="baby"><div class="wrap">
   <div class="tabs" role="tablist">
-    <button type="button" data-tab="baby" class="on" role="tab">For baby</button>
-    <button type="button" data-tab="mom" role="tab">For mum</button>
+    <button type="button" data-tab="baby" class="on" role="tab"><svg viewBox="-24 -24 48 48" aria-hidden="true"><path d="M0 -21 L6.2 -7.4 L20.4 -6.6 L9.6 3.2 L12.9 17.4 L0 9.8 L-12.9 17.4 L-9.6 3.2 L-20.4 -6.6 L-6.2 -7.4 Z" fill="#f6c95f" stroke="#e2a238" stroke-width="2" stroke-linejoin="round"/></svg>For baby</button>
+    <button type="button" data-tab="mom" role="tab"><svg viewBox="-10 -10 20 20" aria-hidden="true"><path d="M0 -4 C0 -9 -7 -9 -7 -4 C-7 0 0 4 0 6 C0 4 7 0 7 -4 C7 -9 0 -9 0 -4 Z" fill="#e48a99" stroke="#cf6f80" stroke-width="1"/></svg>For mum</button>
   </div>
   <div id="pane-baby">
     <div class="intro">
@@ -145,7 +224,7 @@ footer a.pp{text-decoration:underline;font-weight:700;color:var(--ink)}
 
   <div id="pane-mom" hidden>
     <div class="intro" id="mom">
-      <h2>For mum</h2>
+      <h2>For <em>mum</em></h2>
       <p>Everyday wellness from Amaana, and home picks from Momomi for calmer nights and easier clean-ups.</p>
     </div>
     <h3 class="sub">Wellness</h3>
@@ -177,7 +256,7 @@ const SHOPS = {
   momomi: { name:"Momomi", site:"https://momomiworld.com/products/", track:"?bg_ref=OX212FlCn2", img:"https://momomiworld.com/cdn/shop/" },
   amaana: { name:"Amaana", site:"https://amaanahealth.com/product/",  track:"/?ref=kyzniaqb",    img:"" }
 };
-// Age stages (order = display order)
+// Age stages (order = display order, and the same order as the hero slider)
 const AGES = [
   { id:"0-6m",  label:"0–6 months",  sub:"Newborn" },
   { id:"6-12m", label:"6–12 months", sub:"Sitting and crawling" },
@@ -192,6 +271,7 @@ const AGE_RULES = { food:"exact", clothes:"thisAndOlder" };
 const PRIVACY_URL = "";
 /* ===================== END OF SETTINGS ===================== */
 
+var REDUCE = matchMedia("(prefers-reduced-motion: reduce)").matches;
 function esc(s){ return String(s==null?"":s).replace(/[&<>"]/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c];}); }
 function linkOf(p){ var s=SHOPS[p.shop||"momomi"]; return s.site+encodeURIComponent(p.h).replace(/%E2%84%A2/gi,"%E2%84%A2")+s.track; }
 function imgOf(p){ return /^https?:/.test(p.img) ? p.img : SHOPS[p.shop||"momomi"].img+p.img+(p.img.indexOf("?")>-1?"&":"?")+"width=600"; }
@@ -205,7 +285,7 @@ function fits(p, stage){
 function card(p, withAge){
   var badge = withAge ? '<span class="badge'+(p.ageSrc==="ours"?' ours':'')+'">'+(p.ageSrc==="ours"?'Suggested age: ':'Ages ')+esc(p.ageText)+(p.ageSrc==="shop"?' (from the shop)':'')+'</span>' : '';
   var shop = SHOPS[p.shop||"momomi"].name;
-  return '<article class="card" data-reveal><a class="pic" target="_blank" rel="sponsored noopener" href="'+linkOf(p)+'">'+badge+
+  return '<article class="card"><a class="pic" target="_blank" rel="sponsored noopener" href="'+linkOf(p)+'">'+badge+
     '<img loading="lazy" alt="'+esc(p.name)+'" src="'+esc(imgOf(p))+'"></a><div class="body">'+
     '<span class="kind">'+esc(p.kind)+(withAge?' · '+shop:'')+'</span><h3>'+esc(p.name)+'</h3><p>'+esc(p.text)+'</p>'+
     '<ul>'+p.points.map(function(t){return '<li>'+esc(t)+'</li>';}).join("")+'</ul>'+
@@ -213,55 +293,83 @@ function card(p, withAge){
     '<a class="btn sm" target="_blank" rel="sponsored noopener" href="'+linkOf(p)+'">View on '+shop+'</a></div></div></article>';
 }
 
+/* paper cards drop in when they scroll into view */
+var io = ("IntersectionObserver" in window) ? new IntersectionObserver(function(es){
+  var batch = es.filter(function(e){ return e.isIntersecting; }).map(function(e){ io.unobserve(e.target); return e.target; });
+  if(!batch.length) return;
+  if(window.gsap && !REDUCE) gsap.fromTo(batch,{y:28,rotation:function(i){ return i%2?1.6:-1.6; },autoAlpha:0},{y:0,rotation:0,autoAlpha:1,duration:.6,ease:"back.out(1.6)",stagger:.06,clearProps:"transform"});
+  else batch.forEach(function(el){ el.style.visibility="visible"; el.style.opacity=1; });
+},{rootMargin:"0px 0px -8% 0px"}) : null;
+function reveal(container){
+  var cards = container.querySelectorAll(".card");
+  if(!io || REDUCE || !window.gsap) return;
+  cards.forEach(function(c){ c.style.visibility="hidden"; io.observe(c); });
+}
+
 var stage = "0-6m";
 try { var s=localStorage.getItem("mami-age"); if(s && stageIdx[s]!=null) stage=s; } catch(e) {}
 function ageButtons(el){
   el.innerHTML = AGES.map(function(a){ return '<button type="button" data-age="'+a.id+'">'+a.label+'<span>'+a.sub+'</span></button>'; }).join("");
-  el.onclick=function(e){ var b=e.target.closest("button"); if(!b) return; setStage(b.dataset.age, el.id==="agesHero"); };
+  el.onclick=function(e){ var b=e.target.closest("button"); if(!b) return; setStage(b.dataset.age,false); if(window.MamiHero) MamiHero.setGroup(stageIdx[b.dataset.age]); };
 }
 function setStage(id, scroll){
+  var changed = id!==stage;
   stage=id; try{ localStorage.setItem("mami-age",id); }catch(e){}
   showTab("baby");
-  renderBaby();
-  if(scroll) document.getElementById("baby").scrollIntoView({behavior: matchMedia("(prefers-reduced-motion: reduce)").matches?"auto":"smooth"});
+  if(changed || scroll) renderBaby();
+  if(scroll) document.getElementById("baby").scrollIntoView({behavior: REDUCE?"auto":"smooth"});
 }
 function renderBaby(){
   document.querySelectorAll(".ages button").forEach(function(b){ b.classList.toggle("on", b.dataset.age===stage); });
   var a = AGES[stageIdx[stage]];
   var list = window.MAMI_BABY.filter(function(p){ return fits(p,stage); });
-  document.getElementById("babyTitle").textContent = "For baby, "+a.label;
-  document.getElementById("babyGrid").innerHTML = list.length ? list.map(function(p){return card(p,true);}).join("") : '<p class="empty">Nothing for this age yet.</p>';
-  if(window.gsap && !matchMedia("(prefers-reduced-motion: reduce)").matches){
-    gsap.fromTo("#babyGrid .card",{y:16,autoAlpha:0},{y:0,autoAlpha:1,duration:.45,ease:"power2.out",stagger:.04});
-  }
+  document.getElementById("babyTitle").innerHTML = "For baby, <em>"+esc(a.label)+"</em>";
+  var grid = document.getElementById("babyGrid");
+  grid.innerHTML = list.length ? list.map(function(p){return card(p,true);}).join("") : '<p class="empty">Nothing for this age yet.</p>';
+  reveal(grid);
 }
 function renderMom(){
   var M = window.MAMI_MOM;
-  document.getElementById("momWell").innerHTML = M.filter(function(p){return p.group==="wellness"}).map(function(p){return card(p,false);}).join("");
-  document.getElementById("momHome").innerHTML = M.filter(function(p){return p.group==="home"}).map(function(p){return card(p,false);}).join("");
-  document.getElementById("momBundles").innerHTML = M.filter(function(p){return p.group==="bundles"}).map(function(p){return card(p,false);}).join("");
+  ["wellness","home","bundles"].forEach(function(g,i){
+    var el=document.getElementById(["momWell","momHome","momBundles"][i]);
+    el.innerHTML = M.filter(function(p){return p.group===g}).map(function(p){return card(p,false);}).join("");
+  });
 }
+var momRevealed=false;
 function showTab(t){
+  var was = document.getElementById("pane-baby").hidden ? "mom" : "baby";
   document.getElementById("pane-baby").hidden = t!=="baby";
   document.getElementById("pane-mom").hidden = t!=="mom";
   document.querySelectorAll("[data-tab]").forEach(function(b){ b.classList.toggle("on", b.dataset.tab===t); });
+  if(t==="mom" && !momRevealed){ momRevealed=true; ["momWell","momHome","momBundles"].forEach(function(id){ reveal(document.getElementById(id)); }); }
+  if(t!==was && window.gsap && !REDUCE) gsap.fromTo("#pane-"+t,{autoAlpha:0,y:14},{autoAlpha:1,y:0,duration:.45,ease:"power2.out",clearProps:"transform"});
 }
 document.addEventListener("click",function(e){
   var b=e.target.closest("[data-tab]"); if(!b) return;
   e.preventDefault(); showTab(b.dataset.tab);
-  document.getElementById("baby").scrollIntoView({behavior:"smooth"});
+  document.getElementById("baby").scrollIntoView({behavior:REDUCE?"auto":"smooth"});
+});
+/* hero slider: letting go of the star filters the list; the button scrolls to it */
+document.addEventListener("mami:age",function(e){ setStage(AGES[e.detail.group].id,false); });
+document.querySelector(".hero-cta").addEventListener("click",function(e){
+  e.preventDefault();
+  var g = window.MamiHero ? MamiHero.state.cur : stageIdx[stage];
+  setStage(AGES[g].id,true);
 });
 if(PRIVACY_URL){ document.getElementById("ppLink").href=PRIVACY_URL; document.getElementById("ppRow").hidden=false; }
-ageButtons(document.getElementById("agesHero")); ageButtons(document.getElementById("agesRow"));
-renderBaby(); renderMom();
+ageButtons(document.getElementById("agesRow"));
+renderMom();
 if(location.hash==="#mom") showTab("mom");
 document.getElementById("y").textContent=new Date().getFullYear();
 </script>
 <script src="assets/js/gsap.min.js"></script>
+<script src="assets/js/mami-hero.js"></script>
 <script>
-if(window.gsap && !matchMedia("(prefers-reduced-motion: reduce)").matches){
-  gsap.from(".hero-box > *",{y:18,autoAlpha:0,duration:.6,ease:"power3.out",stagger:.1});
-  gsap.from(".ages button",{x:14,autoAlpha:0,duration:.4,ease:"power2.out",stagger:.05,delay:.3});
+renderBaby();
+if(window.gsap && !REDUCE){
+  gsap.from(".hero .copy > *",{y:22,autoAlpha:0,duration:.8,ease:"power3.out",stagger:.12,delay:.2});
+  gsap.from(".hero .age-ui",{y:20,autoAlpha:0,duration:.7,ease:"power3.out",delay:.6});
+  gsap.from(".ages button",{y:10,autoAlpha:0,duration:.4,ease:"back.out(2)",stagger:.05,delay:.3});
 }
 </script>
 </body>

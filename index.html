@@ -3,170 +3,266 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>MamiPicks – Cozy Play, Sweet Dreams & Screen-Free Fun for Kids</title>
-<meta name="description" content="Five hand-picked Momomi favorites: Round Mat for Happy Tent, Buddy Bag backpack, Good Sleep Bundle, 101 Cute Things to Draw and 50 Magical Bedtime Stories.">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%23f2c14e'/%3E%3Ccircle cx='26' cy='28' r='10' fill='%232d2a2b'/%3E%3Ccircle cx='40' cy='38' r='7' fill='%23fff8e1'/%3E%3C/svg%3E">
+<title>MamiPicks | Baby and Toddler Picks by Age, plus Wellness for Mum</title>
+<meta name="description" content="Pick your child's age, from newborn to five, and see the playmats, books and toys that suit that stage. Plus collagen, fibre and matcha for mum, and family home picks.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600&family=Nunito:wght@400;600;700;800&display=swap">
 <style>
-:root{--y:#f2c14e;--y-d:#e8b23a;--y-l:#fdf2c9;--y-xl:#fff8e1;--ink:#2d2a2b;--mut:#6f6a6b;--bg:#fffbf0;--card:#fff;--line:#f0e6c8}
+:root{--y:#f2c14e;--y-d:#e8b23a;--y-ink:#8a6414;--y-l:#fdf2c9;--y-xl:#fff8e1;--ink:#2d2a2b;--mut:#6f6a6b;--bg:#fffbf0;--card:#fff;--line:#f0e6c8;--rose:#f6d8cf;color-scheme:light}
 *{box-sizing:border-box;margin:0}
 html{scroll-behavior:smooth}
-body{font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;color:var(--ink);background:var(--bg);line-height:1.6}
+body{font-family:Nunito,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;color:var(--ink);background:var(--bg);line-height:1.6;font-size:16px}
 a{color:inherit;text-decoration:none}
-.wrap{max-width:1120px;margin:0 auto;padding:0 20px}
-header{position:sticky;top:0;background:rgba(255,251,240,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--line);z-index:5}
-header .wrap{display:flex;justify-content:space-between;align-items:center;height:60px}
-.logo{font-weight:800;font-size:22px;letter-spacing:.5px}.logo span{color:var(--y-d)}
-.btn{display:inline-block;background:var(--y);color:var(--ink);padding:13px 28px;border-radius:999px;font-weight:700;transition:.2s;box-shadow:0 6px 16px rgba(242,193,78,.35)}
-.btn:hover{background:var(--y-d);transform:translateY(-2px)}
-.btn.sm{padding:9px 20px;font-size:14px;box-shadow:none}
-.btn.ghost{background:#fff;border:1px solid var(--line);box-shadow:none}
-.btn.ghost:hover{background:var(--y-xl)}
-.hero{padding:56px 0 36px;background:radial-gradient(1200px 400px at 85% -10%,var(--y-l),transparent)}
-.hero .wrap{display:grid;grid-template-columns:1.05fr 1fr;gap:44px;align-items:center}
-.tag{display:inline-block;background:var(--y-l);color:#8a6414;padding:5px 16px;border-radius:999px;font-size:13px;font-weight:700}
-h1{font-size:clamp(32px,5vw,52px);line-height:1.12;margin:16px 0}
-h1 em{font-style:normal;background:linear-gradient(transparent 62%,var(--y) 62%)}
-.hero p{color:var(--mut);font-size:18px;margin-bottom:26px;max-width:520px}
-.cta{display:flex;gap:12px;flex-wrap:wrap}
-.collage{position:relative;height:420px}
-.collage img{position:absolute;object-fit:cover;border-radius:28px;border:6px solid #fff;box-shadow:0 18px 40px rgba(120,90,10,.18);background:var(--y-l)}
-.collage .a{width:62%;height:78%;left:0;top:0;transform:rotate(-3deg)}
-.collage .b{width:54%;height:60%;right:0;bottom:0;transform:rotate(3deg)}
-.perks{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;padding:16px 0 12px}
-.perk{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:16px;font-size:14px;text-align:center}
-.perk b{display:block;font-size:24px}
-section{padding:44px 0}
-h2{font-size:clamp(26px,3.6vw,36px);margin-bottom:8px;text-align:center}
-.sub{color:var(--mut);margin:0 auto 32px;text-align:center;max-width:560px}
-.grid{display:grid;grid-template-columns:repeat(6,1fr);gap:22px}
-.card{grid-column:span 2;background:var(--card);border:1px solid var(--line);border-radius:24px;overflow:hidden;display:flex;flex-direction:column;transition:.25s}
-.card:nth-child(-n+2){grid-column:span 3}
-.card:hover{box-shadow:0 16px 40px rgba(242,193,78,.35);transform:translateY(-4px)}
-.thumb{aspect-ratio:4/3;background:linear-gradient(135deg,var(--y-l),var(--y-xl));display:flex;align-items:center;justify-content:center;font-size:76px;position:relative;overflow:hidden}
-.thumb img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:.4s}
-.card:hover .thumb img{transform:scale(1.05)}
-.badge{position:absolute;top:14px;left:14px;background:var(--y);color:var(--ink);font-size:13px;font-weight:800;padding:4px 14px;border-radius:999px;z-index:1;box-shadow:0 4px 10px rgba(0,0,0,.08)}
-.body{padding:20px;display:flex;flex-direction:column;gap:8px;flex:1}
-.kind{font-size:12px;font-weight:700;letter-spacing:.8px;text-transform:uppercase;color:#a07a1c}
-.body h3{font-size:20px;line-height:1.3}
-.body p{color:var(--mut);font-size:15px}
-.body ul{list-style:none;padding:0;color:var(--mut);font-size:14px;flex:1}
-.body li:before{content:"✓ ";color:var(--y-d);font-weight:800}
-.body .btn{text-align:center;margin-top:10px}
-.final{background:var(--y-l);border-radius:28px;padding:44px 24px;text-align:center}
-.final h2{margin-bottom:12px}
-footer{border-top:1px solid var(--line);padding:30px 0;color:var(--mut);font-size:13px;margin-top:24px}
-footer p{margin-bottom:8px}
-footer a.pp{text-decoration:underline;font-weight:600;color:var(--ink)}
-@media(max-width:900px){.card,.card:nth-child(-n+2){grid-column:span 3}}
-@media(max-width:760px){.hero .wrap{grid-template-columns:1fr}.collage{height:320px}.perks{grid-template-columns:1fr 1fr}.grid{grid-template-columns:1fr}.card,.card:nth-child(-n+2){grid-column:auto}}
+.wrap{max-width:1160px;margin:0 auto;padding-inline:24px}
+h1,h2,h3{font-family:Fraunces,Georgia,serif;font-weight:600;line-height:1.1;text-wrap:balance;letter-spacing:-.01em}
+a:focus-visible,button:focus-visible{outline:2px solid var(--y-ink);outline-offset:3px}
+
+header{position:sticky;top:0;z-index:20;background:rgba(255,251,240,.92);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+header .wrap{display:flex;justify-content:space-between;align-items:center;height:64px;gap:12px}
+.logo{font-weight:800;font-size:24px;letter-spacing:.3px}.logo span{color:var(--y-d)}
+nav.top{display:flex;gap:6px}
+nav.top a{padding:8px 14px;border-radius:999px;font-weight:700;font-size:15px;color:var(--mut);border:1px solid transparent}
+nav.top a:hover{color:var(--ink);background:var(--y-xl)}
+nav.top a.on{color:var(--ink);background:var(--card);border-color:var(--line);box-shadow:inset 0 -2px 0 var(--y-d)}
+
+.btn{display:inline-flex;align-items:center;justify-content:center;background:var(--y);color:var(--ink);padding:12px 22px;border-radius:999px;font-weight:800;font-size:15px;border:0;cursor:pointer;font-family:inherit;transition:background .2s}
+.btn:hover{background:var(--y-d)}
+.btn.sm{padding:8px 15px;font-size:14px}
+.btn.ghost{background:var(--card);border:1px solid var(--line)}
+
+/* hero: simple box now; the animated mother-and-baby scene comes later */
+.hero{padding-block:40px 20px}
+.hero-box{display:grid;grid-template-columns:1.2fr .8fr;gap:28px;background:linear-gradient(140deg,var(--y-l),var(--y-xl) 60%,#fff);border:1px solid var(--line);border-radius:28px;padding:clamp(24px,4.5vw,52px)}
+.tag{display:inline-block;background:#fff;color:var(--y-ink);border:1px solid var(--line);padding:5px 14px;border-radius:999px;font-size:13px;font-weight:800;margin-bottom:14px}
+.hero h1{font-size:clamp(36px,5vw,58px)}
+.hero p{color:var(--mut);font-size:18px;margin:14px 0 22px;max-width:52ch}
+.cta{display:flex;gap:10px;flex-wrap:wrap}
+.agecol{background:#fff;border:1px solid var(--line);border-radius:22px;padding:18px;display:flex;flex-direction:column;gap:8px;align-self:center}
+.agecol h2{font-size:20px;margin-bottom:4px}
+.agecol small{color:var(--mut);font-size:13px}
+
+/* age buttons (used in hero column and above the grid) */
+.ages{display:flex;flex-direction:column;gap:6px}
+.ages button{font:inherit;font-weight:800;font-size:15px;text-align:left;cursor:pointer;background:var(--y-xl);color:var(--ink);border:1px solid var(--line);border-radius:14px;padding:10px 14px;display:flex;justify-content:space-between;align-items:center;transition:background .2s,border-color .2s}
+.ages button span{font-weight:600;font-size:13px;color:var(--mut)}
+.ages button.on{background:var(--y);border-color:var(--y-d)}
+.ages button.on span{color:var(--ink)}
+.ages.row{flex-direction:row;overflow-x:auto;padding-bottom:4px}
+.ages.row button{flex:none;border-radius:999px;padding:8px 14px}
+.ages.row button span{display:none}
+
+/* tabs */
+.tabs{display:flex;gap:8px;margin:8px 0 22px;border-bottom:1px solid var(--line)}
+.tabs button{font:inherit;font-weight:800;font-size:17px;background:none;border:0;border-bottom:3px solid transparent;padding:10px 6px;margin-bottom:-1px;cursor:pointer;color:var(--mut)}
+.tabs button.on{color:var(--ink);border-color:var(--y-d)}
+section{padding-block:28px 56px}
+section[id]{scroll-margin-top:80px}
+.intro{display:grid;grid-template-columns:1fr 1fr;gap:10px 40px;align-items:end;margin-bottom:18px}
+.intro h2{font-size:clamp(26px,3.4vw,36px)}
+.intro p{color:var(--mut)}
+.sticky{position:sticky;top:64px;z-index:5;background:rgba(255,251,240,.95);padding:10px 0;margin-bottom:12px}
+.sub{font-size:22px;margin:26px 0 12px}
+
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:18px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:22px;overflow:hidden;display:flex;flex-direction:column;transition:transform .25s,box-shadow .25s}
+.card:hover{transform:translateY(-3px);box-shadow:0 18px 34px -22px rgba(138,100,20,.45)}
+.card .pic{aspect-ratio:1/1;background:var(--y-xl);display:block;position:relative}
+.card .pic img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.badge{position:absolute;z-index:1;top:12px;left:12px;background:#fff;color:var(--ink);font-size:12px;font-weight:800;padding:4px 10px;border-radius:999px;box-shadow:0 4px 10px rgba(0,0,0,.08)}
+.badge.ours{background:var(--rose)}
+.card .body{padding:16px 18px 18px;display:flex;flex-direction:column;gap:8px;flex:1}
+.kind{font-size:12px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:var(--y-ink)}
+.card h3{font-family:Nunito,sans-serif;font-weight:800;font-size:18px;line-height:1.3}
+.card p{color:var(--mut);font-size:15px}
+.card ul{list-style:none;padding:0;color:var(--mut);font-size:14px;flex:1;display:flex;flex-direction:column;gap:3px}
+.card li{padding-left:18px;position:relative}
+.card li:before{content:"";position:absolute;left:2px;top:.55em;width:8px;height:8px;border-radius:50%;background:var(--y)}
+.foot{display:flex;justify-content:space-between;align-items:center;gap:8px 10px;margin-top:6px;flex-wrap:wrap}
+.foot .btn{white-space:nowrap}
+.pr{font-size:20px;font-weight:800}
+.pr s{font-size:14px;color:var(--mut);font-weight:600;margin-left:4px}
+.pr small{font-size:13px;color:var(--mut);font-weight:600}
+.note{color:var(--mut);font-size:13px;margin-top:14px}
+.care{background:#fff4ec;border:1px solid #f3dccb;border-radius:16px;padding:12px 16px;font-size:14.5px;color:#7a4a2a;margin-bottom:16px}
+.empty{color:var(--mut);padding:20px 0}
+
+footer{border-top:1px solid var(--line);padding-block:30px;color:var(--mut);font-size:13px;background:#fff}
+footer .wrap{display:flex;flex-direction:column;gap:8px}
+footer a.pp{text-decoration:underline;font-weight:700;color:var(--ink)}
+@media(max-width:860px){.hero-box{grid-template-columns:1fr}.intro{grid-template-columns:1fr}}
+@media(max-width:760px){.wrap{padding-inline:16px}.hero{padding-block:20px 8px}.hero p{font-size:16.5px}header .wrap{height:58px}.logo{font-size:21px}nav.top a{padding:7px 10px;font-size:14px}.sticky{top:58px}.grid{grid-template-columns:1fr 1fr;gap:12px}.card .body{padding:12px}.card h3{font-size:16px}.card p{font-size:14px}.foot{flex-direction:column;align-items:stretch}.foot .btn{width:100%}}
+@media(max-width:440px){.grid{grid-template-columns:1fr}}
+@media(prefers-reduced-motion:reduce){*{transition:none!important}html{scroll-behavior:auto}}
 </style>
 </head>
 <body>
 
 <header><div class="wrap">
-  <a class="logo" href="#">Mami<span>Picks</span></a>
-  <a class="btn sm" data-main href="#">Learn More Now</a>
+  <a class="logo" href="./">Mami<span>Picks</span></a>
+  <nav class="top" id="nav">
+    <a href="#baby" data-tab="baby" class="on">For baby</a>
+    <a href="#mom" data-tab="mom">For mum</a>
+  </nav>
 </div></header>
 
 <main>
+<!-- HERO (simple for now; the animated mother-and-baby scene comes later) -->
 <section class="hero"><div class="wrap">
-  <div>
-    <span class="tag">Hand-picked favorites</span>
-    <h1>Cozy play, <em>sweet dreams</em> and screen-free fun</h1>
-    <p>Five Momomi® picks for happy kids and calm evenings: a soft round mat, a lightweight backpack, a sleep bundle and two creative eBooks.</p>
-    <div class="cta">
-      <a class="btn" data-main href="#">Learn More Now</a>
-      <a class="btn ghost" href="#picks">See the 5 picks</a>
+  <div class="hero-box">
+    <div>
+      <span class="tag">From newborn to five</span>
+      <h1>Picks that grow with your little one</h1>
+      <p>Choose your child's age and we'll show the playmats, books and toys that fit that stage. Mum gets her own corner too, with wellness basics and calm-home picks.</p>
+      <div class="cta">
+        <a class="btn" href="#baby">Shop by age</a>
+        <a class="btn ghost" href="#mom" data-tab="mom">For mum</a>
+      </div>
+    </div>
+    <div class="agecol">
+      <h2>How old is your little one?</h2>
+      <div class="ages" id="agesHero"></div>
+      <small>Saved on this device only.</small>
     </div>
   </div>
-  <div class="collage">
-    <img class="a" alt="Momomi Round Mat for Happy Tent" src="https://momomiworld.com/cdn/shop/files/happy-tent-mat.webp?v=1789272077&width=900">
-    <img class="b" alt="Buddy Bag kids backpack" src="https://momomiworld.com/cdn/shop/files/buddy-bag-kids-backpack-3.webp?v=1782875336&width=900">
+</div></section>
+
+<section id="baby"><div class="wrap">
+  <div class="tabs" role="tablist">
+    <button type="button" data-tab="baby" class="on" role="tab">For baby</button>
+    <button type="button" data-tab="mom" role="tab">For mum</button>
   </div>
-</div></section>
+  <div id="pane-baby">
+    <div class="intro">
+      <h2 id="babyTitle">For baby</h2>
+      <p>Each product shows its age range. "From the shop" means the shop printed it; "Suggested age" is our own pick where the shop gives none.</p>
+    </div>
+    <div class="sticky"><div class="ages row" id="agesRow"></div></div>
+    <div class="grid" id="babyGrid"></div>
+    <p class="note">Prices are in USD from momomiworld.com and may change. Always follow the shop's safety notes and stay close during play.</p>
+  </div>
 
-<div class="wrap perks">
-  <div class="perk"><b>🛡️</b>30-day product guarantee</div>
-  <div class="perk"><b>🌍</b>Worldwide shipping</div>
-  <div class="perk"><b>⚡</b>Instant download for eBooks</div>
-  <div class="perk"><b>🌳</b>Every order funds reforestation in Kenya</div>
-</div>
-
-<section id="picks"><div class="wrap">
-  <h2>Our 5 favorite picks</h2>
-  <p class="sub">Tap any product to see full details and order on the official Momomi store.</p>
-  <div class="grid" id="grid"></div>
-</div></section>
-
-<section><div class="wrap">
-  <div class="final">
-    <h2>Ready to make home a little happier?</h2>
-    <p class="sub" style="margin-bottom:22px">Explore the full Momomi® world on the official store.</p>
-    <a class="btn" data-main href="#">Learn More Now</a>
+  <div id="pane-mom" hidden>
+    <div class="intro" id="mom">
+      <h2>For mum</h2>
+      <p>Everyday wellness from Amaana, and home picks from Momomi for calmer nights and easier clean-ups.</p>
+    </div>
+    <h3 class="sub">Wellness</h3>
+    <p class="care">Pregnant or breastfeeding? Check with your doctor before starting any supplement. Matcha contains caffeine.</p>
+    <div class="grid" id="momWell"></div>
+    <h3 class="sub">Home and family</h3>
+    <div class="grid" id="momHome"></div>
+    <h3 class="sub">Bundles</h3>
+    <div class="grid" id="momBundles"></div>
+    <p class="note">Prices are in USD from amaanahealth.com and momomiworld.com and may change.</p>
   </div>
 </div></section>
 </main>
 
 <footer><div class="wrap">
-  <p><b>Affiliate disclosure:</b> This page contains affiliate links. If you buy through these links we may earn a commission, at no extra cost to you.</p>
-  <p>This is an independent review page, not the official Momomi website. Brands, images and product names belong to their respective owners. Prices and offers are set by Momomi and may change.</p>
-  <p><a class="pp" href="privacy-policy.html">Privacy Policy</a></p>
+  <p><b>Affiliate disclosure:</b> This site contains affiliate links. If you buy through them we may earn a commission, at no extra cost to you.</p>
+  <p>MamiPicks is an independent site and is not the official website of any brand listed. Brand names, images and product names belong to their owners. Nothing here is medical advice.</p>
+  <p id="ppRow" hidden><a class="pp" id="ppLink" href="#" target="_blank" rel="noopener">Privacy Policy</a></p>
   <p>© <span id="y"></span> MamiPicks</p>
 </div></footer>
 
+<script src="products.js"></script>
 <script>
 /* =====================================================================
    SETTINGS – EDIT ONLY THIS PART
+   Products live in products.js.
    ===================================================================== */
-
-// Link for the "Learn More Now" buttons
-const MAIN_LINK = "https://momomiworld.com?bg_ref=OX212FlCn2";
-
-// The 5 products. To change an affiliate link, replace the text inside link:"..."
-// To hide a product: delete its block. To add one: copy a block and edit it.
-const IMG = "https://momomiworld.com/cdn/shop/files/";
-const PRODUCTS = [
- { kind:"Play & Home", name:"Momomi® Round Mat (110cm) for Happy Tent™", badge:"Save 20%", emoji:"⭕",
-   img: IMG+"happy-tent-mat.webp?v=1789272077&width=900",
-   points:["Designed to fit inside Happy Tent™","Soft, comfy and waterproof","Great for kids and pets"],
-   link:"https://momomiworld.com/products/momomi-round-mat-for-happy-tent?bg_ref=OX212FlCn2" },
-
- { kind:"Travel & School", name:"Buddy Bag™ Lightweight Kids Backpack", badge:"6 colors", emoji:"🎒",
-   img: IMG+"buddy-bag-kids-backpack-3.webp?v=1782875336&width=900",
-   points:["Lightweight and easy for small shoulders","Tomato, Pinkie, Orange, Banana, Olive, Navy","Optional personalised name tag"],
-   link:"https://momomiworld.com/products/buddy-bag-lightweight-kids-backpack?bg_ref=OX212FlCn2" },
-
- { kind:"Sleep", name:"Good Sleep Bundle", badge:"Save 50%", emoji:"🌙",
-   img: IMG+"momomi-bundle-goodsleep.webp?v=1786946813&width=900",
-   points:["1 Anti-Allergy Duvet + 2 Anti-Allergy Bedding Sets","2 Happy Bath Towels + 2 Happy Hand Towels","Great for families with sensitive skin and allergies"],
-   link:"https://momomiworld.com/products/good-sleep-bundle?bg_ref=OX212FlCn2" },
-
- { kind:"eBook · Creativity", name:"101 Cute Things to Draw", badge:"Save 19%", emoji:"✏️",
-   img: IMG+"101CuteThingstoDraw_cover_3d.jpg?v=1787052883&width=900",
-   points:["101 step-by-step drawings for ages 4–10+","Screen-free creative fun","Instant PDF download"],
-   link:"https://momomiworld.com/products/101-cute-things-to-draw?bg_ref=OX212FlCn2" },
-
- { kind:"eBook · Bedtime", name:"50 Magical Bedtime Stories", badge:"Save 20%", emoji:"📖",
-   img: IMG+"ebook-50MagicalBedtimeStories_mockup.png?v=1758692049&width=900",
-   points:["50 heartwarming stories for ages 3–10","Gentle, calming themes to help kids wind down","Instant PDF download"],
-   link:"https://momomiworld.com/products/50-magical-bedtime-stories?bg_ref=OX212FlCn2" }
+const SHOPS = {
+  momomi: { name:"Momomi", site:"https://momomiworld.com/products/", track:"?bg_ref=OX212FlCn2", img:"https://momomiworld.com/cdn/shop/" },
+  amaana: { name:"Amaana", site:"https://amaanahealth.com/product/",  track:"/?ref=kyzniaqb",    img:"" }
+};
+// Age stages (order = display order)
+const AGES = [
+  { id:"0-6m",  label:"0–6 months",  sub:"Newborn" },
+  { id:"6-12m", label:"6–12 months", sub:"Sitting and crawling" },
+  { id:"1-2y",  label:"1–2 years",   sub:"First steps" },
+  { id:"2-3y",  label:"2–3 years",   sub:"Toddler" },
+  { id:"3-5y",  label:"3–5 years",   sub:"Preschool" }
 ];
+// Age rules by product type. food = only that exact stage. clothes = that stage and older sizes.
+// Any other type shows when the chosen stage is in the product's age list.
+const AGE_RULES = { food:"exact", clothes:"thisAndOlder" };
+// Paste the TermsFeed link here when it is ready, e.g. "https://www.termsfeed.com/live/xxxx"
+const PRIVACY_URL = "";
 /* ===================== END OF SETTINGS ===================== */
 
-document.querySelectorAll("[data-main]").forEach(function(el){
-  el.href = MAIN_LINK; el.target = "_blank"; el.rel = "sponsored noopener";
+function esc(s){ return String(s==null?"":s).replace(/[&<>"]/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c];}); }
+function linkOf(p){ var s=SHOPS[p.shop||"momomi"]; return s.site+encodeURIComponent(p.h).replace(/%E2%84%A2/gi,"%E2%84%A2")+s.track; }
+function imgOf(p){ return /^https?:/.test(p.img) ? p.img : SHOPS[p.shop||"momomi"].img+p.img+(p.img.indexOf("?")>-1?"&":"?")+"width=600"; }
+var stageIdx = {}; AGES.forEach(function(a,i){ stageIdx[a.id]=i; });
+function fits(p, stage){
+  var rule = AGE_RULES[p.type];
+  if(rule==="exact") return p.ages.length===1 && p.ages[0]===stage;
+  if(rule==="thisAndOlder") return p.ages.some(function(a){ return stageIdx[a]>=stageIdx[stage]; });
+  return p.ages.indexOf(stage)>-1;
+}
+function card(p, withAge){
+  var badge = withAge ? '<span class="badge'+(p.ageSrc==="ours"?' ours':'')+'">'+(p.ageSrc==="ours"?'Suggested age: ':'Ages ')+esc(p.ageText)+(p.ageSrc==="shop"?' (from the shop)':'')+'</span>' : '';
+  var shop = SHOPS[p.shop||"momomi"].name;
+  return '<article class="card" data-reveal><a class="pic" target="_blank" rel="sponsored noopener" href="'+linkOf(p)+'">'+badge+
+    '<img loading="lazy" alt="'+esc(p.name)+'" src="'+esc(imgOf(p))+'"></a><div class="body">'+
+    '<span class="kind">'+esc(p.kind)+(withAge?' · '+shop:'')+'</span><h3>'+esc(p.name)+'</h3><p>'+esc(p.text)+'</p>'+
+    '<ul>'+p.points.map(function(t){return '<li>'+esc(t)+'</li>';}).join("")+'</ul>'+
+    '<div class="foot"><span class="pr">'+(p.price?esc(p.price)+(p.was?'<s>'+esc(p.was)+'</s>':''):'<small>Price on the shop</small>')+'</span>'+
+    '<a class="btn sm" target="_blank" rel="sponsored noopener" href="'+linkOf(p)+'">View on '+shop+'</a></div></div></article>';
+}
+
+var stage = "0-6m";
+try { var s=localStorage.getItem("mami-age"); if(s && stageIdx[s]!=null) stage=s; } catch(e) {}
+function ageButtons(el){
+  el.innerHTML = AGES.map(function(a){ return '<button type="button" data-age="'+a.id+'">'+a.label+'<span>'+a.sub+'</span></button>'; }).join("");
+  el.onclick=function(e){ var b=e.target.closest("button"); if(!b) return; setStage(b.dataset.age, el.id==="agesHero"); };
+}
+function setStage(id, scroll){
+  stage=id; try{ localStorage.setItem("mami-age",id); }catch(e){}
+  showTab("baby");
+  renderBaby();
+  if(scroll) document.getElementById("baby").scrollIntoView({behavior: matchMedia("(prefers-reduced-motion: reduce)").matches?"auto":"smooth"});
+}
+function renderBaby(){
+  document.querySelectorAll(".ages button").forEach(function(b){ b.classList.toggle("on", b.dataset.age===stage); });
+  var a = AGES[stageIdx[stage]];
+  var list = window.MAMI_BABY.filter(function(p){ return fits(p,stage); });
+  document.getElementById("babyTitle").textContent = "For baby, "+a.label;
+  document.getElementById("babyGrid").innerHTML = list.length ? list.map(function(p){return card(p,true);}).join("") : '<p class="empty">Nothing for this age yet.</p>';
+  if(window.gsap && !matchMedia("(prefers-reduced-motion: reduce)").matches){
+    gsap.fromTo("#babyGrid .card",{y:16,autoAlpha:0},{y:0,autoAlpha:1,duration:.45,ease:"power2.out",stagger:.04});
+  }
+}
+function renderMom(){
+  var M = window.MAMI_MOM;
+  document.getElementById("momWell").innerHTML = M.filter(function(p){return p.group==="wellness"}).map(function(p){return card(p,false);}).join("");
+  document.getElementById("momHome").innerHTML = M.filter(function(p){return p.group==="home"}).map(function(p){return card(p,false);}).join("");
+  document.getElementById("momBundles").innerHTML = M.filter(function(p){return p.group==="bundles"}).map(function(p){return card(p,false);}).join("");
+}
+function showTab(t){
+  document.getElementById("pane-baby").hidden = t!=="baby";
+  document.getElementById("pane-mom").hidden = t!=="mom";
+  document.querySelectorAll("[data-tab]").forEach(function(b){ b.classList.toggle("on", b.dataset.tab===t); });
+}
+document.addEventListener("click",function(e){
+  var b=e.target.closest("[data-tab]"); if(!b) return;
+  e.preventDefault(); showTab(b.dataset.tab);
+  document.getElementById("baby").scrollIntoView({behavior:"smooth"});
 });
-
-document.getElementById("grid").innerHTML = PRODUCTS.map(function(p){
-  return '<a class="card" target="_blank" rel="sponsored noopener" href="'+p.link+'">'+
-    '<div class="thumb">'+(p.badge?'<span class="badge">'+p.badge+'</span>':'')+p.emoji+
-    (p.img?'<img loading="lazy" alt="'+p.name+'" src="'+p.img+'" onerror="this.remove()">':'')+'</div>'+
-    '<div class="body"><span class="kind">'+p.kind+'</span><h3>'+p.name+'</h3>'+
-    '<ul>'+p.points.map(function(t){return '<li>'+t+'</li>'}).join("")+'</ul>'+
-    '<span class="btn sm">Learn more</span></div></a>';
-}).join("");
-
-document.getElementById("y").textContent = new Date().getFullYear();
+if(PRIVACY_URL){ document.getElementById("ppLink").href=PRIVACY_URL; document.getElementById("ppRow").hidden=false; }
+ageButtons(document.getElementById("agesHero")); ageButtons(document.getElementById("agesRow"));
+renderBaby(); renderMom();
+if(location.hash==="#mom") showTab("mom");
+document.getElementById("y").textContent=new Date().getFullYear();
+</script>
+<script src="assets/js/gsap.min.js"></script>
+<script>
+if(window.gsap && !matchMedia("(prefers-reduced-motion: reduce)").matches){
+  gsap.from(".hero-box > *",{y:18,autoAlpha:0,duration:.6,ease:"power3.out",stagger:.1});
+  gsap.from(".ages button",{x:14,autoAlpha:0,duration:.4,ease:"power2.out",stagger:.05,delay:.3});
+}
 </script>
 </body>
 </html>

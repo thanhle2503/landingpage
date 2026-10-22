@@ -159,7 +159,7 @@ footer a.pp{text-decoration:underline;font-weight:700;color:var(--ink)}
   .tabs{width:100%}.tabs button{flex:1;justify-content:center;padding:10px 12px;font-size:16px}
   .grid{grid-template-columns:1fr 1fr;gap:12px}.card .body{padding:12px}.card h3{font-size:16px}.card p{font-size:14px}.foot{flex-direction:column;align-items:stretch}.foot .btn{width:100%}}
 @media(max-width:440px){.grid{grid-template-columns:1fr}}
-@media(prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}html{scroll-behavior:auto}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
 </style>
 </head>
 <body>
@@ -271,7 +271,7 @@ const AGE_RULES = { food:"exact", clothes:"thisAndOlder" };
 const PRIVACY_URL = "";
 /* ===================== END OF SETTINGS ===================== */
 
-var REDUCE = matchMedia("(prefers-reduced-motion: reduce)").matches;
+var REDUCE = false; // keep the gentle page effects on every device
 function esc(s){ return String(s==null?"":s).replace(/[&<>"]/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c];}); }
 function linkOf(p){ var s=SHOPS[p.shop||"momomi"]; return s.site+encodeURIComponent(p.h).replace(/%E2%84%A2/gi,"%E2%84%A2")+s.track; }
 function imgOf(p){ return /^https?:/.test(p.img) ? p.img : SHOPS[p.shop||"momomi"].img+p.img+(p.img.indexOf("?")>-1?"&":"?")+"width=600"; }

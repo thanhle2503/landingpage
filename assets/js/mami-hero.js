@@ -2,7 +2,9 @@
 (() => {
 const W = 400, H = 660, TAU = Math.PI * 2, D2R = Math.PI / 180;
 let DPR = 1;
-const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+// OS 'reduce motion' only drops the screen shake; gentle sparkles and motion stay on
+const osReduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+const reduce = false;
 
 function mulberry(a){return function(){a|=0;a=a+0x6D2B79F5|0;let t=Math.imul(a^a>>>15,1|a);t=t+Math.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296}}
 const P = d => new Path2D(d);
@@ -448,7 +450,8 @@ POSES[0].momNames=['armLow','arms','mhand'];
 const GROW=[{p:[126,330],a:.05},{p:[128,398],a:.06},{p:[100,428],a:.12},{p:[100,428],a:.1},{p:[208,430],a:.06}];
 const GROUPS=[{lo:0,hi:6,name:'0–6 months'},{lo:6,hi:12,name:'6–12 months'},{lo:12,hi:24,name:'1–2 years'},{lo:24,hi:36,name:'2–3 years'},{lo:36,hi:60,name:'3–5 years'}];
 const TICKS=[[0,'0m'],[6,'6m'],[12,'1y'],[24,'2y'],[36,'3y'],[60,'5y']];
-const DEV=window.devicePixelRatio||1;
+// low-density screens (most PCs) render at 2x and downscale, so lines and paper grain look as fine as on a phone
+const DEV=window.devicePixelRatio||1, SS=Math.max(2,DEV);
 
 const hero=document.querySelector('.hero'); if(!hero||!window.gsap) return;
 const cv=hero.querySelector('canvas.scene'), g2=cv.getContext('2d');
@@ -528,9 +531,9 @@ function layout(){
     const cb=(hero.querySelector('.hero-cta').getBoundingClientRect().bottom-r.top)/K;
     FY=Math.min(LH-440-60,Math.max(cb-28,LH-440-170)); }
   else { LH=520; K=ch/LH; LW=cw/K; FY=LH-440-40; FX=Math.min(LW-410,Math.max(LW*.5,LW*.7-200)); }
-  RES=Math.min(2.4,K*DEV);
+  RES=Math.min(3.2,K*SS);
   cv.width=Math.round(cw*DEV); cv.height=Math.round(ch*DEV);
-  const sr=Math.min(2.4,Math.max(1,K*DEV));
+  const sr=Math.min(3.2,Math.max(1,K*SS));
   if(Math.abs(sr-spriteRes)/Math.max(spriteRes,.01)>.18){ spriteRes=sr; DPR=sr; sprites=[]; buildPose(cur); queueSprites(); }
   buildLayers(); sizeSpark();
 }
@@ -565,7 +568,7 @@ const easeIn=x=>x*x*x, easeOutBack=x=>{ const c1=1.5,c3=c1+1; return 1+c3*Math.p
 
 function render(t,dt){
   if(!layers) return;
-  const ctx=g2; ctx.setTransform(DEV*K,0,0,DEV*K,0,0); ctx.clearRect(0,0,LW,LH);
+  const ctx=g2; ctx.imageSmoothingEnabled=true; ctx.setTransform(DEV*K,0,0,DEV*K,0,0); ctx.clearRect(0,0,LW,LH);
   ctx.drawImage(layers.bg,0,0,LW,LH);
   ctx.save(); ctx.globalAlpha=.94+.06*Math.sin(7.3*t*.3)*Math.sin(3.1*t*.3); ctx.drawImage(layers.glow,0,0,LW,LH); ctx.restore();
   ctx.drawImage(layers.clouds,-30+Math.sin(t*.35)*3,0,LW+60,LH);
@@ -598,7 +601,7 @@ function setPose(i){
   buildPose(i);
   tr.from=shown; cur=i; tr.p=0;
   gsap.killTweensOf(tr); gsap.to(tr,{p:1,duration:1.05,ease:'none'});
-  gsap.killTweensOf(fx); fx.shake=1; gsap.to(fx,{shake:0,duration:1.6,ease:'power2.out'});
+  gsap.killTweensOf(fx); fx.shake=osReduce?0:1; gsap.to(fx,{shake:0,duration:1.6,ease:'power2.out'});
 }
 
 // ---------- age slider ----------

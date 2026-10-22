@@ -725,7 +725,8 @@ const T0=parseFloat(new URLSearchParams(location.search).get('t'));
 gsap.ticker.lagSmoothing(500,33);
 gsap.ticker.add((time,deltaMs)=>{
   if(!visible) return;
-  const dt=Math.min(.05,deltaMs/1000); if(!reduce&&isNaN(T0)) t+=dt; else if(!isNaN(T0)) t=T0;
+  // gentle breathing/rocking always runs (slower when the OS asks for reduced motion); only big effects are skipped
+  const dt=Math.min(.05,deltaMs/1000); if(isNaN(T0)) t+=reduce?dt*.6:dt; else t=T0;
   render(t,reduce?0:dt);
   if(!touched&&!reduce){ idleAcc+=dt; if(idleAcc>3){ idleAcc=0; idleSparks(); } }
   drawSparks(dt);

@@ -150,8 +150,12 @@
       var extra = cfg.extra || {}, total = shown().length, plus = "";
       Object.keys(extra).forEach(function (k) { total += parseInt(extra[k], 10) || 0; if (typeof extra[k] === "string") plus = "+"; });
       total = total + plus;
-      $("xPills").innerHTML = '<button type="button" data-brand="all">All brands<small>' + total + '</small></button>' + brands.map(function (b) {
+      $("xPills").innerHTML = ($("xPills").classList.contains("xbcards") ? '<button type="button" data-brand="all"><b>All brands</b><small>' + total + ' products</small></button>' : '<button type="button" data-brand="all">All brands<small>' + total + '</small></button>') + brands.map(function (b) {
         var ex = extra[b.id], n = typeof ex === "string" ? ex : shown().filter(function (p) { return p.brand === b.id; }).length + (ex || 0);
+        if (n && $("xPills").classList.contains("xbcards")) {
+          var r = range(b.id);
+          return '<button type="button" data-brand="' + b.id + '"><b>' + esc(b.name) + '</b>' + (b.best ? '<i>' + esc(b.best) + '</i>' : '') + '<small>' + n + (n == 1 ? ' product' : ' products') + (r ? ' · ' + r : '') + '</small></button>';
+        }
         return n ? '<button type="button" data-brand="' + b.id + '">' + esc(b.name) + '<small>' + n + '</small></button>' : '';
       }).join("");
       $("xPills").onclick = function (e) { var bt = e.target.closest("button"); if (!bt) return; filter(bt.getAttribute("data-brand"), true); };

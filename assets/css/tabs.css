@@ -161,3 +161,12 @@ footer a.pp{text-decoration:underline;font-weight:600;color:var(--ink)}
 }
 .logo b{color:var(--a);font-weight:700}.logo svg{filter:drop-shadow(1px 2px 1.5px rgba(120,60,50,.3))}
 .btn{box-shadow:0 2px 0 var(--a-d),0 8px 16px -8px rgba(150,60,70,.5)}.btn.ghost{box-shadow:none}
+
+/* brand cards: one tap filters the products below */
+.xbcards{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:10px;margin:0 0 14px}
+.xbcards button{display:flex;flex-direction:column;align-items:flex-start;gap:4px;text-align:left;border-radius:16px;padding:14px 16px}
+.xbcards button b{font-size:16px}
+.xbcards button i{font-style:normal;font-size:13px;color:var(--mut);line-height:1.35}
+.xbcards button small{margin:0;font-size:12px}
+.xbcards button.on i{color:var(--bg);opacity:.8}
+.xshop-sub{text-align:center;color:var(--mut);margin:-6px 0 16px}

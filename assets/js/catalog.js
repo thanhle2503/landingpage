@@ -116,9 +116,9 @@
       var btns = (p.links || [{ label: b.cta || "See price", url: p.link }]).map(function (l, i) {
         return '<a class="btn sm' + (i ? ' ghost' : '') + '"' + EXT + ' href="' + esc(l.url) + '">' + esc(l.label) + '</a>';
       }).join("");
-      return '<div class="card xcard" data-brand="' + p.brand + '" data-type="' + typeOf(p) + '">' +
-        '<a class="thumb' + (p.img ? '' : ' noimg') + '"' + EXT + ' href="' + esc(p.link) + '">' + (badge ? '<span class="badge">' + esc(badge) + '</span>' : '') +
-        (p.img ? '<img loading="lazy" alt="' + esc(p.name) + '" src="' + esc(p.img) + '" onerror="this.remove()">' : '') + '</a>' +
+      return '<div class="card xcard" data-id="' + esc(p.id) + '" data-brand="' + p.brand + '" data-type="' + typeOf(p) + '"' + (window.MamiPanel ? ' tabindex="0" role="button"' : '') + '>' +
+        (window.MamiPanel ? '<div class="thumb' + (p.img ? '' : ' noimg') + '">' : '<a class="thumb' + (p.img ? '' : ' noimg') + '"' + EXT + ' href="' + esc(p.link) + '">') + (badge ? '<span class="badge">' + esc(badge) + '</span>' : '') +
+        (p.img ? '<img loading="lazy" alt="' + esc(p.name) + '" src="' + esc(p.img) + '" onerror="this.remove()">' : '') + (window.MamiPanel ? '</div>' : '</a>') +
         '<div class="body"><span class="kind">' + esc(b.name) + (p.kind ? ' · ' + esc(p.kind) : '') + '</span><h4>' + esc(p.short || p.name) + '</h4>' +
         (p.points && p.points.length ? '<ul>' + p.points.map(function (t) { return '<li>' + esc(t) + '</li>'; }).join("") + '</ul>' : '<ul></ul>') +
         (p.rating ? '<div class="rate"><span>' + stars(p.rating) + '</span> ' + p.rating + ' · ' + Number(p.reviews || 0).toLocaleString("en-US") + ' reviews</div>' : '') +
@@ -166,6 +166,16 @@
       var s = $("xShop"); if (s) s.scrollIntoView({ behavior: "smooth" });
     });
     window.TC_BOUND = true;
+    // MamiPicks: tapping a product (not its button) opens the advice panel (assets/js/panel.js)
+    function openItem(el) {
+      var p = byId[el.getAttribute("data-id")]; if (!p || !window.MamiPanel) return;
+      var b = B[p.brand];
+      MamiPanel.open({ key: p.id, name: p.name, img: p.img, price: p.price, link: p.link, store: b.store || "the shop", brand: b.name, kind: p.kind, points: p.points });
+    }
+    if (window.MamiPanel) {
+      document.addEventListener("click", function (e) { var c = e.target.closest(".xcard[data-id]"); if (c && !e.target.closest("a")) openItem(c); });
+      document.addEventListener("keydown", function (e) { if ((e.key === "Enter" || e.key === " ") && e.target.matches && e.target.matches(".xcard[data-id]")) { e.preventDefault(); openItem(e.target); } });
+    }
     // customer reviews: a few featured cards, "See more" opens the rest; follows the brand filter
     var revs = cfg.reviews || [], revOpen = false, REV_N = cfg.revShow || (window.matchMedia && matchMedia("(max-width:760px)").matches ? 2 : 4);
     if ($("revs")) {

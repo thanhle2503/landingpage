@@ -170,3 +170,10 @@ footer a.pp{text-decoration:underline;font-weight:600;color:var(--ink)}
 .xbcards button small{margin:0;font-size:12px}
 .xbcards button.on i{color:var(--bg);opacity:.8}
 .xshop-sub{text-align:center;color:var(--mut);margin:-6px 0 16px}
+
+/* header: just For baby / For mum, raised; the one you are in glows */
+nav.top.two{gap:10px;overflow:visible}
+nav.top.two a{background:var(--card);color:var(--ink);font-weight:800;padding:8px 16px;border:0;box-shadow:0 2px 0 rgba(160,110,80,.25),0 6px 14px -6px rgba(120,60,50,.4)}
+nav.top.two a.on{background:var(--a);color:var(--on-a);box-shadow:0 0 0 4px rgba(228,138,153,.25),0 0 22px 4px rgba(246,201,95,.55)}
+@media(max-width:760px){nav.top.two{order:0;width:auto;padding:0}nav.top.two a{border-radius:999px}}
+.xcard[data-id]{cursor:pointer}

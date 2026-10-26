@@ -57,6 +57,17 @@ nav.top a{white-space:nowrap}
 nav.top a{padding:8px 15px;border-radius:999px;font-weight:800;font-size:15px;color:var(--mut);transition:background .2s,color .2s,box-shadow .2s}
 nav.top a:hover{color:var(--ink);background:var(--paper)}
 nav.top a.on{color:var(--ink);background:var(--card);box-shadow:var(--shadow)}
+/* two raised buttons; the one you are on glows */
+nav.top.two{gap:10px;overflow:visible}
+nav.top.two a{background:var(--card);color:var(--ink);padding:9px 18px;box-shadow:0 2px 0 rgba(160,110,80,.25),0 6px 14px -6px rgba(120,60,50,.4);transform:translateY(-1px)}
+nav.top.two a span{color:var(--gold-d);margin-right:2px}
+nav.top.two a[data-tab="mom"] span{color:var(--rose)}
+nav.top.two a.on{background:var(--rose);color:#fff;box-shadow:0 2px 0 var(--rose-d),0 0 0 4px rgba(228,138,153,.25),0 0 22px 4px rgba(246,201,95,.55);animation:navGlow 2.6s ease-in-out infinite}
+nav.top.two a.on span{color:#fff}
+@keyframes navGlow{0%,100%{box-shadow:0 2px 0 var(--rose-d),0 0 0 4px rgba(228,138,153,.22),0 0 16px 2px rgba(246,201,95,.45)}50%{box-shadow:0 2px 0 var(--rose-d),0 0 0 5px rgba(228,138,153,.3),0 0 28px 7px rgba(246,201,95,.7)}}
+@media(prefers-reduced-motion:reduce){nav.top.two a.on{animation:none}}
+@media(max-width:760px){header .wrap{gap:8px}.logo{font-size:20px}nav.top.two{gap:6px}nav.top.two a{padding:7px 11px;font-size:14px}.logo svg{width:20px;height:20px}}
+@media(max-width:420px){.logo{font-size:19px}.logo svg{width:18px;height:18px}nav.top.two a{padding:6px 10px;font-size:13.5px}}
 
 .btn{display:inline-flex;align-items:center;justify-content:center;background:var(--rose);color:#fff;padding:12px 22px;border-radius:14px;font-weight:800;font-size:15px;border:0;cursor:pointer;font-family:inherit;
   box-shadow:0 2px 0 var(--rose-d),0 8px 16px -8px rgba(150,60,70,.5),inset 0 1px 0 rgba(255,255,255,.35);transition:transform .15s,background .2s}
@@ -81,6 +92,14 @@ nav.top a.on{color:var(--ink);background:var(--card);box-shadow:var(--shadow)}
   box-shadow:0 2px 0 var(--rose-d),0 8px 18px rgba(150,60,70,.25),inset 0 1px 0 rgba(255,255,255,.35);transition:transform .15s,background .2s}
 .hero-cta:hover{transform:translateY(-1px);background:var(--rose-d)}
 .hero-cta .arr{transition:transform .2s}.hero-cta:hover .arr{transform:translateY(2px)}
+.hero.mum .copy-baby,.hero.mum .age-ui,.hero:not(.mum) .copy-mum{display:none}
+.mum-lead{font-weight:700;font-size:18px;color:var(--ink);background:rgba(255,248,236,.8);padding:6px 12px;border-radius:12px}
+.sit{display:grid;grid-template-columns:1fr 1fr;gap:10px;width:100%}
+.sit button{font:inherit;font-weight:800;font-size:15px;text-align:left;cursor:pointer;color:var(--ink);background:rgba(255,253,248,.95);border:0;border-radius:16px;padding:12px 14px;display:flex;align-items:center;gap:10px;
+  box-shadow:0 2px 0 rgba(160,110,80,.25),0 8px 16px -8px rgba(120,60,50,.4);transition:transform .2s,background .2s}
+.sit button:hover{transform:translateY(-2px)}
+.sit button.on{background:var(--rose);color:#fff}
+.sit i{font-style:normal;font-size:20px}
 .hero .age-ui{position:relative;justify-self:start;width:min(600px,44vw);padding-top:74px;margin-left:8px}
 .hero .spark{position:absolute;left:-40px;top:-30px;width:calc(100% + 80px);height:calc(100% + 60px);pointer-events:none}
 .hero .hint{position:absolute;left:0;right:0;top:0;text-align:center;opacity:0;transition:opacity .5s;pointer-events:none}
@@ -171,6 +190,26 @@ section[id]{scroll-margin-top:72px}
 .note{color:var(--mut);font-size:13px;margin-top:18px}
 .care{background:var(--peach);border-radius:16px;padding:12px 16px;font-size:14.5px;color:#7a4a2a;margin-bottom:16px;box-shadow:var(--shadow)}
 .empty{color:var(--mut);padding:20px 0}
+.card{cursor:pointer}
+.card .more{font-size:13px;font-weight:800;color:var(--rose)}
+.type em{font-style:normal;color:var(--mut);font-size:13px;font-weight:700}
+.agenotes{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.agenotes div{background:var(--card);border-radius:18px;padding:16px 18px;box-shadow:var(--shadow)}
+.agenotes b{display:block;margin-bottom:6px}
+.agenotes ul{margin:0;padding-left:18px;color:var(--mut);display:flex;flex-direction:column;gap:6px}
+.agenotes .safe{background:#fff6e6}
+.adv{background:var(--card);border-radius:24px;padding:22px;box-shadow:var(--shadow);margin-bottom:10px}
+.adv h3{font-size:24px;margin-bottom:6px}
+.adv .step{color:var(--mut);font-weight:700;font-size:13px;text-transform:uppercase;letter-spacing:.06em}
+.adv .opts{display:flex;flex-wrap:wrap;gap:10px;margin-top:12px}
+.adv .opts i{font-style:normal;margin-right:8px}
+.adv .opts button{font:inherit;font-weight:800;font-size:15px;cursor:pointer;background:var(--bg);color:var(--ink);border:1.5px solid var(--line);border-radius:14px;padding:11px 16px;transition:transform .15s,background .2s}
+.adv .opts button:hover{transform:translateY(-2px);background:var(--rose-l)}
+.adv .nav{display:flex;gap:14px;margin-top:14px}
+.adv .nav button{font:inherit;font-weight:700;background:none;border:0;color:var(--mut);cursor:pointer;text-decoration:underline}
+.adv .dots{display:flex;gap:6px;margin:10px 0 2px}.adv .dots i{width:26px;height:6px;border-radius:3px;background:var(--line)}.adv .dots i.on{background:var(--rose)}
+.adv .caution{background:var(--peach);border-radius:12px;padding:10px 14px;margin-top:12px;font-size:14px;color:#7a4a2a}
+@media(max-width:760px){.agenotes{grid-template-columns:1fr}.sit{grid-template-columns:1fr 1fr}.sit button{font-size:14px;padding:10px 12px}.mum-lead{font-size:16px}}
 
 footer{padding-block:34px;color:var(--mut);font-size:13px;background:var(--paper);box-shadow:0 -1px 0 #fff inset,0 -6px 18px -12px rgba(120,60,50,.3)}
 footer .wrap{display:flex;flex-direction:column;gap:8px}
@@ -187,14 +226,9 @@ footer a.pp{text-decoration:underline;font-weight:700;color:var(--ink)}
 
 <header><div class="wrap">
   <a class="logo" href="./"><svg viewBox="-24 -24 48 48" aria-hidden="true"><path d="M0 -21 L6.2 -7.4 L20.4 -6.6 L9.6 3.2 L12.9 17.4 L0 9.8 L-12.9 17.4 L-9.6 3.2 L-20.4 -6.6 L-6.2 -7.4 Z" fill="#f6c95f" stroke="#e2a238" stroke-width="2" stroke-linejoin="round"/></svg><span class="w">Mami<b>Picks</b></span></a>
-  <nav class="top" id="nav">
-    <a href="#baby" data-tab="baby" class="on">For baby</a>
-    <a href="fertility/">Fertility tests</a>
-    <a href="vitamins/">Vitamins</a>
-    <a href="nursing-wear/">Nursing wear</a>
-    <a href="postpartum/">Postpartum</a>
-    <a href="baby-care/">Baby care</a>
-    <a href="strollers/">Strollers</a>
+  <nav class="top two" id="nav">
+    <a href="#baby" data-tab="baby" class="on"><span aria-hidden="true">★</span> For baby</a>
+    <a href="#mom" data-tab="mom"><span aria-hidden="true">♥</span> For mum</a>
   </nav>
 </div></header>
 
@@ -209,7 +243,12 @@ footer a.pp{text-decoration:underline;font-weight:700;color:var(--ink)}
         <span>Music box</span>
       </button>
     </div>
-    <div class="copy">
+    <div class="copy copy-mum">
+      <h1>Look after you, too</h1>
+      <p class="mum-lead">Tell us where you are, and we'll pick what helps.</p>
+      <div class="sit" id="sitHero"></div>
+    </div>
+    <div class="copy copy-baby">
       <h1>From first cuddle to first day of school</h1>
       <a class="hero-cta" href="#baby">See picks for <span class="hero-cta-age">0–6 months</span> <span class="arr" aria-hidden="true">↓</span></a>
     </div>
@@ -234,10 +273,6 @@ footer a.pp{text-decoration:underline;font-weight:700;color:var(--ink)}
 </div>
 
 <section id="baby"><div class="wrap">
-  <div class="tabs" role="tablist">
-    <button type="button" data-tab="baby" class="on" role="tab"><svg viewBox="-24 -24 48 48" aria-hidden="true"><path d="M0 -21 L6.2 -7.4 L20.4 -6.6 L9.6 3.2 L12.9 17.4 L0 9.8 L-12.9 17.4 L-9.6 3.2 L-20.4 -6.6 L-6.2 -7.4 Z" fill="#f6c95f" stroke="#e2a238" stroke-width="2" stroke-linejoin="round"/></svg>For baby</button>
-    <button type="button" data-tab="mom" role="tab"><svg viewBox="-10 -10 20 20" aria-hidden="true"><path d="M0 -4 C0 -9 -7 -9 -7 -4 C-7 0 0 4 0 6 C0 4 7 0 7 -4 C7 -9 0 -9 0 -4 Z" fill="#e48a99" stroke="#cf6f80" stroke-width="1"/></svg>For mum</button>
-  </div>
   <div id="pane-baby">
     <div class="intro">
       <h2 id="babyTitle">For baby</h2>
@@ -246,14 +281,22 @@ footer a.pp{text-decoration:underline;font-weight:700;color:var(--ink)}
     <div class="sticky"><div class="ages row" id="agesRow"></div></div>
     <div class="grid" id="babyGrid"></div>
     <p class="note">Prices are in USD from momomiworld.com and Amazon and may change. Always follow the shop's safety notes and stay close during play.</p>
-    <h3 class="sub">Compare baby gear brand by brand</h3>
+    <h3 class="sub" id="moreTitle">Not quite right? See more</h3>
     <div class="types" id="typeGridBaby"></div>
+    <h3 class="sub" id="notesTitle">MamiPicks notes</h3>
+    <div class="agenotes" id="ageNotes"></div>
+    <div id="revWrap" hidden><h3 class="sub">What parents say</h3><div class="grid" id="revGrid"></div></div>
   </div>
 
   <div id="pane-mom" hidden>
-    <div class="intro" id="mom">
+    <div class="intro">
       <h2>For <em>mum</em></h2>
-      <p>From trying for a baby to nursing and recovery. Each tab compares brand against brand, then any two products.</p>
+      <p>From trying for a baby to nursing and recovery. Tell us where you are, or tap any product for our honest take.</p>
+    </div>
+    <div class="adv" id="adv"></div>
+    <div id="advOut" hidden>
+      <h3 class="sub" id="advTitle">Picked for you</h3>
+      <div class="grid" id="advGrid"></div>
     </div>
     <h3 class="sub">Shop by need</h3>
     <div class="types" id="typeGrid"></div>
@@ -284,6 +327,8 @@ footer a.pp{text-decoration:underline;font-weight:700;color:var(--ink)}
 </div></footer>
 
 <script src="products.js"></script>
+<script src="assets/js/advice.js"></script>
+<script src="assets/js/panel.js"></script>
 <script>
 /* =====================================================================
    SETTINGS – EDIT ONLY THIS PART
@@ -349,16 +394,36 @@ function fits(p, stage){
   if(rule==="thisAndOlder") return p.ages.some(function(a){ return stageIdx[a]>=stageIdx[stage]; });
   return p.ages.indexOf(stage)>-1;
 }
-function card(p, withAge){
+/* every card is registered so a tap can open the advice panel (assets/js/panel.js); only the button links out */
+var REG=[];
+function reg(p, ctx){ REG.push({p:p, ctx:ctx||{}}); return REG.length-1; }
+function card(p, withAge, ctx){
+  var r = reg(p, ctx);
   var badge = withAge ? '<span class="badge'+(p.ageSrc==="ours"?' ours':'')+'">'+(p.ageSrc==="ours"?'Suggested age: ':'Ages ')+esc(p.ageText)+(p.ageSrc==="shop"?' (from the shop)':'')+'</span>' : '';
-  var shop = SHOPS[p.shop||"momomi"].name;
-  return '<article class="card"><a class="pic" target="_blank" rel="sponsored noopener" href="'+linkOf(p)+'">'+badge+
-    '<img loading="lazy" alt="'+esc(p.name)+'" src="'+esc(imgOf(p))+'"></a><div class="body">'+
+  var shop = p.store || SHOPS[p.shop||"momomi"].name;
+  return '<article class="card" data-r="'+r+'" tabindex="0" role="button" aria-label="'+esc(p.name)+': see our advice"><div class="pic">'+badge+
+    '<img loading="lazy" alt="'+esc(p.name)+'" src="'+esc(imgOf(p))+'"></div><div class="body">'+
     '<span class="kind">'+esc(p.kind)+(withAge?' · '+shop:'')+'</span><h3>'+esc(p.name)+'</h3><p>'+esc(p.text)+'</p>'+
     '<ul>'+p.points.map(function(t){return '<li>'+esc(t)+'</li>';}).join("")+'</ul>'+
+    '<span class="more">Our advice →</span>'+
     '<div class="foot"><span class="pr">'+(p.price?esc(p.price)+(p.was?'<s>'+esc(p.was)+'</s>':''):'<small>Price on the shop</small>')+'</span>'+
     '<a class="btn sm" target="_blank" rel="sponsored noopener" href="'+linkOf(p)+'">View on '+shop+'</a></div></div></article>';
 }
+
+function keyOf(p){ return p.id || (p.shop==="amaana" ? "am-"+p.h : p.h); }
+function openCard(el){
+  var e = REG[+el.getAttribute("data-r")]; if(!e || !window.MamiPanel) return;
+  var p = e.p, ctx = e.ctx;
+  if(p.ages){ var a = AGES[stageIdx[stage]]; ctx = Object.assign({}, ctx, {age:{label:a.label, fits:fits(p,stage)}}); }
+  MamiPanel.open({ key:keyOf(p), name:p.name, img:p.img && !/^https?:/.test(p.img) ? imgOf(p) : p.img, price:p.price, link:p.link || linkOf(p),
+    store:p.store || (p.shop ? SHOPS[p.shop].name : SHOPS.momomi.name), brand:p.brand || "", kind:p.kind, text:p.text, points:p.points, ageText:p.ageText }, ctx);
+}
+document.addEventListener("click",function(e){
+  var c = e.target.closest(".card[data-r]"); if(!c || e.target.closest("a")) return; openCard(c);
+});
+document.addEventListener("keydown",function(e){
+  if((e.key==="Enter"||e.key===" ") && e.target.matches && e.target.matches(".card[data-r]")){ e.preventDefault(); openCard(e.target); }
+});
 
 /* paper cards drop in when they scroll into view */
 var io = ("IntersectionObserver" in window) ? new IntersectionObserver(function(es){
@@ -396,6 +461,23 @@ function renderBaby(){
   var grid = document.getElementById("babyGrid");
   grid.innerHTML = list.length ? list.map(function(p){return card(p,true);}).join("") : '<p class="empty">Nothing for this age yet.</p>';
   reveal(grid);
+  renderMore(a);
+}
+/* "Not quite right?": the product lines that have something for this age, with their brands */
+function renderMore(a){
+  var lines = BABY_TABS.map(function(pg){
+    var t = TABS.filter(function(x){ return x.page===pg; })[0];
+    var inLine = window.MAMI_BABY.filter(function(p){ return p.line===pg && fits(p,stage); });
+    if(!t || !inLine.length) return "";
+    var brands = inLine.map(function(p){ return p.brand; }).filter(function(b,i,s){ return b && s.indexOf(b)===i; });
+    return '<a class="type" href="'+t.page+'"><b>'+esc(t.label)+'</b><small>'+esc(t.text)+'</small><em>'+inLine.length+' for '+esc(a.label)+' · '+esc(brands.join(", "))+'</em><span>See the whole range →</span></a>';
+  }).join("");
+  document.getElementById("typeGridBaby").innerHTML = lines;
+  document.getElementById("moreTitle").hidden = !lines;
+  var n = (window.MAMI_AGE_NOTES||{})[stage];
+  document.getElementById("notesTitle").textContent = "MamiPicks notes for "+a.label;
+  document.getElementById("ageNotes").innerHTML = n ? '<div><b>What helps at this age</b><ul>'+n.tips.map(function(x){return '<li>'+esc(x)+'</li>';}).join("")+'</ul></div>'+
+    '<div class="safe"><b>Safety first</b><ul>'+n.safe.map(function(x){return '<li>'+esc(x)+'</li>';}).join("")+'</ul></div>' : '';
 }
 function renderMom(){
   var M = window.MAMI_MOM;
@@ -410,13 +492,16 @@ function showTab(t){
   document.getElementById("pane-baby").hidden = t!=="baby";
   document.getElementById("pane-mom").hidden = t!=="mom";
   document.querySelectorAll("[data-tab]").forEach(function(b){ b.classList.toggle("on", b.dataset.tab===t); });
+  if(window.MamiHero && MamiHero.setMum) MamiHero.setMum(t==="mom");
+  else document.querySelector(".hero").classList.toggle("mum", t==="mom");
   if(t==="mom" && !momRevealed){ momRevealed=true; ["momWell","momHome","momBundles"].forEach(function(id){ reveal(document.getElementById(id)); }); }
   if(t!==was && window.gsap && !REDUCE) gsap.fromTo("#pane-"+t,{autoAlpha:0,y:14},{autoAlpha:1,y:0,duration:.45,ease:"power2.out",clearProps:"transform"});
 }
 document.addEventListener("click",function(e){
   var b=e.target.closest("[data-tab]"); if(!b) return;
   e.preventDefault(); showTab(b.dataset.tab);
-  document.getElementById("baby").scrollIntoView({behavior:REDUCE?"auto":"smooth"});
+  if(history.replaceState) history.replaceState(null,"",b.dataset.tab==="mom"?"#mom":location.pathname+location.search);
+  window.scrollTo({top:0,behavior:REDUCE?"auto":"smooth"});
 });
 /* hero slider: letting go of the star filters the list; the button scrolls to it */
 document.addEventListener("mami:age",function(e){ setStage(AGES[e.detail.group].id,false); });
@@ -436,6 +521,61 @@ document.getElementById("brandGrid").innerHTML = BRAND_CARDS.map(function(b){
   return '<a class="brand" href="'+b.page+'">'+(b.img?'<div class="bpic"><img loading="lazy" alt="'+esc(b.label)+'" src="'+esc(b.img)+'"></div>':'<div class="bpic ph">'+esc(b.label)+'</div>')+
     '<div class="bbody"><small>'+esc(b.kind)+'</small><h3>'+esc(b.label)+'</h3><p>'+esc(b.text)+'</p><div class="meta"><span>'+esc(b.count)+'</span><span class="btn sm">See '+esc(b.label)+'</span></div></div></a>';
 }).join("");
+/* ---------- mum's advisor: situation, then 3-4 questions, then products picked for her ---------- */
+var ADV = window.MAMI_ADVISOR || [], adv = {sit:null, step:0, ans:[]};
+function sitHTML(){ return ADV.map(function(s){ return '<button type="button" data-sit="'+s.id+'"><i aria-hidden="true">'+s.icon+'</i>'+esc(s.label)+'</button>'; }).join(""); }
+function sitOf(id){ return ADV.filter(function(s){ return s.id===id; })[0]; }
+function renderAdv(){
+  var el = document.getElementById("adv"), s = sitOf(adv.sit);
+  document.querySelectorAll("#sitHero button").forEach(function(b){ b.classList.toggle("on", b.dataset.sit===adv.sit); });
+  if(!s){ el.innerHTML = '<span class="step">Your MamiPicks advisor</span><h3>Where are you right now?</h3><div class="opts sitopts">'+sitHTML()+'</div>'; return; }
+  if(adv.step < s.qs.length){
+    var q = s.qs[adv.step];
+    el.innerHTML = '<span class="step">'+esc(s.icon+" "+s.label)+' · question '+(adv.step+1)+' of '+s.qs.length+'</span>'+
+      '<div class="dots">'+s.qs.map(function(_,i){ return '<i class="'+(i<=adv.step?'on':'')+'"></i>'; }).join("")+'</div>'+
+      '<h3>'+esc(q.q)+'</h3><div class="opts">'+q.opts.map(function(o,i){ return '<button type="button" data-ans="'+i+'">'+esc(o.l)+'</button>'; }).join("")+'</div>'+
+      '<div class="nav">'+(adv.step?'<button type="button" data-back>← Back</button>':'')+'<button type="button" data-reset>Start over</button></div>';
+    return;
+  }
+  // score every product in this situation by the tags of the answers
+  var picked = [], caution = false;
+  s.qs.forEach(function(q,i){ var o = q.opts[adv.ans[i]]; if(o){ picked.push(o); if(o.t.indexOf("caution")>-1) caution = true; } });
+  var pool = (window.MAMI_MUM_ITEMS||[]).filter(function(it){ return it.tags.some(function(x){ return s.pool.indexOf(x)>-1; }); });
+  var scored = pool.map(function(it){
+    var why = [];
+    picked.forEach(function(o){ if(o.t.some(function(x){ return it.tags.indexOf(x)>-1; }) && why.indexOf(o.l)<0) why.push(o.l); });
+    return {it:it, n:why.length, why:why};
+  }).sort(function(a,b){ return b.n-a.n || (a.it.price||0)-(b.it.price||0); });
+  var seen = {};
+  scored = scored.filter(function(x){ if(seen[x.it.name]) return false; seen[x.it.name]=1; return true; });
+  var top = scored.filter(function(x){ return x.n>0; }).slice(0,6);
+  if(top.length<3) top = scored.slice(0,6);
+  el.innerHTML = '<span class="step">'+esc(s.icon+" "+s.label)+' · done</span><h3>Here is what we would pick for you</h3>'+
+    '<p style="color:var(--mut)">Tap a product to see why, and its pros and cons for your situation.</p>'+
+    (caution?'<p class="caution">Pregnant or breastfeeding? Check with your doctor or midwife before starting any supplement. Matcha contains caffeine.</p>':'')+
+    '<div class="nav"><button type="button" data-back>← Change my last answer</button><button type="button" data-reset>Start over</button></div>';
+  var A = window.MAMI_ADVICE||{};
+  document.getElementById("advGrid").innerHTML = top.map(function(x){
+    var it = x.it, ad = A[it.id]||{};
+    var p = {id:it.id, name:it.name, kind:it.brand+" · "+it.kind, img:it.img, link:it.link, store:it.store,
+      price: it.price ? "$"+(+it.price).toFixed(2).replace(/\.00$/,"") : "", text: ad.about||"", points:(ad.pros||[]).slice(0,2)};
+    return card(p,false,{reasons:x.why});
+  }).join("");
+  document.getElementById("advOut").hidden = false;
+  reveal(document.getElementById("advGrid"));
+  document.getElementById("advOut").scrollIntoView({behavior:REDUCE?"auto":"smooth", block:"start"});
+}
+document.addEventListener("click",function(e){
+  var b = e.target.closest("[data-sit]");
+  if(b){ adv = {sit:b.dataset.sit, step:0, ans:[]}; document.getElementById("advOut").hidden = true; showTab("mom"); renderAdv();
+    document.getElementById("adv").scrollIntoView({behavior:REDUCE?"auto":"smooth", block:"center"}); return; }
+  if(e.target.closest("#adv [data-ans]")){ adv.ans[adv.step] = +e.target.closest("[data-ans]").dataset.ans; adv.step++; renderAdv(); return; }
+  if(e.target.closest("#adv [data-back]")){ adv.step = Math.max(0, adv.step-1); document.getElementById("advOut").hidden = true; renderAdv(); return; }
+  if(e.target.closest("#adv [data-reset]")){ adv = {sit:null, step:0, ans:[]}; document.getElementById("advOut").hidden = true; renderAdv(); }
+});
+document.getElementById("sitHero").innerHTML = sitHTML();
+renderAdv();
+
 renderMom();
 if(location.hash==="#mom") showTab("mom");
 document.getElementById("y").textContent=new Date().getFullYear();
@@ -444,6 +584,7 @@ document.getElementById("y").textContent=new Date().getFullYear();
 <script src="assets/js/mami-hero.js"></script>
 <script>
 renderBaby();
+if(!document.getElementById("pane-mom").hidden && window.MamiHero) MamiHero.setMum(true);
 if(window.gsap && !REDUCE){
   gsap.from(".hero .copy > *",{y:22,autoAlpha:0,duration:.8,ease:"power3.out",stagger:.12,delay:.2});
   gsap.from(".hero .age-ui",{y:20,autoAlpha:0,duration:.7,ease:"power3.out",delay:.6});

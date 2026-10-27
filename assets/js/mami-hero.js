@@ -604,6 +604,10 @@ function setPose(i){
   gsap.killTweensOf(fx); fx.shake=osReduce?0:1; gsap.to(fx,{shake:0,duration:1.6,ease:'power2.out'});
 }
 
+// ---------- mum view: mum holds the newborn, the slider is hidden ----------
+let mumMode=false;
+function setMum(on){ if(on===mumMode) return; mumMode=on; hero.classList.toggle('mum',on); setPose(on?0:groupOf(Math.round(months))); }
+
 // ---------- age slider ----------
 const slider=hero.querySelector('.slider'), knob=slider.querySelector('.knob'), fill=slider.querySelector('.fill'), bubble=slider.querySelector('.bubble'),
       ticksEl=slider.querySelector('.ticks'), hint=hero.querySelector('.hint'), ctaAge=hero.querySelector('.hero-cta-age');
@@ -626,7 +630,7 @@ function paint(){
 function setMonths(m,fromUser){
   m=Math.max(1,Math.min(60,m)); const before=groupOf(Math.round(months)); months=m; const after=groupOf(Math.round(months));
   paint();
-  if(after!==before){ setPose(after); if(fromUser){ burst(); sound.ting(after); } sound.setGroup(after); }
+  if(after!==before && !mumMode){ setPose(after); if(fromUser){ burst(); sound.ting(after); } sound.setGroup(after); }
 }
 function valueFromX(x){ const r=slider.getBoundingClientRect(); return p2m(Math.max(0,Math.min(1,(x-r.left)/r.width))); }
 let userOff=false;
@@ -741,6 +745,7 @@ window.MamiHero={
   setGroup(g){ if(groupOf(Math.round(months))===g) return; firstTouch(); const o={m:months};
     gsap.to(o,{m:SAVED_START[g],duration:reduce?0:.6,ease:'power2.inOut',onUpdate:()=>{ setMonths(o.m,false); },onComplete:()=>{ months=SAVED_START[g]; paint(); filtered=g; }}); },
   setMonths:(m)=>setMonths(m,true),
+  setMum,
   get state(){ return {months,cur,LW,LH,FX,FY,K}; }
 };
 })();

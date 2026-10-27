@@ -161,3 +161,19 @@ footer a.pp{text-decoration:underline;font-weight:600;color:var(--ink)}
 }
 .logo b{color:var(--a);font-weight:700}.logo svg{filter:drop-shadow(1px 2px 1.5px rgba(120,60,50,.3))}
 .btn{box-shadow:0 2px 0 var(--a-d),0 8px 16px -8px rgba(150,60,70,.5)}.btn.ghost{box-shadow:none}
+
+/* brand cards: one tap filters the products below */
+.xbcards{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:10px;margin:0 0 14px}
+.xbcards button{display:flex;flex-direction:column;align-items:flex-start;gap:4px;text-align:left;border-radius:16px;padding:14px 16px}
+.xbcards button b{font-size:16px}
+.xbcards button i{font-style:normal;font-size:13px;color:var(--mut);line-height:1.35}
+.xbcards button small{margin:0;font-size:12px}
+.xbcards button.on i{color:var(--bg);opacity:.8}
+.xshop-sub{text-align:center;color:var(--mut);margin:-6px 0 16px}
+
+/* header: just For baby / For mum, raised; the one you are in glows */
+nav.top.two{gap:10px;overflow:visible}
+nav.top.two a{background:var(--card);color:var(--ink);font-weight:800;padding:8px 16px;border:0;box-shadow:0 2px 0 rgba(160,110,80,.25),0 6px 14px -6px rgba(120,60,50,.4)}
+nav.top.two a.on{background:var(--a);color:var(--on-a);box-shadow:0 0 0 4px rgba(228,138,153,.25),0 0 22px 4px rgba(246,201,95,.55)}
+@media(max-width:760px){nav.top.two{order:0;width:auto;padding:0}nav.top.two a{border-radius:999px}}
+.xcard[data-id]{cursor:pointer}

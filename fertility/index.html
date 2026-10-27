@@ -21,14 +21,9 @@
 
 <header><div class="wrap">
   <a class="logo" href="../"><svg viewBox="-24 -24 48 48" aria-hidden="true" width="24" height="24"><path d="M0 -21 L6.2 -7.4 L20.4 -6.6 L9.6 3.2 L12.9 17.4 L0 9.8 L-12.9 17.4 L-9.6 3.2 L-20.4 -6.6 L-6.2 -7.4 Z" fill="#f6c95f" stroke="#e2a238" stroke-width="2" stroke-linejoin="round"/></svg><span class="w">Mami<b>Picks</b></span></a>
-  <nav class="top">
-    <a href="../">All brands</a>
-    <a href="../fertility/" class="on">Fertility &amp; pregnancy tests</a>
-    <a href="../vitamins/">Vitamins &amp; wellness</a>
-    <a href="../nursing-wear/">Maternity &amp; nursing wear</a>
-    <a href="../postpartum/">Postpartum &amp; body care</a>
-    <a href="../baby-care/">Baby care</a>
-    <a href="../strollers/">Strollers</a>
+  <nav class="top two">
+    <a href="../#baby">For baby</a>
+    <a href="../#mom" class="on">For mum</a>
   </nav>
 </div></header>
 
@@ -36,13 +31,11 @@
 <section class="hero"><div class="wrap">
   <div>
     <span class="tag" data-hero>Trying to conceive</span>
-    <h1 data-hero>Fertility and pregnancy tests: <em>MomMed vs Frida</em></h1>
+    <h1 data-hero>Fertility and pregnancy tests</h1>
     <p data-hero>Ovulation strips, pregnancy tests and conception helpers from MomMed and Frida, compared by pack and price.</p>
     <span class="updated" data-hero>Updated <time datetime="2026-10-25">October 25, 2026</time> · prices from each brand's store and Amazon listings</span>
     <div class="cta" data-hero>
-      <a class="btn" href="#xBrandsSec">Compare brands</a>
-      <a class="btn ghost" href="#compare">Compare two</a>
-      <a class="btn ghost" href="#xShop">All products</a>
+      <a class="btn" href="#xShop">See products</a>
     </div>
   </div>
   <div class="collage">
@@ -51,28 +44,12 @@
   </div>
 </div></section>
 
-<section id="xBrandsSec" data-reveal-group><div class="wrap">
-  <h2 data-reveal>Brand vs brand</h2>
-  <p class="sub" data-reveal>How the brands on this page differ, side by side. Tap a brand to see only its products.</p>
-  <div class="xbt-wrap" data-reveal><table class="xbt" id="xBrands"></table></div>
-</div></section>
 
-<section id="compare" data-reveal-group><div class="wrap">
-  <h2 data-reveal>Compare two products</h2>
-  <p class="sub" data-reveal>Pick one product on each side, from the same brand or two different brands.</p>
-  <div class="presets" id="xPresets"></div>
-  <div class="h2h" data-reveal>
-    <div class="side" id="xSide0"></div>
-    <div class="vs"><span>VS</span></div>
-    <div class="side" id="xSide1"></div>
-  </div>
-  <div class="h2h-wrap"><table class="h2ht"><tbody id="xH2h"></tbody></table></div>
-  <p class="cmp-note">★ = better on that line · – = not listed. Prices from each store and may change.</p>
-</div></section>
 
 <section id="xShop"><div class="wrap">
-  <h2>All products</h2>
-  <div class="xpills" id="xPills"></div>
+  <h2>Products</h2>
+  <p class="xshop-sub">Tap a brand to see only its products.</p>
+  <div class="xpills xbcards" id="xPills"></div>
   <div class="xpills xtypes" id="xTypes"></div>
   <div class="grid" id="xGrid"></div>
 </div></section>
@@ -107,6 +84,9 @@
   <p>© <span id="y">2026</span> MamiPicks</p>
 </div></footer>
 
+<script src="../assets/js/advice.js"></script>
+<script src="../assets/js/details.js"></script>
+<script src="../assets/js/panel.js"></script>
 <script src="../assets/js/catalog.js"></script>
 <script>
 /* =====================================================================

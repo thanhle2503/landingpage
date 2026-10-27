@@ -54,13 +54,28 @@
   function list(a) { return '<ul>' + a.map(function (t) { return '<li>' + esc(t) + '</li>'; }).join("") + '</ul>'; }
   var lastFocus = null;
 
+  // Amazon details (assets/js/details.js, ~240 KB) load after the page, not before it
+  var SRC = (document.currentScript && document.currentScript.src || '').replace(/panel\.js[^/]*$/, 'details.js'), waiting = null, tried = false;
+  function details(cb) {
+    if (window.MAMI_DETAILS || tried) return cb();
+    if (!waiting) {
+      waiting = [];
+      var s = document.createElement('script'); s.src = SRC;
+      s.onload = s.onerror = function () { tried = true; var w = waiting; waiting = null; w.forEach(function (f) { f(); }); document.dispatchEvent(new Event('mami:details')); };
+      document.head.appendChild(s);
+    }
+    waiting.push(cb);
+  }
+  addEventListener('load', function () { (window.requestIdleCallback || setTimeout)(function () { details(function () {}); }, { timeout: 2000 }); });
+
   function open(p, ctx) {
     ctx = ctx || {};
+    if (!window.MAMI_DETAILS && !tried) return details(function () { open(p, ctx); });
     var A = (window.MAMI_ADVICE || {})[p.key] || {};
     var pros = A.pros && A.pros.length ? A.pros : (p.points || []);
     var cons = A.cons || [];
     var h = '<div class="mp-top"><span class="mp-grab"></span><button type="button" class="mp-x" aria-label="Close">×</button></div><div class="mp-in">';
-    if (p.img) h += '<div class="mp-pic"><img alt="' + esc(p.name) + '" src="' + esc(p.img) + '"></div>';
+    if (p.img) h += '<div class="mp-pic"><img alt="' + esc(p.name) + '" src="' + esc(amzImg(p.img, 800)) + '"></div>';
     h += '<span class="mp-kind">' + esc([p.brand, p.kind].filter(Boolean).join(" · ")) + '</span><h3>' + esc(p.name) + '</h3>';
     if (p.price) h += '<div class="mp-pr">' + esc(money(p.price)) + '</div>';
     var D = (window.MAMI_DETAILS || {})[p.key] || {};
@@ -97,5 +112,8 @@
   box.addEventListener("touchmove", function (e) { if (y0 == null) return; var d = Math.max(0, e.touches[0].clientY - y0); box.style.transition = "none"; box.style.transform = "translateY(" + d + "px)"; }, { passive: true });
   box.addEventListener("touchend", function (e) { if (y0 == null) return; var d = e.changedTouches[0].clientY - y0; y0 = null; box.style.transition = ""; if (d > 90) close(); else box.style.transform = ""; });
 
-  window.MamiPanel = { open: open, close: close };
+  window.MamiPanel = { open: open, close: close, details: details };
+  // Amazon photo at a smaller size: the lists only need ~500 px, the panel ~800 px
+  function amzImg(u, px) { return /m\.media-amazon\.com\/images\/I\//.test(u || '') ? u.replace(/(\/I\/[^./]+)(\.[^/]*)?\.(jpg|jpeg|png|webp)$/i, '$1._AC_SL' + px + '_.$3') : u; }
+  window.amzImg = amzImg;
 })();

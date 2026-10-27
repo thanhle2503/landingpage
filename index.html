@@ -246,6 +246,11 @@ footer a.pp{text-decoration:underline;font-weight:700;color:var(--ink)}
 @media(max-width:440px){.grid{grid-template-columns:1fr}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
 </style>
+  <!-- Lasso click tracking -->
+  <script type="text/javascript" src="https://js.codedrink.com/snippet.min.js" defer></script>
+  <script type="text/javascript" defer>
+    document.addEventListener("LSAFFEventLoaded", function(e) { e.detail.init(); });
+  </script>
 </head>
 <body>
 
@@ -351,7 +356,6 @@ footer a.pp{text-decoration:underline;font-weight:700;color:var(--ink)}
 
 <script src="products.js"></script>
 <script src="assets/js/advice.js"></script>
-<script src="assets/js/details.js"></script>
 <script src="assets/js/panel.js"></script>
 <script>
 /* =====================================================================
@@ -410,6 +414,7 @@ const PRIVACY_URL = "privacy.html";
 var REDUCE = false; // keep the gentle page effects on every device
 function esc(s){ return String(s==null?"":s).replace(/[&<>"]/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c];}); }
 function linkOf(p){ if(p.link) return p.link; var s=SHOPS[p.shop||"momomi"]; return s.site+encodeURIComponent(p.h).replace(/%E2%84%A2/gi,"%E2%84%A2")+s.track; }
+function small(u){ return window.amzImg ? amzImg(u,500) : u; }
 function imgOf(p){ return /^https?:/.test(p.img) ? p.img : SHOPS[p.shop||"momomi"].img+p.img+(p.img.indexOf("?")>-1?"&":"?")+"width=600"; }
 var stageIdx = {}; AGES.forEach(function(a,i){ stageIdx[a.id]=i; });
 function fits(p, stage){
@@ -426,7 +431,7 @@ function card(p, withAge, ctx){
   var badge = withAge ? '<span class="badge'+(p.ageSrc==="ours"?' ours':'')+'">'+(p.ageSrc==="ours"?'Suggested age: ':'Ages ')+esc(p.ageText)+(p.ageSrc==="shop"?' (from the shop)':'')+'</span>' : '';
   var shop = p.store || SHOPS[p.shop||"momomi"].name;
   return '<article class="card" data-r="'+r+'" tabindex="0" role="button" aria-label="'+esc(p.name)+': see our advice"><div class="pic">'+badge+
-    '<img loading="lazy" alt="'+esc(p.name)+'" src="'+esc(imgOf(p))+'"></div><div class="body">'+
+    '<img loading="lazy" alt="'+esc(p.name)+'" src="'+esc(small(imgOf(p)))+'"></div><div class="body">'+
     '<span class="kind">'+esc(p.kind)+(withAge?' · '+shop:'')+'</span><h3>'+esc(p.name)+'</h3><p>'+esc(p.text)+'</p>'+
     '<ul>'+p.points.map(function(t){return '<li>'+esc(t)+'</li>';}).join("")+'</ul>'+
     '<span class="more">Our advice →</span>'+
@@ -551,7 +556,7 @@ var BABY_TABS = ["baby-care/","strollers/"];
 document.getElementById("typeGrid").innerHTML = typeCards(TABS.filter(function(t){ return BABY_TABS.indexOf(t.page)<0; }));
 document.getElementById("typeGridBaby").innerHTML = typeCards(TABS.filter(function(t){ return BABY_TABS.indexOf(t.page)>-1; }));
 document.getElementById("brandGrid").innerHTML = BRAND_CARDS.map(function(b){
-  return '<a class="brand" href="'+b.page+'">'+(b.img?'<div class="bpic"><img loading="lazy" alt="'+esc(b.label)+'" src="'+esc(b.img)+'"></div>':'<div class="bpic ph">'+esc(b.label)+'</div>')+
+  return '<a class="brand" href="'+b.page+'">'+(b.img?'<div class="bpic"><img loading="lazy" alt="'+esc(b.label)+'" src="'+esc(small(b.img))+'"></div>':'<div class="bpic ph">'+esc(b.label)+'</div>')+
     '<div class="bbody"><small>'+esc(b.kind)+'</small><h3>'+esc(b.label)+'</h3><p>'+esc(b.text)+'</p><div class="meta"><span>'+esc(b.count)+'</span><span class="btn sm">See '+esc(b.label)+'</span></div></div></a>';
 }).join("");
 /* ---------- mum's advisor: a box with her situation, then 3-5 questions; then products picked for her ---------- */
@@ -628,6 +633,8 @@ document.addEventListener("click",function(e){
 document.addEventListener("keydown",function(e){ if(e.key==="Escape" && advBox.classList.contains("on")) closeAdv(); });
 
 renderMom();
+// Amazon reviews arrive after the page has loaded (panel.js loads details.js)
+document.addEventListener("mami:details",function(){ renderMore(AGES[stageIdx[stage]]); });
 if(location.hash==="#mom") showTab("mom");
 document.getElementById("y").textContent=new Date().getFullYear();
 </script>

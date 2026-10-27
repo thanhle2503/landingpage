@@ -1137,6 +1137,123 @@ window.MAMI_ADVICE={
 "Big",
 "Mixed reviews, some say it goes flat"
 ]
+},
+"B0FYMPSPWC": {
+"about": "A pack of 20 single-use stickers that hold the Momcozy wearable thermometer on your child's skin.",
+"good": "You already own the Momcozy wearable digital thermometer and need fresh stickers.",
+"skip": "You don't have that thermometer: the stickers are made for it and do nothing on their own.",
+"pros": [
+"Hypoallergenic 3M material, gentle on baby skin",
+"Lets you keep watching a fever without waking your child"
+],
+"cons": [
+"Single use, Momcozy says change one about every 8 hours",
+"Some buyers say the thermometer's Bluetooth range is short"
+]
+},
+"B0DXQ6QZHX": {
+"about": "A clear, glossy lip oil for dry or cracked lips in cold weather, made for kids and adults.",
+"good": "Your child (or you) gets dry lips in winter and you want a clean, vegan formula.",
+"skip": "Your little one still puts everything in the mouth or likes to turn bottles upside down.",
+"pros": [
+"Clean, vegan ingredients, no parabens or sulfates",
+"4.6 stars, buyers say kids love it"
+],
+"cons": [
+"One buyer says it leaked when the bottle was turned upside down",
+"One buyer noticed a faint chemical smell"
+]
+},
+"B00HI32OT2": {
+"about": "A tray with 3 pockets and 2 mesh pouches that wraps around the front bar of a single or twin stroller.",
+"good": "You want snacks, a cup, wipes and keys within reach on walks, on a Valco or most other strollers.",
+"skip": "You want to carry open drinks: buyers say it tilts and can't be fixed tightly.",
+"pros": [
+"Lots of pocket space for cups, snacks and toys",
+"Fits all Valco models and most other strollers"
+],
+"cons": [
+"Buyers say it tilts on the bar",
+"Takes almost half the handlebar"
+]
+},
+"B00BCGUE3Y": {
+"about": "A replacement inner tube for 12-inch (12 1/2 x 2 1/4) stroller tyres.",
+"good": "Your stroller's 12-inch tyre went flat and you want to fix it yourself.",
+"skip": "You want a Valco-branded part: one buyer got a different brand than pictured.",
+"pros": [
+"Fixes a flat without buying a new wheel",
+"Buyers say it is easy to fit"
+],
+"cons": [
+"Only 3.5 stars from 27 ratings",
+"One buyer got a tube with a hole, another a different brand than pictured"
+]
+},
+"B00HES3CE2": {
+"about": "A full rain and wind cover for the Valco Snap 3 and Snap 4 single strollers, with a zip-off front.",
+"good": "You walk your Snap 3 or Snap 4 in rain, wind or cold.",
+"skip": "You live somewhere warm: buyers say it doesn't breathe and the inside fogs up.",
+"pros": [
+"Fits the Snap 3 and Snap 4 well",
+"Zip front for getting baby in and out"
+],
+"cons": [
+"Only 3.6 stars from 5 ratings",
+"Buyers say little airflow and thin, cheap-feeling plastic"
+]
+},
+"B00HFAK0GW": {
+"about": "A rain and wind cover for the Valco Spark and Spark Duo strollers, for bassinet and seat modes.",
+"good": "You have a Valco Spark single and need cover from rain, wind and snow.",
+"skip": "You have the twin Spark Duo: one cover comes in a pack, so you need to buy two.",
+"pros": [
+"Works in bassinet, forward and rear-facing modes",
+"One buyer says it fits the Valco perfectly"
+],
+"cons": [
+"Only 3.2 stars from just 3 ratings",
+"Sold as one cover, a buyer with a double expected two"
+]
+},
+"B07MTRQCW2": {
+"about": "A padded travel bag with a ribbed rubber base and carry handle for Valco single and twin strollers.",
+"good": "You fly with a Valco Snap Duo, Trend, NEO Twin or DUO X and want to protect it.",
+"skip": "You want to just fold and zip: the one review says the stroller only fits fully taken apart.",
+"pros": [
+"Padded fabric and a reinforced base",
+"Folds small when not in use"
+],
+"cons": [
+"Only 2.5 stars from 5 ratings, the one written review is 1 star",
+"No guide on how to pack the stroller in, and it costs $124.95"
+]
+},
+"B0CBVSQYM3": {
+"about": "A click-in stroller snack tray with a deep catch area and a small cup holder, sold one per pack.",
+"good": "You mainly want a deep tray for snacks and toys and your cups are very small.",
+"skip": "You want to hold a toddler cup or water bottle: every buyer review says the cup holder is too small.",
+"pros": [
+"Deep tray keeps snacks and toys from falling out",
+"Clicks in without tools"
+],
+"cons": [
+"1.0 star from 3 ratings, all 3 reviews say the cup holder is too small",
+"Has to come off fully for the child to climb in"
+]
+},
+"B084H26CQM": {
+"about": "An adapter that lets you put an infant car seat on the Valco Snap Duo Trend stroller.",
+"good": "You have a Snap Duo Trend and want to move a sleeping baby from the car in the car seat.",
+"skip": "You want a quick click-in: buyers say the seat sits on top and is strapped in, which takes time.",
+"pros": [
+"One buyer says it works well with a Nuna car seat",
+"Good build quality, buyers say"
+],
+"cons": [
+"Only 3.6 stars from 19 ratings",
+"Straps are fiddly and the stroller can't fold with it on"
+]
 }
 };
 window.MAMI_MUM_ITEMS=[

@@ -92,8 +92,8 @@ async function needLogin(page, ctx) {
   if (/login|sign|auth/i.test(page.url())) {
     await dump(page, "dang-nhap");
     // Google chặn đăng nhập trong Chrome bị điều khiển, nên phải đăng nhập bằng Chrome thường
-    console.log("\n>>> Chưa đăng nhập Lasso. Đóng cửa sổ này, bấm đúp dang-nhap-lasso.bat để đăng nhập, rồi chạy lại.");
-    await ctx.close(); process.exit(1);
+    console.log("\n>>> Chưa đăng nhập Lasso. Bấm đúp Dang nhap Lasso.bat, đăng nhập (bấm Login here), ĐỂ NGUYÊN cửa sổ Chrome đó, rồi chạy lại file này.");
+    process.exit(1);
   }
 }
 
@@ -214,12 +214,25 @@ function push() {
   if (have.size) log(`Trang ${SITE} đang có ${have.size} món, sẽ bỏ qua các món này.`);
 
   const profile = path.join(DIR, "chrome-profile");
-  const launch = { headless: HEADLESS, viewport: null, args: ["--lang=en-US", "--disable-features=Translate"], permissions: ["clipboard-read", "clipboard-write"] };
-  let ctx;
-  try { ctx = await chromium.launchPersistentContext(profile, { ...launch, channel: "chrome" }); }
-  catch { ctx = await chromium.launchPersistentContext(profile, launch); } // máy không có Chrome thì dùng Chromium của Playwright
+  // Ưu tiên dùng cửa sổ Chrome mở từ dang-nhap-lasso.bat (cổng 9333, đã đăng nhập Lasso).
+  // Không có thì tự mở Chrome với hồ sơ riêng (hồ sơ đó phải không đang mở ở chỗ khác).
+  let ctx, shared = false;
+  try {
+    const br = await chromium.connectOverCDP("http://127.0.0.1:9333", { timeout: 3000 });
+    ctx = br.contexts()[0]; shared = true;
+    log("Dùng cửa sổ Chrome đang mở từ Dang nhap Lasso.");
+  } catch {
+    try {
+      ctx = await chromium.launchPersistentContext(profile, { headless: HEADLESS, viewport: null, channel: "chrome", args: ["--lang=en-US", "--disable-features=Translate"] });
+    } catch (e) {
+      log("Không mở được Chrome:", String(e.message).split("\n")[0]);
+      log(">>> Hãy chạy lại Dang nhap Lasso.bat (để cửa sổ Chrome đó MỞ), rồi chạy file này.");
+      process.exit(1);
+    }
+  }
+  try { await ctx.grantPermissions(["clipboard-read", "clipboard-write"], { origin: "https://app.getlasso.co" }); } catch {}
   if (process.env.LASSO_MOCK) await ctx.route("https://app.getlasso.co/**", r => r.fulfill({ contentType: "text/html", body: fs.readFileSync(path.join(process.env.LASSO_MOCK, /\/brand\//.test(r.request().url()) ? "brand.html" : "product.html"), "utf8") })); // chỉ để thử
-  const page = ctx.pages()[0] || await ctx.newPage();
+  const page = await ctx.newPage();
   const done = new Set(rows.map(r => r.id));
 
   const todo = [];
@@ -261,7 +274,7 @@ function push() {
     await pause();
   }
   save();
-  await ctx.close();
+  if (shared) await page.close(); else await ctx.close();
   const ok = rows.filter(r => !r.skip).length;
   log(`XONG: ${rows.length} món, dùng được ${ok}, bỏ ${rows.length - ok}. File: ${OUT}`);
   if (PUSH && rows.length) push();

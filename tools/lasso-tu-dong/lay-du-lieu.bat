@@ -12,6 +12,7 @@ where git >nul 2>nul || (echo Chua co Git. Cai tu https://git-scm.com roi chay l
 echo Tai ban moi nhat cua script...
 curl -fsSL "%SRC%/pull.mjs" -o pull.mjs || (echo Khong tai duoc script. & pause & exit /b)
 curl -fsSL "%SRC%/sites.json" -o sites.json
+curl -fsSL "%SRC%/dang-nhap-lasso.bat" -o dang-nhap-lasso.bat && copy /y dang-nhap-lasso.bat "%USERPROFILE%\Desktop\Dang nhap Lasso.bat" >nul
 if not exist package.json echo {"type":"module"}> package.json
 if not exist node_modules\playwright (
   echo Cai Playwright lan dau, doi 1 chut...

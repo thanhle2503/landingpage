@@ -8,7 +8,7 @@ if not exist "%CHROME%" set "CHROME=%LocalAppData%\Google\Chrome\Application\chr
 if not exist "%CHROME%" (echo Khong tim thay Chrome. & pause & exit /b)
 echo Mo Chrome rieng cua script (Chrome binh thuong, khong bi dieu khien).
 echo 1. Dang nhap Lasso trong cua so vua mo.
-echo 2. Dang nhap xong thi DONG cua so Chrome do.
+echo 2. Bam "Login here" (KHONG bam Sign Up), dang nhap xong thi DE NGUYEN cua so Chrome do.
 echo 3. Bam dup "Lay du lieu Lasso.bat" de chay script.
-start "" "%CHROME%" --user-data-dir="%PROFILE%" --no-first-run https://app.getlasso.co/plus
+start "" "%CHROME%" --user-data-dir="%PROFILE%" --no-first-run --remote-debugging-port=9333 https://app.getlasso.co/plus
 pause

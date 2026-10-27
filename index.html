@@ -193,6 +193,7 @@ section[id]{scroll-margin-top:72px}
 .card{cursor:pointer}
 .card .more{font-size:13px;font-weight:800;color:var(--rose)}
 .type em{font-style:normal;color:var(--mut);font-size:13px;font-weight:700}
+.rv{background:var(--card);border-radius:18px;padding:16px 18px;box-shadow:var(--shadow);display:flex;flex-direction:column;gap:6px}.rv .s{color:var(--gold-d)}.rv p{color:var(--mut);font-size:14.5px;flex:1}.rv small{color:var(--mut);font-size:12.5px}.rv em{font-style:normal;font-weight:700}
 .agenotes{display:grid;grid-template-columns:1fr 1fr;gap:14px}
 .agenotes div{background:var(--card);border-radius:18px;padding:16px 18px;box-shadow:var(--shadow)}
 .agenotes b{display:block;margin-bottom:6px}
@@ -328,6 +329,7 @@ footer a.pp{text-decoration:underline;font-weight:700;color:var(--ink)}
 
 <script src="products.js"></script>
 <script src="assets/js/advice.js"></script>
+<script src="assets/js/details.js"></script>
 <script src="assets/js/panel.js"></script>
 <script>
 /* =====================================================================
@@ -475,6 +477,15 @@ function renderMore(a){
   document.getElementById("typeGridBaby").innerHTML = lines;
   document.getElementById("moreTitle").hidden = !lines;
   var n = (window.MAMI_AGE_NOTES||{})[stage];
+  // a few real Amazon reviews for products that fit this age
+  var D = window.MAMI_DETAILS||{}, revs = [];
+  window.MAMI_BABY.filter(function(p){ return p.id && fits(p,stage) && D[p.id] && D[p.id].rev && D[p.id].rev.length; }).forEach(function(p){
+    var r = D[p.id].rev.filter(function(x){ return (x.s||5)>=4; })[0]; if(r) revs.push({p:p, r:r});
+  });
+  revs = revs.slice(0,4);
+  document.getElementById("revWrap").hidden = !revs.length;
+  document.getElementById("revGrid").innerHTML = revs.map(function(x){
+    return '<div class="rv"><span class="s">'+"★★★★★".slice(0,Math.round(x.r.s||5))+'</span><b>'+esc(x.r.t)+'</b><p>'+esc(x.r.x)+'</p><small>'+esc(x.r.by)+' · on <em>'+esc(x.p.name)+'</em></small></div>'; }).join("");
   document.getElementById("notesTitle").textContent = "MamiPicks notes for "+a.label;
   document.getElementById("ageNotes").innerHTML = n ? '<div><b>What helps at this age</b><ul>'+n.tips.map(function(x){return '<li>'+esc(x)+'</li>';}).join("")+'</ul></div>'+
     '<div class="safe"><b>Safety first</b><ul>'+n.safe.map(function(x){return '<li>'+esc(x)+'</li>';}).join("")+'</ul></div>' : '';

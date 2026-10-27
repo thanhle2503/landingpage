@@ -30,6 +30,11 @@
     + '.mp-two div{background:var(--card,#fffdf8);border-radius:14px;padding:10px 12px;box-shadow:0 3px 10px -6px rgba(120,60,50,.35)}'
     + '.mp-two b{font-size:13px}.mp-two ul{margin:6px 0 0;padding-left:16px;font-size:14px;color:var(--mut,#7b5d55)}'
     + '.mp-two .pro b{color:#2d6a3a}.mp-two .con b{color:#a0482c}'
+    + '.mp-rate{font-weight:800;font-size:14px;margin:-4px 0 10px}.mp-rate span{color:#e2a238;letter-spacing:1px}.mp-rate small{color:var(--mut,#7b5d55);font-weight:600}'
+    + '.mp-rev{background:var(--card,#fffdf8);border-radius:14px;padding:10px 12px;margin-bottom:8px;box-shadow:0 3px 10px -6px rgba(120,60,50,.35)}'
+    + '.mp-rev b{display:block;font-size:14px}.mp-rev .s{color:#e2a238;font-size:13px}.mp-rev p{font-size:14px;margin:4px 0}.mp-rev small{color:var(--mut,#7b5d55);font-size:12px}'
+    + '.mp details{margin-top:12px;background:var(--card,#fffdf8);border-radius:14px;padding:10px 12px}.mp summary{font-weight:800;cursor:pointer;font-size:14px}'
+    + '.mp details ul{padding-left:18px;font-size:13.5px;color:var(--mut,#7b5d55);display:flex;flex-direction:column;gap:5px;margin:8px 0}.mp details h5{font-size:13px;margin:10px 0 0}'
     + '.mp-fine{font-size:12px!important;margin-top:12px!important}'
     + '.mp-buy{display:flex;padding:12px 22px calc(14px + env(safe-area-inset-bottom));border-top:1.5px dashed var(--line,#ecd9c6);background:var(--bg,#fbf1e4)}'
     + '.mp-buy .btn{flex:1}'
@@ -45,6 +50,7 @@
 
   function esc(s) { return String(s == null ? "" : s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/"/g, "&quot;"); }
   function money(n) { if (n == null || n === "") return ""; if (typeof n === "string") return n; return "$" + Number(n).toLocaleString("en-US", { minimumFractionDigits: Number.isInteger(+n) ? 0 : 2, maximumFractionDigits: 2 }); }
+  function stars(r) { var n = Math.round(r); return "★★★★★".slice(0, n) + "☆☆☆☆☆".slice(0, 5 - n); }
   function list(a) { return '<ul>' + a.map(function (t) { return '<li>' + esc(t) + '</li>'; }).join("") + '</ul>'; }
   var lastFocus = null;
 
@@ -57,12 +63,18 @@
     if (p.img) h += '<div class="mp-pic"><img alt="' + esc(p.name) + '" src="' + esc(p.img) + '"></div>';
     h += '<span class="mp-kind">' + esc([p.brand, p.kind].filter(Boolean).join(" · ")) + '</span><h3>' + esc(p.name) + '</h3>';
     if (p.price) h += '<div class="mp-pr">' + esc(money(p.price)) + '</div>';
+    var D = (window.MAMI_DETAILS || {})[p.key] || {};
+    if (D.r) h += '<div class="mp-rate"><span>' + stars(D.r) + '</span> ' + D.r + ' <small>· ' + Number(D.n || 0).toLocaleString("en-US") + ' ratings on Amazon</small></div>';
     if (ctx.reasons && ctx.reasons.length) h += '<div class="mp-for"><b>Why we picked it for you</b>' + ctx.reasons.map(function (r) { return '<span>' + esc(r) + '</span>'; }).join("") + '</div>';
     if (ctx.age) h += '<div class="mp-age ' + (ctx.age.fits ? 'ok">✓ A good fit for ' : 'no">Made for a different age than ') + esc(ctx.age.label) + (p.ageText ? ' · ages ' + esc(p.ageText) : '') + '</div>';
     if (A.about || p.text) h += '<p>' + esc(A.about || p.text) + '</p>';
     if (A.good) h += '<h4>Good for you if…</h4><p>' + esc(A.good) + '</p>';
     if (A.skip) h += '<h4>Maybe skip it if…</h4><p>' + esc(A.skip) + '</p>';
     if (pros.length || cons.length) h += '<div class="mp-two">' + (pros.length ? '<div class="pro"><b>What we like</b>' + list(pros) + '</div>' : '') + (cons.length ? '<div class="con"><b>Keep in mind</b>' + list(cons) + '</div>' : '') + '</div>';
+    if (D.rev && D.rev.length) h += '<h4>What buyers say on Amazon</h4>' + D.rev.map(function (r) {
+      return '<div class="mp-rev"><span class="s">' + stars(r.s || 5) + '</span><b>' + esc(r.t) + '</b><p>' + esc(r.x) + '</p><small>' + esc(r.by) + (r.d ? ' · ' + esc(r.d) : '') + '</small></div>'; }).join("");
+    if ((D.about && D.about.length) || (D.box && D.box.length)) h += '<details><summary>From the Amazon listing</summary>' +
+      (D.about && D.about.length ? list(D.about) : '') + (D.box && D.box.length ? '<h5>On the product photos</h5>' + list(D.box) : '') + '</details>';
     h += '<p class="mp-fine">MamiPicks\' own view, based on the shop\'s listing. Not medical advice: ask your doctor or midwife about supplements and health products.</p></div>';
     h += '<div class="mp-buy"><a class="btn" target="_blank" rel="sponsored noopener" href="' + esc(p.link) + '">View on ' + esc(p.store || "the shop") + '</a></div>';
     box.innerHTML = h;

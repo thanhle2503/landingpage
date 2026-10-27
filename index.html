@@ -93,7 +93,12 @@ nav.top.two a.on span{color:#fff}
 .hero-cta:hover{transform:translateY(-1px);background:var(--rose-d)}
 .hero-cta .arr{transition:transform .2s}.hero-cta:hover .arr{transform:translateY(2px)}
 .hero.mum .copy-baby,.hero.mum .age-ui,.hero:not(.mum) .copy-mum{display:none}
-.mum-lead{font-weight:700;font-size:18px;color:var(--ink);background:rgba(255,248,236,.8);padding:6px 12px;border-radius:12px}
+.mum-lead{font:inherit;font-weight:800;font-size:18px;line-height:1.3;text-align:left;cursor:pointer;color:var(--ink);background:rgba(255,253,248,.95);border:0;padding:14px 18px;border-radius:16px;display:inline-flex;align-items:center;gap:10px;
+  box-shadow:0 2px 0 rgba(160,110,80,.25),0 8px 18px -8px rgba(120,60,50,.45),0 0 0 4px rgba(246,201,95,.28);transition:transform .2s,box-shadow .2s;animation:leadGlow 2.8s ease-in-out infinite}
+.mum-lead span{color:var(--rose);transition:transform .2s}
+.mum-lead:hover{transform:translateY(-2px)}.mum-lead:hover span{transform:translateX(3px)}
+@keyframes leadGlow{0%,100%{box-shadow:0 2px 0 rgba(160,110,80,.25),0 8px 18px -8px rgba(120,60,50,.45),0 0 0 4px rgba(246,201,95,.22)}50%{box-shadow:0 2px 0 rgba(160,110,80,.25),0 8px 18px -8px rgba(120,60,50,.45),0 0 0 6px rgba(246,201,95,.45),0 0 24px 4px rgba(246,201,95,.4)}}
+@media(prefers-reduced-motion:reduce){.mum-lead{animation:none}}
 .sit{display:grid;grid-template-columns:1fr 1fr;gap:10px;width:100%}
 .sit button{font:inherit;font-weight:800;font-size:15px;text-align:left;cursor:pointer;color:var(--ink);background:rgba(255,253,248,.95);border:0;border-radius:16px;padding:12px 14px;display:flex;align-items:center;gap:10px;
   box-shadow:0 2px 0 rgba(160,110,80,.25),0 8px 16px -8px rgba(120,60,50,.4);transition:transform .2s,background .2s}
@@ -199,8 +204,27 @@ section[id]{scroll-margin-top:72px}
 .agenotes b{display:block;margin-bottom:6px}
 .agenotes ul{margin:0;padding-left:18px;color:var(--mut);display:flex;flex-direction:column;gap:6px}
 .agenotes .safe{background:#fff6e6}
-.adv{background:var(--card);border-radius:24px;padding:22px;box-shadow:var(--shadow);margin-bottom:10px}
-.adv h3{font-size:24px;margin-bottom:6px}
+.advback{position:fixed;inset:0;z-index:58;background:rgba(74,46,42,.42);backdrop-filter:blur(3px);-webkit-backdrop-filter:blur(3px);opacity:0;pointer-events:none;transition:opacity .3s}
+.advback.on{opacity:1;pointer-events:auto}
+.advbox{position:fixed;z-index:59;left:50%;top:50%;width:min(580px,calc(100% - 32px));max-height:86svh;overflow:auto;background:var(--card);border-radius:26px;box-shadow:0 30px 60px -20px rgba(90,40,30,.55);
+  transform:translate(-50%,-46%) scale(.96);opacity:0;pointer-events:none;transition:transform .35s cubic-bezier(.2,.8,.3,1.1),opacity .25s}
+.advbox.on{transform:translate(-50%,-50%) scale(1);opacity:1;pointer-events:auto}
+.advbox .advx{position:absolute;top:14px;right:14px;font:inherit;font-size:20px;line-height:1;width:38px;height:38px;border-radius:50%;border:0;background:var(--bg);color:var(--ink);cursor:pointer;box-shadow:0 3px 10px rgba(120,60,50,.18)}
+.adv{padding:26px 24px 24px}
+.adv .opts.sitopts{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.adv .opts.sitopts button{text-align:left;display:flex;align-items:center;gap:10px}
+.adv .sitopts i{font-size:20px}
+@media(max-width:760px){.advbox{left:0;right:0;top:auto;bottom:0;width:100%;max-height:88svh;border-radius:24px 24px 0 0;transform:translateY(105%);opacity:1}
+  .advbox.on{transform:translateY(0)}.adv{padding:30px 18px calc(22px + env(safe-area-inset-bottom,0px))}
+  .advbox:before{content:"";position:absolute;top:8px;left:50%;width:42px;height:5px;margin-left:-21px;border-radius:3px;background:var(--line)}}
+.badge.best{background:var(--gold);color:var(--ink)}
+.why{font-size:13.5px;font-weight:700;color:var(--rose-d);background:var(--rose-l);border-radius:10px;padding:6px 10px}
+.advhead{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:10px}
+.advhead .sub{margin-bottom:6px}
+.advhead button{font:inherit;font-weight:800;cursor:pointer;border:1.5px solid var(--line);background:var(--card);color:var(--ink);border-radius:12px;padding:8px 14px}
+.adv h3{font-size:24px;margin:2px 44px 6px 0}
+.adv .step{display:block;padding-right:46px}
+#advOut{scroll-margin-top:80px}
 .adv .step{color:var(--mut);font-weight:700;font-size:13px;text-transform:uppercase;letter-spacing:.06em}
 .adv .opts{display:flex;flex-wrap:wrap;gap:10px;margin-top:12px}
 .adv .opts i{font-style:normal;margin-right:8px}
@@ -209,7 +233,7 @@ section[id]{scroll-margin-top:72px}
 .adv .nav{display:flex;gap:14px;margin-top:14px}
 .adv .nav button{font:inherit;font-weight:700;background:none;border:0;color:var(--mut);cursor:pointer;text-decoration:underline}
 .adv .dots{display:flex;gap:6px;margin:10px 0 2px}.adv .dots i{width:26px;height:6px;border-radius:3px;background:var(--line)}.adv .dots i.on{background:var(--rose)}
-.adv .caution{background:var(--peach);border-radius:12px;padding:10px 14px;margin-top:12px;font-size:14px;color:#7a4a2a}
+.caution{background:var(--peach);border-radius:12px;padding:10px 14px;margin-top:12px;font-size:14px;color:#7a4a2a}
 @media(max-width:760px){.agenotes{grid-template-columns:1fr}.sit{grid-template-columns:1fr 1fr}.sit button{font-size:14px;padding:10px 12px}.mum-lead{font-size:16px}}
 
 footer{padding-block:34px;color:var(--mut);font-size:13px;background:var(--paper);box-shadow:0 -1px 0 #fff inset,0 -6px 18px -12px rgba(120,60,50,.3)}
@@ -246,8 +270,7 @@ footer a.pp{text-decoration:underline;font-weight:700;color:var(--ink)}
     </div>
     <div class="copy copy-mum">
       <h1>Look after you, too</h1>
-      <p class="mum-lead">Tell us where you are, and we'll pick what helps.</p>
-      <div class="sit" id="sitHero"></div>
+      <button type="button" class="mum-lead" id="advOpen">Tell us where you are, and we'll pick what helps <span aria-hidden="true">→</span></button>
     </div>
     <div class="copy copy-baby">
       <h1>From first cuddle to first day of school</h1>
@@ -290,14 +313,11 @@ footer a.pp{text-decoration:underline;font-weight:700;color:var(--ink)}
   </div>
 
   <div id="pane-mom" hidden>
-    <div class="intro">
-      <h2>For <em>mum</em></h2>
-      <p>From trying for a baby to nursing and recovery. Tell us where you are, or tap any product for our honest take.</p>
-    </div>
-    <div class="adv" id="adv"></div>
     <div id="advOut" hidden>
-      <h3 class="sub" id="advTitle">Picked for you</h3>
+      <div class="advhead"><h3 class="sub" id="advTitle">Picked for you</h3><button type="button" data-restart>↻ Start over</button></div>
+      <div id="advNote"></div>
       <div class="grid" id="advGrid"></div>
+      <div id="advMoreWrap" hidden><h3 class="sub">More that fit</h3><div class="grid" id="advMore"></div></div>
     </div>
     <h3 class="sub">Shop by need</h3>
     <div class="types" id="typeGrid"></div>
@@ -311,6 +331,8 @@ footer a.pp{text-decoration:underline;font-weight:700;color:var(--ink)}
     <p class="note">Prices are in USD from amaanahealth.com and momomiworld.com and may change.</p>
   </div>
 </div></section>
+<div class="advback" id="advBack"></div>
+<div class="advbox" id="advBox" role="dialog" aria-modal="true" aria-label="Your MamiPicks advisor"><button type="button" class="advx" data-close aria-label="Close">×</button><div class="adv" id="adv"></div></div>
 <section id="brands"><div class="wrap">
   <div class="intro">
     <h2>Shop by <em>brand</em></h2>
@@ -532,23 +554,41 @@ document.getElementById("brandGrid").innerHTML = BRAND_CARDS.map(function(b){
   return '<a class="brand" href="'+b.page+'">'+(b.img?'<div class="bpic"><img loading="lazy" alt="'+esc(b.label)+'" src="'+esc(b.img)+'"></div>':'<div class="bpic ph">'+esc(b.label)+'</div>')+
     '<div class="bbody"><small>'+esc(b.kind)+'</small><h3>'+esc(b.label)+'</h3><p>'+esc(b.text)+'</p><div class="meta"><span>'+esc(b.count)+'</span><span class="btn sm">See '+esc(b.label)+'</span></div></div></a>';
 }).join("");
-/* ---------- mum's advisor: situation, then 3-4 questions, then products picked for her ---------- */
+/* ---------- mum's advisor: a box with her situation, then 3-5 questions; then products picked for her ---------- */
 var ADV = window.MAMI_ADVISOR || [], adv = {sit:null, step:0, ans:[]};
 function sitHTML(){ return ADV.map(function(s){ return '<button type="button" data-sit="'+s.id+'"><i aria-hidden="true">'+s.icon+'</i>'+esc(s.label)+'</button>'; }).join(""); }
 function sitOf(id){ return ADV.filter(function(s){ return s.id===id; })[0]; }
+var advBox = document.getElementById("advBox"), advBack = document.getElementById("advBack"), advLast = null;
+function openAdv(){
+  adv = {sit:null, step:0, ans:[]}; renderAdv(); advLast = document.activeElement;
+  advBack.classList.add("on"); advBox.classList.add("on"); document.documentElement.style.overflow = "hidden";
+  setTimeout(function(){ var b = advBox.querySelector("[data-sit]"); if(b) b.focus(); }, 60);
+}
+function closeAdv(){
+  advBack.classList.remove("on"); advBox.classList.remove("on"); document.documentElement.style.overflow = "";
+  if(advLast && advLast.focus) advLast.focus();
+}
 function renderAdv(){
   var el = document.getElementById("adv"), s = sitOf(adv.sit);
-  document.querySelectorAll("#sitHero button").forEach(function(b){ b.classList.toggle("on", b.dataset.sit===adv.sit); });
   if(!s){ el.innerHTML = '<span class="step">Your MamiPicks advisor</span><h3>Where are you right now?</h3><div class="opts sitopts">'+sitHTML()+'</div>'; return; }
-  if(adv.step < s.qs.length){
-    var q = s.qs[adv.step];
-    el.innerHTML = '<span class="step">'+esc(s.icon+" "+s.label)+' · question '+(adv.step+1)+' of '+s.qs.length+'</span>'+
-      '<div class="dots">'+s.qs.map(function(_,i){ return '<i class="'+(i<=adv.step?'on':'')+'"></i>'; }).join("")+'</div>'+
-      '<h3>'+esc(q.q)+'</h3><div class="opts">'+q.opts.map(function(o,i){ return '<button type="button" data-ans="'+i+'">'+esc(o.l)+'</button>'; }).join("")+'</div>'+
-      '<div class="nav">'+(adv.step?'<button type="button" data-back>← Back</button>':'')+'<button type="button" data-reset>Start over</button></div>';
-    return;
-  }
-  // score every product in this situation by the tags of the answers
+  var q = s.qs[adv.step];
+  el.innerHTML = '<span class="step">'+esc(s.icon+" "+s.label)+' · question '+(adv.step+1)+' of '+s.qs.length+'</span>'+
+    '<div class="dots">'+s.qs.map(function(_,i){ return '<i class="'+(i<=adv.step?'on':'')+'"></i>'; }).join("")+'</div>'+
+    '<h3>'+esc(q.q)+'</h3><div class="opts">'+q.opts.map(function(o,i){ return '<button type="button" data-ans="'+i+'">'+esc(o.l)+'</button>'; }).join("")+'</div>'+
+    '<div class="nav"><button type="button" data-back>← Back</button></div>';
+  if(window.gsap && !REDUCE) gsap.fromTo(el.children,{x:18,autoAlpha:0},{x:0,autoAlpha:1,duration:.3,ease:"power2.out",stagger:.03});
+}
+function pickCard(x, best){
+  var it = x.it, ad = (window.MAMI_ADVICE||{})[it.id]||{};
+  var p = {id:it.id, name:it.name, kind:it.brand+" · "+it.kind, img:it.img, link:it.link, store:it.store,
+    price: it.price ? "$"+(+it.price).toFixed(2).replace(/\.00$/,"") : "", text: ad.about||"", points:(ad.pros||[]).slice(0,2)};
+  var h = card(p,false,{reasons:x.why});
+  if(best) h = h.replace('<div class="pic">','<div class="pic"><span class="badge best">★ Best match</span>');
+  if(x.why.length) h = h.replace('<ul>','<span class="why">For you: '+esc(x.why.join(" · "))+'</span><ul>');
+  return h;
+}
+// score every product in this situation by the tags of the answers
+function showPicks(s){
   var picked = [], caution = false;
   s.qs.forEach(function(q,i){ var o = q.opts[adv.ans[i]]; if(o){ picked.push(o); if(o.t.indexOf("caution")>-1) caution = true; } });
   var pool = (window.MAMI_MUM_ITEMS||[]).filter(function(it){ return it.tags.some(function(x){ return s.pool.indexOf(x)>-1; }); });
@@ -559,33 +599,33 @@ function renderAdv(){
   }).sort(function(a,b){ return b.n-a.n || (a.it.price||0)-(b.it.price||0); });
   var seen = {};
   scored = scored.filter(function(x){ if(seen[x.it.name]) return false; seen[x.it.name]=1; return true; });
-  var top = scored.filter(function(x){ return x.n>0; }).slice(0,6);
-  if(top.length<3) top = scored.slice(0,6);
-  el.innerHTML = '<span class="step">'+esc(s.icon+" "+s.label)+' · done</span><h3>Here is what we would pick for you</h3>'+
-    '<p style="color:var(--mut)">Tap a product to see why, and its pros and cons for your situation.</p>'+
-    (caution?'<p class="caution">Pregnant or breastfeeding? Check with your doctor or midwife before starting any supplement. Matcha contains caffeine.</p>':'')+
-    '<div class="nav"><button type="button" data-back>← Change my last answer</button><button type="button" data-reset>Start over</button></div>';
-  var A = window.MAMI_ADVICE||{};
-  document.getElementById("advGrid").innerHTML = top.map(function(x){
-    var it = x.it, ad = A[it.id]||{};
-    var p = {id:it.id, name:it.name, kind:it.brand+" · "+it.kind, img:it.img, link:it.link, store:it.store,
-      price: it.price ? "$"+(+it.price).toFixed(2).replace(/\.00$/,"") : "", text: ad.about||"", points:(ad.pros||[]).slice(0,2)};
-    return card(p,false,{reasons:x.why});
-  }).join("");
+  var top = scored.slice(0,6), more = scored.slice(6);
+  document.getElementById("advTitle").textContent = "Picked for you: "+s.label.toLowerCase();
+  document.getElementById("advNote").innerHTML = '<p class="note" style="margin:0 0 14px">Tap a product to see why it fits, and its pros and cons.</p>'+
+    (caution?'<p class="caution">Pregnant or breastfeeding? Check with your doctor or midwife before starting any supplement. Matcha contains caffeine.</p>':'');
+  document.getElementById("advGrid").innerHTML = top.map(function(x){ return pickCard(x,true); }).join("");
+  document.getElementById("advMore").innerHTML = more.map(function(x){ return pickCard(x,false); }).join("");
+  document.getElementById("advMoreWrap").hidden = !more.length;
   document.getElementById("advOut").hidden = false;
-  reveal(document.getElementById("advGrid"));
-  document.getElementById("advOut").scrollIntoView({behavior:REDUCE?"auto":"smooth", block:"start"});
+  closeAdv(); showTab("mom");
+  reveal(document.getElementById("advGrid")); reveal(document.getElementById("advMore"));
+  setTimeout(function(){ document.getElementById("advOut").scrollIntoView({behavior:REDUCE?"auto":"smooth", block:"start"}); }, 80);
 }
+document.getElementById("advOpen").addEventListener("click", openAdv);
 document.addEventListener("click",function(e){
-  var b = e.target.closest("[data-sit]");
-  if(b){ adv = {sit:b.dataset.sit, step:0, ans:[]}; document.getElementById("advOut").hidden = true; showTab("mom"); renderAdv();
-    document.getElementById("adv").scrollIntoView({behavior:REDUCE?"auto":"smooth", block:"center"}); return; }
-  if(e.target.closest("#adv [data-ans]")){ adv.ans[adv.step] = +e.target.closest("[data-ans]").dataset.ans; adv.step++; renderAdv(); return; }
-  if(e.target.closest("#adv [data-back]")){ adv.step = Math.max(0, adv.step-1); document.getElementById("advOut").hidden = true; renderAdv(); return; }
-  if(e.target.closest("#adv [data-reset]")){ adv = {sit:null, step:0, ans:[]}; document.getElementById("advOut").hidden = true; renderAdv(); }
+  var t = e.target;
+  if(t.closest("[data-restart]")){ openAdv(); return; }
+  if(t.closest("#advBox [data-close]") || t===advBack){ closeAdv(); return; }
+  var b = t.closest("#adv [data-sit]");
+  if(b){ adv = {sit:b.dataset.sit, step:0, ans:[]}; renderAdv(); return; }
+  if(t.closest("#adv [data-ans]")){
+    var s = sitOf(adv.sit); adv.ans[adv.step] = +t.closest("[data-ans]").dataset.ans; adv.step++;
+    if(adv.step >= s.qs.length) showPicks(s); else renderAdv();
+    return;
+  }
+  if(t.closest("#adv [data-back]")){ if(adv.step) adv.step--; else adv.sit = null; renderAdv(); }
 });
-document.getElementById("sitHero").innerHTML = sitHTML();
-renderAdv();
+document.addEventListener("keydown",function(e){ if(e.key==="Escape" && advBox.classList.contains("on")) closeAdv(); });
 
 renderMom();
 if(location.hash==="#mom") showTab("mom");

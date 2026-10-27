@@ -5206,7 +5206,10 @@
   "lassoLink": "https://lasso.to/amazon/eBSYt9ek6m",
   "amazonLink": "https://www.amazon.com/dp/B0FJLY53Y2",
   "images": [
-   "https://m.media-amazon.com/images/I/01RmK+J4pJL._AC_.gif"
+   "https://m.media-amazon.com/images/I/71JRFqdX-mL._AC_SL1500_.jpg",
+   "https://m.media-amazon.com/images/I/71kjQvIwCNL._AC_SL1500_.jpg",
+   "https://m.media-amazon.com/images/I/71MisW3tvWL._AC_SL1500_.jpg",
+   "https://m.media-amazon.com/images/I/71+RXbg5rpL._AC_SL1500_.jpg"
   ],
   "about": [
    "[Ergonomic Comfort and MaxSupport]",
@@ -5240,7 +5243,8 @@
     "name": "Honest Reviews",
     "date": "Reviewed in the United States on November 24, 2025"
    }
-  ]
+  ],
+  "imagesFrom": "B0FJLY5SLR (same CozyLite pillow, Cloudhug colour)"
  },
  {
   "id": "B0FBWP7T2J",

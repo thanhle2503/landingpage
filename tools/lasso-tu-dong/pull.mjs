@@ -15,25 +15,44 @@ const PLACEHOLDER = "01RmK+J4pJL"; // ảnh "không có ảnh" của Amazon
 // ---------- tham số ----------
 const argv = process.argv.slice(2);
 const arg = (k, d) => { const i = argv.indexOf("--" + k); return i < 0 ? d : (argv[i + 1] && !argv[i + 1].startsWith("--") ? argv[i + 1] : true); };
-const SITE = arg("site", null);
-if (!SITES[SITE]) { console.log("Thiếu --site, chọn một trong: " + Object.keys(SITES).join(", ")); process.exit(1); }
-const CFG = SITES[SITE] || { brands: [] };
-const BRANDS = arg("brands") ? String(arg("brands")).split(",").map(s => s.trim()).filter(Boolean) : CFG.brands;
-const MAX = Number(arg("max", 0)) || 0;          // tối đa mỗi hãng (0 = tất cả)
+// trang, hãng, số món: lấy từ tham số, thiếu thì hỏi sau khi đã đăng nhập Lasso
+let SITE = arg("site", null), CFG, BRANDS, MAX, OUT, REPO_DIR;
+// món có đúng hãng không: tên hãng (bỏ dấu cách, ký tự lạ) phải nằm trong chữ của thẻ sản phẩm
+const norm = t => String(t || "").toLowerCase().replace(/[^a-z0-9]/g, "");
+// thẻ Lasso có dòng "By <Hãng>"; thẻ "Sponsored" là quảng cáo hãng khác
+const matchBrand = (text, brand) => {
+  if (/^\s*Sponsored\b/i.test(text)) return false;
+  const by = (String(text).match(/\|\s*By ([^|]+)\|/) || [])[1];
+  if (by) return norm(by).startsWith(norm(brand)) || norm(brand).startsWith(norm(by));
+  return norm(text).includes(norm(brand));
+};
+const splitBrands = v => String(v || "").split(",").map(s => s.trim()).filter(Boolean);
 const GETLINK = !arg("no-getlink", false);
 const PUSH = !arg("no-push", false);
 const ALL = !!arg("all", false);                 // lấy cả món đã có trên trang
 const HEADLESS = !!arg("headless", false);
 const DATE = new Date().toISOString().slice(0, 10);
 const OUT_DIR = path.join(DIR, "out");
-const OUT = path.join(OUT_DIR, `${SITE}-${DATE}.json`);
-const REPO_DIR = path.join(DIR, "repos", SITE);
+function setSite(site, brands, max) {
+  SITE = site; CFG = SITES[site];
+  // gõ "frida" thì đổi thành đúng tên "Frida" trong danh sách
+  BRANDS = brands.length ? brands.map(b => CFG.brands.find(x => norm(x) === norm(b)) || b) : CFG.brands;
+  MAX = Number(max) || 0;                         // tối đa mỗi hãng (0 = tất cả)
+  OUT = path.join(OUT_DIR, `${SITE}-${DATE}.json`);
+  REPO_DIR = path.join(DIR, "repos", SITE);
+  rows = fs.existsSync(OUT) ? JSON.parse(fs.readFileSync(OUT, "utf8")) : [];
+  // bỏ các món lấy nhầm hãng ở lần chạy trước
+  const before = rows.length;
+  rows = rows.filter(r => matchBrand(r.lassoCard + " " + r.name, r.brand));
+  if (rows.length < before) { log(`Bỏ ${before - rows.length} món lấy nhầm hãng ở lần chạy trước.`); save(); }
+}
 
 // ảnh Amazon cỡ nhỏ -> cỡ lớn (bỏ đoạn ._AC_US40_. v.v.)
 const bigImg = u => u.replace(/\._[^/]*_\.(jpg|png|webp)$/i, "._AC_SL1500_.$1");
 const sleep = ms => new Promise(r => setTimeout(r, ms));
 const pause = () => sleep(1500 + Math.random() * 2000);
-const ask = q => new Promise(r => { const rl = readline.createInterface({ input: process.stdin, output: process.stdout }); rl.question(q, a => { rl.close(); r(a); }); });
+let RL;
+const ask = q => new Promise(r => { RL ||= readline.createInterface({ input: process.stdin, output: process.stdout }); RL.question(q, r); });
 // mọi dòng đều ghi thêm vào out/nhat-ky.txt để xem lại khi có lỗi
 const LOGF = path.join(DIR, "out", "nhat-ky.txt");
 fs.mkdirSync(path.dirname(LOGF), { recursive: true });
@@ -45,7 +64,7 @@ const sh = (cmd, cwd) => execSync(cmd, { cwd, stdio: "pipe", encoding: "utf8" })
 
 // ---------- lưu dần (chạy lại thì làm tiếp chỗ dở) ----------
 fs.mkdirSync(OUT_DIR, { recursive: true });
-let rows = fs.existsSync(OUT) ? JSON.parse(fs.readFileSync(OUT, "utf8")) : [];
+let rows = [];
 const save = () => {
   fs.writeFileSync(OUT, JSON.stringify(rows, null, 1));
   fs.writeFileSync(OUT.replace(/\.json$/, ".csv"), toCsv(rows), "utf8");
@@ -86,15 +105,25 @@ function asinsOnSite() {
 }
 
 // ---------- Lasso ----------
+const onLogin = u => /getlasso\.co\/(login|signup|sign|auth)|login\.getlasso|accounts\.google/i.test(u);
 async function needLogin(page, ctx) {
   await page.goto("https://app.getlasso.co/plus", { waitUntil: "domcontentloaded" });
   await sleep(3000);
-  if (/login|sign|auth/i.test(page.url())) {
-    await dump(page, "dang-nhap");
-    // Google chặn đăng nhập trong Chrome bị điều khiển, nên phải đăng nhập bằng Chrome thường
-    console.log("\n>>> Chưa đăng nhập Lasso. Bấm đúp Dang nhap Lasso.bat, đăng nhập (bấm Login here), ĐỂ NGUYÊN cửa sổ Chrome đó, rồi chạy lại file này.");
-    process.exit(1);
+  if (!onLogin(page.url())) { log("Đã đăng nhập Lasso."); return; }
+  await dump(page, "dang-nhap");
+  console.log("\n>>> Hãy ĐĂNG NHẬP Lasso trong cửa sổ Chrome vừa mở (bấm \"Login here\", KHÔNG bấm Sign Up).");
+  console.log(">>> Đăng nhập xong cứ để nguyên, script tự kiểm tra mỗi 5 giây...");
+  for (let i = 0; i < 180; i++) {                // chờ tối đa 15 phút
+    await sleep(5000);
+    const ok = ctx.pages().some(p => /app\.getlasso\.co/.test(p.url()) && !onLogin(p.url()));
+    if (ok) {
+      await page.goto("https://app.getlasso.co/plus", { waitUntil: "domcontentloaded" }).catch(() => {});
+      await sleep(3000);
+      if (!onLogin(page.url())) { log("Đã đăng nhập Lasso."); return; }
+    }
   }
+  log(">>> Chờ quá 15 phút mà chưa đăng nhập. Chạy lại file khi sẵn sàng.");
+  process.exit(1);
 }
 
 async function brandProducts(page, brand) {
@@ -136,9 +165,12 @@ async function dump(page, name) {
 }
 
 function parseCard(t) {
-  const money = [...t.matchAll(/\$\s?([\d,]+(?:\.\d+)?)/g)].map(m => Number(m[1].replace(/,/g, "")));
+  // giá trên thẻ Lasso dạng "$ | 22 | 98" (= $22.98), hoặc "$22.98"
+  const m = t.match(/\$\s*\|\s*([\d,]+)\s*\|\s*(\d{2})(?![\d.%])/) || t.match(/\$\s?([\d,]+)\.(\d{2})/);
+  const price = m ? Number(m[1].replace(/,/g, "") + "." + m[2]) : null;
   const pct = t.match(/([\d.]+)\s?%/);
-  return { price: money[0] ?? null, estCommission: money.length > 1 ? money[money.length - 1] : null, commissionPct: pct ? Number(pct[1]) : null };
+  const commissionPct = pct ? Number(pct[1]) : null;
+  return { price, commissionPct, estCommission: price && commissionPct ? Math.round(price * commissionPct) / 100 : null };
 }
 
 const LASSO_RE = /https:\/\/lasso\.to\/[A-Za-z0-9/_-]+/;
@@ -209,9 +241,6 @@ function push() {
 
 // ---------- chạy ----------
 (async () => {
-  prepareRepo();
-  const have = ALL ? new Set() : asinsOnSite();
-  if (have.size) log(`Trang ${SITE} đang có ${have.size} món, sẽ bỏ qua các món này.`);
 
   const profile = path.join(DIR, "chrome-profile");
   // Ưu tiên dùng cửa sổ Chrome mở từ dang-nhap-lasso.bat (cổng 9333, đã đăng nhập Lasso).
@@ -220,30 +249,50 @@ function push() {
   try {
     const br = await chromium.connectOverCDP("http://127.0.0.1:9333", { timeout: 3000 });
     ctx = br.contexts()[0]; shared = true;
-    log("Dùng cửa sổ Chrome đang mở từ Dang nhap Lasso.");
+    log("Đã kết nối cửa sổ Chrome Lasso.");
   } catch {
     try {
       ctx = await chromium.launchPersistentContext(profile, { headless: HEADLESS, viewport: null, channel: "chrome", args: ["--lang=en-US", "--disable-features=Translate"] });
     } catch (e) {
       log("Không mở được Chrome:", String(e.message).split("\n")[0]);
-      log(">>> Hãy chạy lại Dang nhap Lasso.bat (để cửa sổ Chrome đó MỞ), rồi chạy file này.");
+      log(">>> Đóng cửa sổ Chrome Lasso đang mở (nếu có) rồi chạy lại file này.");
       process.exit(1);
     }
   }
   try { await ctx.grantPermissions(["clipboard-read", "clipboard-write"], { origin: "https://app.getlasso.co" }); } catch {}
   if (process.env.LASSO_MOCK) await ctx.route("https://app.getlasso.co/**", r => r.fulfill({ contentType: "text/html", body: fs.readFileSync(path.join(process.env.LASSO_MOCK, /\/brand\//.test(r.request().url()) ? "brand.html" : "product.html"), "utf8") })); // chỉ để thử
-  const page = await ctx.newPage();
+  const page = ctx.pages().find(p => /getlasso/.test(p.url())) || await ctx.newPage();
+  await needLogin(page, ctx);
+
+  // đăng nhập xong mới hỏi trang, hãng, số món
+  let site = SITE, brands = splitBrands(arg("brands")), max = arg("max", 0);
+  if (!SITES[site]) {
+    console.log("");
+    while (!SITES[site]) site = (await ask(`Trang nao? (${Object.keys(SITES).join(" / ")}): `)).trim().toLowerCase();
+    console.log("Hang co san cho " + site + ": " + SITES[site].brands.join(", "));
+    brands = splitBrands(await ask("Lay hang nao? (Enter = tat ca hang tren, hoac go vd: Momcozy,Frida): "));
+    max = (await ask("Moi hang lay toi da bao nhieu mon moi? (Enter = tat ca): ")).trim();
+  }
+  RL?.close();
+  setSite(site, brands, max);
+  log("Trang", SITE, "| hang:", BRANDS.join(", "), "| toi da:", MAX || "tat ca");
+  prepareRepo();
+  const have = ALL ? new Set() : asinsOnSite();
+  if (have.size) log(`Trang ${SITE} đang có ${have.size} món, sẽ bỏ qua các món này.`);
   const done = new Set(rows.map(r => r.id));
 
   const todo = [];
   {
-    await needLogin(page, ctx);
     for (const brand of BRANDS) {
       log("Hãng", brand, "...");
       let list = [];
       try { list = await brandProducts(page, brand); } catch (e) { log("  lỗi trang hãng:", e.message.split("\n")[0]); }
       list = list.map(p => ({ ...p, brand, ...parseCard(p.cardText) }));
       list.sort((a, b) => (b.estCommission ?? 0) - (a.estCommission ?? 0));
+      // trang hãng của Lasso còn gợi ý sản phẩm hãng khác ở dưới: chỉ giữ đúng hãng
+      const other = list.filter(p => !matchBrand(p.cardText + " " + p.name, brand)).length;
+      list = list.filter(p => matchBrand(p.cardText + " " + p.name, brand));
+      if (other) log(`  bỏ ${other} món của hãng khác (Lasso gợi ý).`);
       const fresh = list.filter(p => !have.has(p.id));
       const pick = MAX ? fresh.slice(0, MAX) : fresh;
       log(`  ${list.length} sản phẩm trên Lasso, ${list.length - fresh.length} đã có trên trang, lấy ${pick.length}.`);
@@ -269,13 +318,15 @@ function push() {
     // tự bỏ món không dùng được (không cần hỏi lại)
     if (!r.lassoLink) r.skip = "không có link Lasso";
     else if (!r.images.length) r.skip = "không có ảnh";
+    if (/has been closed|Target closed/i.test(r.note)) { log("Chrome đã bị đóng, dừng lại và lưu những món đã lấy."); break; }
     rows.push(r); done.add(r.id); save();
     log(`   ${r.skip ? "BỎ (" + r.skip + ")" : "OK"}  ${r.name.slice(0, 60)}  ảnh:${r.images.length}`);
     await pause();
   }
   save();
-  if (shared) await page.close(); else await ctx.close();
+  if (!shared) await ctx.close();
   const ok = rows.filter(r => !r.skip).length;
   log(`XONG: ${rows.length} món, dùng được ${ok}, bỏ ${rows.length - ok}. File: ${OUT}`);
   if (PUSH && rows.length) push();
+  process.exit(0);                               // không đóng cửa sổ Chrome Lasso của bạn
 })().catch(e => { log("LỖI:", e && e.stack || e); process.exit(1); });

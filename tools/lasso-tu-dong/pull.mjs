@@ -34,7 +34,13 @@ const bigImg = u => u.replace(/\._[^/]*_\.(jpg|png|webp)$/i, "._AC_SL1500_.$1");
 const sleep = ms => new Promise(r => setTimeout(r, ms));
 const pause = () => sleep(1500 + Math.random() * 2000);
 const ask = q => new Promise(r => { const rl = readline.createInterface({ input: process.stdin, output: process.stdout }); rl.question(q, a => { rl.close(); r(a); }); });
+// mọi dòng đều ghi thêm vào out/nhat-ky.txt để xem lại khi có lỗi
+const LOGF = path.join(DIR, "out", "nhat-ky.txt");
+fs.mkdirSync(path.dirname(LOGF), { recursive: true });
+const _cl = console.log;
+console.log = (...a) => { _cl(...a); try { fs.appendFileSync(LOGF, a.join(" ") + "\n"); } catch {} };
 const log = (...a) => console.log(new Date().toTimeString().slice(0, 8), ...a);
+log("===== bắt đầu", process.argv.slice(2).join(" "));
 const sh = (cmd, cwd) => execSync(cmd, { cwd, stdio: "pipe", encoding: "utf8" }).trim();
 
 // ---------- lưu dần (chạy lại thì làm tiếp chỗ dở) ----------
@@ -84,6 +90,7 @@ async function needLogin(page, ctx) {
   await page.goto("https://app.getlasso.co/plus", { waitUntil: "domcontentloaded" });
   await sleep(3000);
   if (/login|sign|auth/i.test(page.url())) {
+    await dump(page, "dang-nhap");
     // Google chặn đăng nhập trong Chrome bị điều khiển, nên phải đăng nhập bằng Chrome thường
     console.log("\n>>> Chưa đăng nhập Lasso. Đóng cửa sổ này, bấm đúp dang-nhap-lasso.bat để đăng nhập, rồi chạy lại.");
     await ctx.close(); process.exit(1);
@@ -103,6 +110,7 @@ async function brandProducts(page, brand) {
     await page.mouse.wheel(0, 4000);
     await sleep(1500);
   }
+  if (!last) await dump(page, "hang-" + brand);
   return page.evaluate(() => {
     // ghép chữ của từng ô nhỏ bằng " | " để giá và % không dính vào nhau
     const leafText = el => [...el.querySelectorAll("*")].filter(e => !e.children.length).map(e => e.textContent.replace(/\s+/g, " ").trim()).filter(Boolean).join(" | ");
@@ -119,6 +127,12 @@ async function brandProducts(page, brand) {
     }
     return [...out.values()];
   });
+}
+
+// lưu ảnh chụp + chữ của trang để mình xem vì sao không đọc được
+async function dump(page, name) {
+  const f = path.join(OUT_DIR, "loi-" + name.replace(/[^a-z0-9-]+/gi, "_"));
+  try { await page.screenshot({ path: f + ".png" }); fs.writeFileSync(f + ".txt", page.url() + "\n\n" + (await page.evaluate(() => document.body.innerText)).slice(0, 5000)); log("  đã lưu", f + ".png/.txt"); } catch {}
 }
 
 function parseCard(t) {
@@ -145,7 +159,7 @@ async function getLink(page, asin) {
     if (!GETLINK) return { note: "chưa có link (đã tắt Get Link)" };
     // CHỈ bấm "Get link" đúng 1 lần. Không bao giờ bấm "Save for later".
     const btn = page.getByRole("button", { name: /^\s*get\s*link\s*$/i }).first();
-    if (!(await btn.count())) return { note: "không thấy nút Get link" };
+    if (!(await btn.count())) { await dump(page, "getlink-" + asin); return { note: "không thấy nút Get link" }; }
     await btn.click();
     for (let i = 0; i < 15; i++) {
       await sleep(1000);
@@ -251,4 +265,4 @@ function push() {
   const ok = rows.filter(r => !r.skip).length;
   log(`XONG: ${rows.length} món, dùng được ${ok}, bỏ ${rows.length - ok}. File: ${OUT}`);
   if (PUSH && rows.length) push();
-})().catch(e => { console.error("LỖI:", e); process.exit(1); });
+})().catch(e => { log("LỖI:", e && e.stack || e); process.exit(1); });

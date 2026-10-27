@@ -80,11 +80,13 @@ function asinsOnSite() {
 }
 
 // ---------- Lasso ----------
-async function needLogin(page) {
+async function needLogin(page, ctx) {
   await page.goto("https://app.getlasso.co/plus", { waitUntil: "domcontentloaded" });
   await sleep(3000);
   if (/login|sign|auth/i.test(page.url())) {
-    await ask("\n>>> Hãy ĐĂNG NHẬP Lasso trong cửa sổ Chrome vừa mở, xong quay lại đây bấm Enter... ");
+    // Google chặn đăng nhập trong Chrome bị điều khiển, nên phải đăng nhập bằng Chrome thường
+    console.log("\n>>> Chưa đăng nhập Lasso. Đóng cửa sổ này, bấm đúp dang-nhap-lasso.bat để đăng nhập, rồi chạy lại.");
+    await ctx.close(); process.exit(1);
   }
 }
 
@@ -208,7 +210,7 @@ function push() {
 
   const todo = [];
   {
-    await needLogin(page);
+    await needLogin(page, ctx);
     for (const brand of BRANDS) {
       log("Hãng", brand, "...");
       let list = [];

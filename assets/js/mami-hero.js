@@ -120,7 +120,7 @@ const LB = {
   },
   strip(ctx,path,w,color){
     // paper strip: shadow, darker lower edge, lighter upper edge, body
-    const [t,x]=mkCanvas(); x.lineCap='round'; x.lineJoin='round'; x.setTransform(ctx.getTransform());
+    const [t,x]=mkCanvas(ctx.canvas.width/DPR,ctx.canvas.height/DPR); x.lineCap='round'; x.lineJoin='round'; x.setTransform(ctx.getTransform());
     x.strokeStyle=color; x.lineWidth=w; x.stroke(path);
     x.globalCompositeOperation='source-atop';
     x.save(); x.translate(-.8,1.6); x.strokeStyle='rgba(90,40,30,.2)'; x.lineWidth=w; x.stroke(path); x.restore();
@@ -128,8 +128,9 @@ const LB = {
     x.strokeStyle=color; x.lineWidth=w-3.4; x.stroke(path);
     ctx.save(); ctx.setTransform(1,0,0,1,0,0); ctx.shadowColor='rgba(120,60,50,.30)'; ctx.shadowBlur=9*DPR; ctx.shadowOffsetX=2.5*DPR; ctx.shadowOffsetY=5*DPR; ctx.drawImage(t,0,0); ctx.restore();
   },
-  part(def){
-    const [c,ctx]=mkCanvas(), pal=this.pal;
+  part(def,b){
+    const [c,ctx]=b?mkCanvas(b.w,b.h):mkCanvas(), pal=this.pal;
+    if(b) ctx.translate(-b.x,-b.y);
     ctx.save(); applyTf(ctx,def.tf);
     for(const it of def.items){
       if(it.f==='blush'){ ctx.save(); ctx.globalAlpha=.45; ctx.fillStyle=pal.blush; ctx.fill(it.p); ctx.restore(); continue; }
@@ -468,10 +469,17 @@ function trim(c){
   const o=document.createElement('canvas'); o.width=x1-x0; o.height=y1-y0; o.getContext('2d').drawImage(c,-x0,-y0);
   return {img:o,x:x0/DPR,y:y0/DPR,w:o.width/DPR,h:o.height/DPR};
 }
+// a part's bounds don't depend on resolution: find them once on a small canvas, then draw each part at full size into a canvas just its size
+const BOX=new Map();
+function boxOf(def){
+  if(BOX.has(def)) return BOX.get(def);
+  const keep=DPR; DPR=.5; const s=trim(LB.part(def)); DPR=keep;
+  const b=s&&{x:Math.floor(s.x-2),y:Math.floor(s.y-2),w:Math.ceil(s.w+4),h:Math.ceil(s.h+4)}; BOX.set(def,b); return b;
+}
 function buildPose(i){
   if(sprites[i]) return sprites[i];
   const pose=POSES[i], spr={};
-  pose.order.forEach(n=>{ spr[n]=trim(LB.part(pose.parts[n])); });
+  pose.order.forEach(n=>{ const d=pose.parts[n]; const b=boxOf(d); spr[n]=b&&{img:LB.part(d,b),x:b.x,y:b.y,w:b.w,h:b.h}; });
   return sprites[i]=spr;
 }
 function queueSprites(){

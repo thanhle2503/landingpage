@@ -6,6 +6,7 @@
   function $(id) { return document.getElementById(id); }
   function money(n) { return "$" + Number(n).toLocaleString("en-US", { minimumFractionDigits: Number.isInteger(+n) ? 0 : 2, maximumFractionDigits: 2 }); }
   function esc(s) { return String(s == null ? "" : s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/"/g, "&quot;"); }
+  function small(u) { return window.amzImg ? window.amzImg(u, 500) : u; }
   function cell(v) {
     if (v === true) return '<span class="y">✓</span>';
     if (v === false) return '<span class="n">✗</span>';
@@ -79,7 +80,7 @@
     function side(i) {
       var p = byId[hsel[i]];
       $("xSide" + i).innerHTML = '<select aria-label="Choose a product" data-side="' + i + '">' + options(p.id) + '</select>' +
-        '<a class="pc-img"' + EXT + ' href="' + esc(p.link) + '">' + (p.img ? '<img alt="' + esc(p.name) + '" src="' + esc(p.img) + '">' : '') + '</a>' +
+        '<a class="pc-img"' + EXT + ' href="' + esc(p.link) + '">' + (p.img ? '<img alt="' + esc(p.name) + '" src="' + esc(small(p.img)) + '">' : '') + '</a>' +
         '<div class="pc-brand">' + esc(B[p.brand].name) + '</div>' +
         '<div class="pc-name">' + esc(p.short || p.name) + '</div><div class="pc-price">' + (p.price ? money(p.price) : '') + '</div>' +
         '<a class="btn sm"' + EXT + ' href="' + esc(p.link) + '">' + esc(B[p.brand].cta || "See price") + '</a>';
@@ -118,7 +119,7 @@
       }).join("");
       return '<div class="card xcard" data-id="' + esc(p.id) + '" data-brand="' + p.brand + '" data-type="' + typeOf(p) + '"' + (window.MamiPanel ? ' tabindex="0" role="button"' : '') + '>' +
         (window.MamiPanel ? '<div class="thumb' + (p.img ? '' : ' noimg') + '">' : '<a class="thumb' + (p.img ? '' : ' noimg') + '"' + EXT + ' href="' + esc(p.link) + '">') + (badge ? '<span class="badge">' + esc(badge) + '</span>' : '') +
-        (p.img ? '<img loading="lazy" alt="' + esc(p.name) + '" src="' + esc(p.img) + '" onerror="this.remove()">' : '') + (window.MamiPanel ? '</div>' : '</a>') +
+        (p.img ? '<img loading="lazy" alt="' + esc(p.name) + '" src="' + esc(small(p.img)) + '" onerror="this.remove()">' : '') + (window.MamiPanel ? '</div>' : '</a>') +
         '<div class="body"><span class="kind">' + esc(b.name) + (p.kind ? ' · ' + esc(p.kind) : '') + '</span><h4>' + esc(p.short || p.name) + '</h4>' +
         (p.points && p.points.length ? '<ul>' + p.points.map(function (t) { return '<li>' + esc(t) + '</li>'; }).join("") + '</ul>' : '<ul></ul>') +
         (p.rating ? '<div class="rate"><span>' + stars(p.rating) + '</span> ' + p.rating + ' · ' + Number(p.reviews || 0).toLocaleString("en-US") + ' reviews</div>' : '') +

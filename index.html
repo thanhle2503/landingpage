@@ -646,7 +646,8 @@ if(!document.getElementById("pane-mom").hidden && window.MamiHero) MamiHero.setM
 if(window.gsap && !REDUCE){
   gsap.from(".hero .copy > *",{y:22,autoAlpha:0,duration:.8,ease:"power3.out",stagger:.12,delay:.2});
   gsap.from(".hero .age-ui",{y:20,autoAlpha:0,duration:.7,ease:"power3.out",delay:.6});
-  gsap.from(".ages button",{y:10,autoAlpha:0,duration:.4,ease:"back.out(2)",stagger:.05,delay:.3});
+  // fromTo + clearProps: the chips always end level, with no leftover transform to fight their CSS hover/transition
+  gsap.fromTo(".ages button",{y:10,autoAlpha:0},{y:0,autoAlpha:1,duration:.4,ease:"back.out(2)",stagger:.05,delay:.3,clearProps:"transform,opacity,visibility"});
 }
 </script>
 </body>

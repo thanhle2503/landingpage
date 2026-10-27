@@ -14,6 +14,14 @@
   gtag('js', new Date());
   gtag('config', 'AW-18429283112');
 </script>
+<script>
+  // count clicks on buy links (Lasso/Amazon and brand shops) as an Ads conversion
+  document.addEventListener('click', function (e) {
+    var a = e.target.closest && e.target.closest('a[href]');
+    if (!a || !/(^|\.)(lasso\.to|amazon\.com|amzn\.to|amaanahealth\.com|momomiworld\.com)$/.test(a.hostname)) return;
+    gtag('event', 'conversion', {'send_to': 'AW-18429283112/99lcCLumwasdEKiW4tNE', 'transport_type': 'beacon'});
+  }, true);
+</script>
 <link rel="canonical" href="https://mom.goldenpasss.com/nursing-wear/">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>

@@ -1,0 +1,18 @@
+{
+  "mom": {
+    "repo": "thanhle2503/landingpage",
+    "brands": ["Momcozy", "MomMed", "Frida", "Kindred Bravely", "Evereden", "Valco Baby", "Perelel", "FullWell"]
+  },
+  "knife": {
+    "repo": "thanhle2503/landingpage-knife",
+    "brands": ["Work Sharp", "Dalstrong", "Made In", "Huusk", "Victorinox"]
+  },
+  "pet": {
+    "repo": "thanhle2503/landingpage-pet",
+    "brands": ["Zesty Paws", "JustFoodForDogs", "Native Pet", "Litter-Robot", "Embark"]
+  },
+  "toolcars": {
+    "repo": "thanhle2503/landingpage-tool-car",
+    "brands": ["Innova", "ROVE"]
+  }
+}

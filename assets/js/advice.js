@@ -643,6 +643,500 @@ window.MAMI_ADVICE={
 "cons": [
 "Not a newborn bassinet"
 ]
+},
+"B07P13MMR5": {
+"about": "A clip-on bassinet for the Valco Trend Duo double stroller.",
+"good": "You own or plan to buy the Trend Duo and want your newborn to lie flat on walks.",
+"skip": "You have a different stroller; it only fits the Trend Duo.",
+"pros": [
+"Lets a newborn lie fully flat",
+"Turns the double into a newborn-ready stroller"
+],
+"cons": [
+"Only fits one stroller model",
+"Few reviews so far"
+]
+},
+"B0CBT76F9J": {
+"about": "Puncture-free all-terrain wheels for the Valco Slim Twin and Neo Twin.",
+"good": "You walk on gravel, grass or bumpy paths and want a smoother ride without air tyres.",
+"skip": "Your stroller is not a Slim Twin or Neo Twin, or you only walk on smooth pavement.",
+"pros": [
+"Air-tyre feel with no flats",
+"Comes in a storage bag with strap"
+],
+"cons": [
+"Only fits two Valco models",
+"Pricey for a wheel set"
+]
+},
+"B0H2J63JRY": {
+"about": "A single-to-double-to-wagon stroller with carrycot and toddler seat, 23 set-ups.",
+"good": "You expect a second baby soon and want one stroller that grows with the family.",
+"skip": "You want a light stroller for travel or small car boots; this is big and very new with almost no reviews.",
+"pros": [
+"Carrycot and seat in the box",
+"Large wheels for bumpy ground"
+],
+"cons": [
+"Expensive",
+"Only one review so far, and it was poor"
+]
+},
+"B0GHNPCNCM": {
+"about": "A carry-on size travel stroller, 14.3 lb, one-hand fold, 3 recline positions.",
+"good": "You fly or drive a lot and want a small stroller that still has a comfy seat for a toddler.",
+"skip": "Your baby is a newborn who needs to lie flat; pick a stroller with a carrycot.",
+"pros": [
+"Folds small enough for the plane",
+"4-wheel suspension and UPF 50+ canopy"
+],
+"cons": [
+"Not lie-flat for newborns",
+"Smaller basket than full-size strollers"
+]
+},
+"B0D1K6694L": {
+"about": "A light airmesh carrier for newborns from 7 to 24 lb, with neck support.",
+"good": "You want to carry a small baby close in the first months and keep both hands free.",
+"skip": "Your baby is already heavy or you want one carrier into the toddler years.",
+"pros": [
+"Snug fit for tiny babies",
+"Cool mesh for warm days"
+],
+"cons": [
+"Outgrown at about 24 lb"
+]
+},
+"B0DDXZ2NMD": {
+"about": "An air-mesh carrier from 7 to 45 lb with an X-shaped back strap.",
+"good": "You want one carrier from the newborn weeks into the toddler years, and it gets hot where you live.",
+"skip": "You mainly carry an older baby on your hip; a hip-seat carrier is easier.",
+"pros": [
+"Grows with baby to 45 lb",
+"Stays cool in summer"
+],
+"cons": [
+"Few reviews so far"
+]
+},
+"B0DSNXWQ33": {
+"about": "A 2-in-1 carrier with a detachable hip seat, 6 positions, 7–44 lb.",
+"good": "Your baby is 5 months or older, loves to look around, and you take long walks.",
+"skip": "You have a newborn; a soft newborn carrier fits better at first.",
+"pros": [
+"Hip seat takes weight off your shoulders",
+"Put on alone with Velcro belt"
+],
+"cons": [
+"Bulkier than a soft carrier"
+]
+},
+"B0DSPBF6Y4": {
+"about": "The same 2-in-1 hip seat carrier, another colour.",
+"good": "Your baby is 5 months or older and you want a hip seat for long walks.",
+"skip": "You have a newborn; start with a soft newborn carrier.",
+"pros": [
+"Hip seat takes weight off your shoulders",
+"Wide seat for a healthy M-position"
+],
+"cons": [
+"Bulkier than a soft carrier"
+]
+},
+"B0DSP23G39": {
+"about": "The 2-in-1 hip seat carrier in an all-season fabric.",
+"good": "You want the hip seat carrier at a slightly lower price.",
+"skip": "You have a newborn; start with a soft newborn carrier.",
+"pros": [
+"Lower price for the same design",
+"Hip seat comes off"
+],
+"cons": [
+"Bulkier than a soft carrier"
+]
+},
+"B0CHLX2GBP": {
+"about": "A retractable mesh gate for openings up to 118 in, 41 in tall, one-hand lock.",
+"good": "Your baby has started crawling and you need to block a wide opening or stairs.",
+"skip": "You need a gate for the top of stairs and want a fixed, screwed-in metal gate.",
+"pros": [
+"Rolls away when not in use",
+"Fits very wide openings"
+],
+"cons": [
+"Needs screws into the wall",
+"Mesh can be climbed by bigger toddlers"
+]
+},
+"B0F2MJNSRQ": {
+"about": "A 5.5 in video monitor with two cameras on a split screen, no WiFi needed.",
+"good": "You want to watch two rooms or two children and prefer a monitor that does not use WiFi.",
+"skip": "You want to check baby from your phone when you are away; this works only with its own screen.",
+"pros": [
+"Split screen for two rooms",
+"Works without WiFi or an app"
+],
+"cons": [
+"Some buyers had connection drops",
+"Pricey"
+]
+},
+"B0FFN1RJ8V": {
+"about": "A countertop machine that washes, sterilises and dries bottles and pump parts.",
+"good": "You bottle-feed or pump every day and washing parts by hand wears you out.",
+"skip": "You only use a bottle now and then; a basic steam steriliser costs much less.",
+"pros": [
+"Saves time every day",
+"Fits wearable pump parts too"
+],
+"cons": [
+"Expensive",
+"Takes counter space"
+]
+},
+"B0DX2LLQH4": {
+"about": "Three fragrance-free baby face creams: gel, silk and rich, for different weather.",
+"good": "You are not sure which texture suits your baby's skin, or the weather changes a lot.",
+"skip": "You already know one cream works for your baby; buy just that one.",
+"pros": [
+"Try three textures at once",
+"Fragrance-free for newborns"
+],
+"cons": [
+"Costs more than one cream"
+]
+},
+"B08KTV5WL2": {
+"about": "Unscented baby massage oil plus face cream, as a bundle.",
+"good": "You do baby massage after the bath and want a face cream for dry cheeks too.",
+"skip": "Your baby has eczema; look at the eczema cream instead.",
+"pros": [
+"Two daily basics in one buy",
+"Good for sensitive skin"
+],
+"cons": [
+"Oil can be messy on clothes"
+]
+},
+"B095Z3HXMJ": {
+"about": "Baby face cream plus 100% mineral zinc oxide SPF 30 sunscreen.",
+"good": "Your baby is over 6 months and you spend time outdoors.",
+"skip": "Your baby is under 6 months; keep them in the shade instead of using sunscreen.",
+"pros": [
+"Mineral sunscreen, no harsh filters",
+"Covers moisture and sun"
+],
+"cons": [
+"Mineral sunscreen can leave a white cast"
+]
+},
+"B0DP5DBNLX": {
+"about": "Steroid-free eczema cream plus baby face cream, fragrance-free.",
+"good": "Your baby has dry, red or eczema-prone patches and you want a gentle option.",
+"skip": "The rash is spreading, weeping or not improving; see your doctor first.",
+"pros": [
+"No steroids",
+"Family can use it too"
+],
+"cons": [
+"Very few reviews",
+"Not a replacement for medical care"
+]
+},
+"B0DGLJJL8D": {
+"about": "Kids face wash, face cream and tinted lip oil, ages 3+.",
+"good": "Your 3+ child wants to copy your routine and you want something gentle.",
+"skip": "Your child has very sensitive skin and you prefer fragrance-free.",
+"pros": [
+"Fun for kids to use",
+"Gentle on all skin types"
+],
+"cons": [
+"Scented"
+]
+},
+"B0FVG564RS": {
+"about": "Unscented kids face wash, cream and mineral SPF 30, ages 4+.",
+"good": "Your child is 4+ and plays outside a lot; you want sun care in the routine.",
+"skip": "Your child is under 4.",
+"pros": [
+"Sunscreen included",
+"Unscented"
+],
+"cons": [
+"Three steps can be a lot for little ones"
+]
+},
+"B0DJPBK5W9": {
+"about": "Kids shampoo, conditioner, detangling spray and brush, ages 3+.",
+"good": "Hair brushing is a daily fight and your child has long or curly hair.",
+"skip": "Your child has short hair; a simple shampoo is enough.",
+"pros": [
+"Makes knots easier to brush",
+"Loved by buyers, 4.8 stars"
+],
+"cons": [
+"Pricey for hair care"
+]
+},
+"B0D6NFSL44": {
+"about": "Clay shampoo for after swimming or sport, plus 2-in-1 conditioner, ages 3+.",
+"good": "Your child swims often and their hair gets dry and tangled.",
+"skip": "Your child rarely swims; a regular gentle shampoo is enough.",
+"pros": [
+"Made for chlorine hair",
+"Conditioner can be left in"
+],
+"cons": [
+"Few reviews so far"
+]
+},
+"B0DX2J3NL8": {
+"about": "Kids citrus body wash plus tear-free shampoo and conditioner, ages 3+.",
+"good": "You want one bath-time set for body and hair.",
+"skip": "Your child has very sensitive skin and you prefer fragrance-free.",
+"pros": [
+"Covers the whole bath",
+"Foam pump kids can use"
+],
+"cons": [
+"Scented",
+"New, no reviews yet"
+]
+},
+"B0DX2GLHP4": {
+"about": "Kids body wash, shampoo, conditioner, detangling spray and brush, ages 3+.",
+"good": "You want the whole bath and hair routine in one box.",
+"skip": "You only need a shampoo; the smaller duo costs less.",
+"pros": [
+"Everything for bath and hair",
+"Good as a gift"
+],
+"cons": [
+"Expensive",
+"New, no reviews yet"
+]
+},
+"B0DNK9K15Z": {
+"about": "Kids detangling spray, cloud face wash and SPF 20 mineral face cream.",
+"good": "Mornings are rushed and you want hair and face done in two minutes.",
+"skip": "Your child is under 3.",
+"pros": [
+"Morning routine in one set",
+"Mineral sun cream"
+],
+"cons": [
+"Few reviews so far"
+]
+},
+"B0D6NJGS2V": {
+"about": "Kids shampoo, conditioner, face wash and SPF 20 multi-vitamin cream.",
+"good": "You want to start a full hair and face routine for a 3+ child in one buy.",
+"skip": "You only need one or two of these items.",
+"pros": [
+"Full routine in one box",
+"Clean, vegan formulas"
+],
+"cons": [
+"Expensive"
+]
+},
+"B0F8W4K7DG": {
+"about": "Kids shampoo, conditioner, detangler, face wash and SPF 20 cream.",
+"good": "You want the full Evereden kids range as a set or a gift.",
+"skip": "You are on a budget; buy the pieces you need.",
+"pros": [
+"Covers hair and face",
+"Nice as a gift"
+],
+"cons": [
+"Expensive",
+"New, no reviews yet"
+]
+},
+"B0F8W4WQ22": {
+"about": "The full kids hair and skin bundle plus after-swim shampoo.",
+"good": "Your child swims and you want everything in one big set.",
+"skip": "You only need a few items.",
+"pros": [
+"Most complete set",
+"Covers swimming days"
+],
+"cons": [
+"Most expensive set",
+"New, no reviews yet"
+]
+},
+"B0FZKWQYHB": {
+"about": "A gift set with kids face wash, cream, hair care and tinted lip oil.",
+"good": "You need a birthday or holiday gift for a child who loves 'grown-up' routines.",
+"skip": "You want only everyday basics; this is a gift box.",
+"pros": [
+"Ready to give",
+"Gentle, non-comedogenic"
+],
+"cons": [
+"Expensive"
+]
+},
+"B0CY2TMWG8": {
+"about": "Face wash, face cream and SPF 30 for kids and tweens.",
+"good": "You have an older child (school age) starting a simple daily routine.",
+"skip": "Your child is a toddler; this is sized for older kids.",
+"pros": [
+"Simple 3-step routine",
+"Sunscreen included"
+],
+"cons": [
+"Mixed reviews, 3.8 stars"
+]
+},
+"B0HGYZRNS6": {
+"about": "A 10-in-1 travel-size skincare and hair kit for ages 8 to 12.",
+"good": "You have a tween who wants skincare, and you want gentle basics with no retinol or toner.",
+"skip": "Your child is under 8.",
+"pros": [
+"Only what tweens need",
+"Travel sizes in a zip bag"
+],
+"cons": [
+"Small sizes run out fast"
+]
+},
+"B0FC3P4PCQ": {
+"about": "A teen face wash, light cream and toner pads for blemish-prone skin.",
+"good": "You have a teen with spots who wants a gentle routine.",
+"skip": "Your child is younger than about 12.",
+"pros": [
+"Helps with blemishes",
+"Light, not greasy"
+],
+"cons": [
+"Toner pads may be strong for very dry skin"
+]
+},
+"B0D4QYP5G7": {
+"about": "A pair of hands-free wearable pumps, 3 modes and 9 levels, only 4 parts to wash.",
+"good": "You pump at work or on the go and want to keep your hands free.",
+"skip": "You need to pump a lot of milk every session; a hospital-grade pump empties better.",
+"pros": [
+"Fits in your bra, no tubes",
+"Few parts, quick to clean"
+],
+"cons": [
+"Smaller cups than a regular pump",
+"Suction can feel weaker for some"
+]
+},
+"B0FJLY53Y2": {
+"about": "A memory-foam nursing pillow with a raised guard so baby stays in place.",
+"good": "You breastfeed or bottle-feed several times a night and your arms and back get sore.",
+"skip": "You rarely sit to feed.",
+"pros": [
+"Supports baby at breast height",
+"Raised guard keeps baby in place"
+],
+"cons": [
+"Never let baby sleep on it"
+]
+},
+"B0FYPYVRW4": {
+"about": "A soft knit wrap that covers you while you feed or pump and doubles as a shawl.",
+"good": "You feed in public in autumn or winter and want warmth and privacy.",
+"skip": "It is hot where you live; a light muslin cover is cooler.",
+"pros": [
+"Full coverage",
+"Wear it as a shawl"
+],
+"cons": [
+"Warm, not for summer"
+]
+},
+"B09ZY11Y5R": {
+"about": "A full-coverage wireless nursing bra with side support for bigger busts.",
+"good": "You have a bigger bust and want more support while nursing without wires.",
+"skip": "You want a light bralette for sleep.",
+"pros": [
+"Fixed cups that don't roll",
+"Cooling fabric"
+],
+"cons": [
+"Not as soft as a bralette"
+]
+},
+"B0DX73P5DY": {
+"about": "A seamless postpartum belly wrap with lift and back support.",
+"good": "Your tummy and back feel weak after birth and you want gentle support under clothes.",
+"skip": "You had a C-section and your wound is still healing; ask your midwife when to start.",
+"pros": [
+"Back support and gentle lift",
+"Thin, hides under clothes"
+],
+"cons": [
+"Sizing needs care"
+]
+},
+"B08R5TM4RW": {
+"about": "A botanical belly oil and stretch-mark cream, safe in pregnancy and breastfeeding.",
+"good": "You want a full routine for a growing belly, oil at night and cream in the day.",
+"skip": "You prefer one product; the cream alone costs less.",
+"pros": [
+"Oil and cream together",
+"Made for pregnancy"
+],
+"cons": [
+"Expensive"
+]
+},
+"B07W7L1Q1Y": {
+"about": "A peptide and botanical stretch-mark cream for pregnancy and after.",
+"good": "Your belly is itchy and stretching and you want a gentle daily cream.",
+"skip": "Your marks are old and silver; creams help less then.",
+"pros": [
+"Soothes itching",
+"Safe while pregnant or breastfeeding"
+],
+"cons": [
+"Can't stop marks for everyone"
+]
+},
+"B0HC2JV3HN": {
+"about": "A thin, breathable pregnancy belly band that lifts the bump and supports the lower back.",
+"good": "Your back or hips ache when you stand or walk in the second or third trimester.",
+"skip": "You have sharp pain; talk to your midwife first.",
+"pros": [
+"Thin under clothes",
+"Many reviews, 4.1 stars"
+],
+"cons": [
+"Can feel warm"
+]
+},
+"B0H6QRPFPD": {
+"about": "A racerback belly band made for twin, multiple or fast-growing bumps.",
+"good": "You are expecting twins or your bump is big and pulls on your back.",
+"skip": "You have a small bump; a lighter band is enough.",
+"pros": [
+"Strong lift for big bumps",
+"Straps spread weight to shoulders"
+],
+"cons": [
+"More to put on"
+]
+},
+"B0GVY2B5MH": {
+"about": "A U-shaped full-body pillow with a removable cooling cover.",
+"good": "You can't get comfy in bed and you sleep hot.",
+"skip": "Your bed is small; a U pillow takes a lot of space.",
+"pros": [
+"Supports back, belly and legs",
+"Cooling cover comes off to wash"
+],
+"cons": [
+"Big",
+"Mixed reviews, some say it goes flat"
+]
 }
 };
 window.MAMI_MUM_ITEMS=[
@@ -1171,6 +1665,172 @@ window.MAMI_MUM_ITEMS=[
 "bf",
 "collect",
 "budget"
+]
+},
+{
+"id": "B0FFN1RJ8V",
+"name": "Momcozy KleanPal Pro Bottle Washer",
+"img": "https://m.media-amazon.com/images/I/61L5DS9KzvL._AC_SL1500_.jpg",
+"link": "https://lasso.to/amazon/nttdW3Ouna",
+"price": 299.99,
+"brand": "Momcozy",
+"kind": "Bottle washer sterilizer",
+"store": "Amazon",
+"tags": [
+"bf",
+"bottle",
+"work",
+"newborn",
+"premium"
+]
+},
+{
+"id": "B0D4QYP5G7",
+"name": "Momcozy S12 Pro Wearable Breast Pump",
+"img": "https://m.media-amazon.com/images/I/71Vn0SOaLQL._AC_SL1500_.jpg",
+"link": "https://lasso.to/amazon/iQFDchA5l1",
+"price": 111.99,
+"brand": "Momcozy",
+"kind": "Wearable breast pump",
+"store": "Amazon",
+"tags": [
+"bf",
+"pump",
+"work",
+"active"
+]
+},
+{
+"id": "B0FJLY53Y2",
+"name": "Momcozy Safety Guard Nursing Pillow",
+"img": "https://m.media-amazon.com/images/I/71JRFqdX-mL._AC_SL1500_.jpg",
+"link": "https://lasso.to/amazon/eBSYt9ek6m",
+"price": 59.99,
+"brand": "Momcozy",
+"kind": "Nursing pillow",
+"store": "Amazon",
+"tags": [
+"bf",
+"newborn",
+"night"
+]
+},
+{
+"id": "B0FYPYVRW4",
+"name": "Momcozy Knit Nursing Cover",
+"img": "https://m.media-amazon.com/images/I/81wesiogy6L._AC_SL1500_.jpg",
+"link": "https://lasso.to/amazon/uy6QhYN3KY",
+"price": 59.99,
+"brand": "Momcozy",
+"kind": "Nursing cover",
+"store": "Amazon",
+"tags": [
+"bf",
+"active",
+"clothes"
+]
+},
+{
+"id": "B09ZY11Y5R",
+"name": "Momcozy Busty Nursing Bra",
+"img": "https://m.media-amazon.com/images/I/71OHBGXDynL._AC_SL1500_.jpg",
+"link": "https://lasso.to/amazon/77KtO9lm4e",
+"price": 55.99,
+"brand": "Momcozy",
+"kind": "Nursing bra",
+"store": "Amazon",
+"tags": [
+"bf",
+"preg",
+"bra"
+]
+},
+{
+"id": "B0DX73P5DY",
+"name": "Momcozy Ergowrap Postpartum Belly Band",
+"img": "https://m.media-amazon.com/images/I/81TXbltTXRL._AC_SL1500_.jpg",
+"link": "https://lasso.to/amazon/fu20VHBZUL",
+"price": 79.99,
+"brand": "Momcozy",
+"kind": "Postpartum belly band",
+"store": "Amazon",
+"tags": [
+"newborn",
+"recover",
+"clothes"
+]
+},
+{
+"id": "B08R5TM4RW",
+"name": "Evereden Belly Oil & Stretch Mark Cream",
+"img": "https://m.media-amazon.com/images/I/61olLpu9HqL._SL1500_.jpg",
+"link": "https://lasso.to/amazon/zuEFmacggh",
+"price": 79.2,
+"brand": "Evereden",
+"kind": "Stretch-mark oil + cream",
+"store": "Amazon",
+"tags": [
+"preg",
+"self",
+"skin",
+"premium"
+]
+},
+{
+"id": "B07W7L1Q1Y",
+"name": "Evereden Stretch Mark Cream",
+"img": "https://m.media-amazon.com/images/I/51Z6oxow44L._SL1500_.jpg",
+"link": "https://lasso.to/amazon/aTKdhkJAuY",
+"price": 49.0,
+"brand": "Evereden",
+"kind": "Stretch-mark cream",
+"store": "Amazon",
+"tags": [
+"preg",
+"self",
+"skin"
+]
+},
+{
+"id": "B0HC2JV3HN",
+"name": "Momcozy CozySupport Pregnancy Belly Band",
+"img": "https://m.media-amazon.com/images/I/61Tfq5ElrSL._SL1500_.jpg",
+"link": "https://lasso.to/amazon/jRiBGkIU8m",
+"price": 59.99,
+"brand": "Momcozy",
+"kind": "Pregnancy belly band",
+"store": "Amazon",
+"tags": [
+"preg",
+"legs"
+]
+},
+{
+"id": "B0H6QRPFPD",
+"name": "Momcozy Go As You Grow Belly Band (Twins)",
+"img": "https://m.media-amazon.com/images/I/612rcw5uM2L._SL1500_.jpg",
+"link": "https://lasso.to/amazon/akrnnXFy3e",
+"price": 69.99,
+"brand": "Momcozy",
+"kind": "Twin pregnancy belly band",
+"store": "Amazon",
+"tags": [
+"preg",
+"premium"
+]
+},
+{
+"id": "B0GVY2B5MH",
+"name": "Momcozy U-Shaped Pregnancy Pillow",
+"img": "https://m.media-amazon.com/images/I/71U9lKVJOaL._AC_SL1500_.jpg",
+"link": "https://lasso.to/amazon/tkyu1Gyr0X",
+"price": 69.99,
+"brand": "Momcozy",
+"kind": "Pregnancy pillow",
+"store": "Amazon",
+"tags": [
+"preg",
+"night"
 ]
 }
 ];

@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%23fbe3cf'/%3E%3Cpath d='M32 10l6.6 14.4 15.6 1.2-11.8 10.4 3.6 15.4L32 43.2l-14 8.2 3.6-15.4L9.8 25.6l15.6-1.2z' fill='%23f6c95f' stroke='%23e2a238' stroke-width='2' stroke-linejoin='round'/%3E%3C/svg%3E">
 <title>Postpartum &amp; body care Compared: Frida vs Evereden | MamiPicks</title>
-<meta name="description" content="Frida Mom postpartum recovery and Evereden stretch-mark care side by side.">
+<meta name="description" content="Frida Mom postpartum recovery, Evereden stretch-mark care and Momcozy belly bands and pregnancy pillow side by side.">
 <link rel="canonical" href="https://mom.goldenpasss.com/postpartum/">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -30,10 +30,10 @@
 <main>
 <section class="hero"><div class="wrap">
   <div>
-    <span class="tag" data-hero>Recovery after birth and stretch-mark care</span>
+    <span class="tag" data-hero>Pregnancy support, recovery after birth and stretch-mark care</span>
     <h1 data-hero>Postpartum care</h1>
-    <p data-hero>Postpartum pads and recovery kits from Frida Mom, and stretch-mark masks and ampoules from Evereden.</p>
-    <span class="updated" data-hero>Updated <time datetime="2026-10-25">October 25, 2026</time> · prices from each brand's store and Amazon listings</span>
+    <p data-hero>Postpartum pads and recovery kits from Frida Mom, stretch-mark creams, oils and masks from Evereden, and belly bands and a pregnancy pillow from Momcozy.</p>
+    <span class="updated" data-hero>Updated <time datetime="2026-10-27">October 27, 2026</time> · prices from each brand's store and Amazon listings</span>
     <div class="cta" data-hero>
       <a class="btn" href="#xShop">See products</a>
     </div>
@@ -79,7 +79,7 @@
   <p><b>Amazon Associates:</b> As an Amazon Associate, MamiPicks earns from qualifying purchases. Amazon and the Amazon logo are trademarks of Amazon.com, Inc. or its affiliates. Product prices and availability are accurate as of the date shown and may change; the price and availability shown on Amazon at the time of purchase apply to that purchase.</p>
   <p>MamiPicks is an independent site and is not the official website of Frida and Evereden. Brand names, images and product names belong to their owners. Nothing here is medical advice; ask your doctor or midwife before starting a supplement in pregnancy or while breastfeeding.</p>
   <p><a class="pp" href="../privacy.html">Privacy Policy</a></p>
-  <p>Last updated: <time datetime="2026-10-25">October 25, 2026</time></p>
+  <p>Last updated: <time datetime="2026-10-27">October 27, 2026</time></p>
   <p>© <span id="y">2026</span> MamiPicks</p>
 </div></footer>
 
@@ -97,7 +97,8 @@
    ===================================================================== */
 const BRANDS = [
  {"id": "frida", "name": "Frida", "sub": "Sold on Amazon", "store": "Amazon", "cta": "See on Amazon", "best": "Postpartum recovery kits and pads", "lineup": "Recovery kits, cooling pad liners, maxi pads"},
- {"id": "evereden", "name": "Evereden", "sub": "Sold on Amazon", "store": "Amazon", "cta": "See on Amazon", "best": "Stretch-mark care in pregnancy", "lineup": "Belly mask, stretch-mark ampoules"}
+ {"id": "evereden", "name": "Evereden", "sub": "Sold on Amazon", "store": "Amazon", "cta": "See on Amazon", "best": "Stretch-mark care in pregnancy", "lineup": "Belly mask, stretch-mark ampoules"},
+ {"id": "momcozy", "name": "Momcozy", "sub": "Sold on Amazon", "store": "Amazon", "cta": "See on Amazon", "best": "Support for bump and back", "lineup": "Belly bands, pregnancy pillow, postpartum wrap"}
 ];
 const BRAND_ROWS = [{"key": "best", "label": "Best for"}, {"key": "lineup", "label": "Range"}, {"key": "range", "label": "Price range"}, {"key": "count", "label": "Products here"}, {"key": "store", "label": "Where to buy"}];
 const SPECS = [];
@@ -106,14 +107,21 @@ const PRESETS = [
 ];
 const CATS = [
  {"id": "rec", "title": "Postpartum recovery"},
- {"id": "body", "title": "Stretch-mark care"}
+ {"id": "body", "title": "Stretch-mark care"},
+ {"id": "preg", "title": "Pregnancy support"}
 ];
 const ITEMS = [
  {"id": "B0D33ZKS1W", "brand": "frida", "cat": "rec", "kind": "Postpartum recovery kit", "name": "Frida Mom Postpartum Recovery Essentials Kit + Frida Baby Essentials Kit", "short": "Frida Mom Postpartum Recovery Essentials Kit + Frida Baby…", "price": 77.46, "img": "https://m.media-amazon.com/images/I/61dNYI6tLqL._AC_SL1500_.jpg", "link": "https://lasso.to/amazon/GhuBIsUVwW"},
  {"id": "B0CZ7MSLPC", "brand": "frida", "cat": "rec", "kind": "Postpartum pads", "name": "Frida Mom Witch Hazel Cooling Pad Liners (24ct) + Frida Mom Postpartum Pads, Leak Proof Maxi Pads (18ct)| Postpartum Essentials", "short": "Frida Mom Witch Hazel Cooling Pad Liners (24ct) + Frida Mom…", "price": 17.98, "img": "https://m.media-amazon.com/images/I/51Y8imFRzaL._AC_SL1500_.jpg", "link": "https://lasso.to/amazon/mXCv6BM68b"},
  {"id": "B0C33JMWRG", "brand": "frida", "cat": "rec", "kind": "Postpartum pads", "name": "Frida Mom Witch Hazel Perineal Cooling Pad Full-Length Pad Liners + Frida Mom 2-in-1 Postpartum Pads, Ice Maxi Pads| Postpartum Essentials", "short": "Frida Mom Witch Hazel Perineal Cooling Pad Full-Length Pad Liners…", "price": 28.96, "img": "https://m.media-amazon.com/images/I/51un1csbBiL._AC_SL1500_.jpg", "link": "https://lasso.to/amazon/rbLT1wDx1T"},
  {"id": "B0CSDQZ2Z6", "brand": "evereden", "cat": "body", "kind": "Stretch mark belly mask", "name": "Evereden Soothing Belly Mask for Stretch Marks, Pregnancy & Postpartum Safe", "short": "Evereden Soothing Belly Mask for Stretch Marks", "price": 9, "img": "https://m.media-amazon.com/images/I/61lWKWzZHHL._AC_SL1500_.jpg", "link": "https://lasso.to/amazon/fTrVqxIoeZ"},
- {"id": "B0DB29GQVS", "brand": "evereden", "cat": "body", "kind": "Stretch mark serum", "name": "Evereden Tri-Orchid Stretch Mark Ampules, Pregnancy, Dermatologist-Tested", "short": "Evereden Tri-Orchid Stretch Mark Ampules", "price": 59, "img": "https://m.media-amazon.com/images/I/61pDMOUnhUL._AC_SL1500_.jpg", "link": "https://lasso.to/amazon/359b3Jn5SD"}
+ {"id": "B0DB29GQVS", "brand": "evereden", "cat": "body", "kind": "Stretch mark serum", "name": "Evereden Tri-Orchid Stretch Mark Ampules, Pregnancy, Dermatologist-Tested", "short": "Evereden Tri-Orchid Stretch Mark Ampules", "price": 59, "img": "https://m.media-amazon.com/images/I/61pDMOUnhUL._AC_SL1500_.jpg", "link": "https://lasso.to/amazon/359b3Jn5SD"},
+ {"id": "B0DX73P5DY", "brand": "momcozy", "cat": "rec", "kind": "Postpartum belly band", "name": "Momcozy Ergowrap Postpartum Belly Band, 3D Lifting & Ergonomic Back Support", "short": "Momcozy Ergowrap Postpartum Belly Band", "price": 79.99, "img": "https://m.media-amazon.com/images/I/81TXbltTXRL._AC_SL1500_.jpg", "link": "https://lasso.to/amazon/fu20VHBZUL"},
+ {"id": "B08R5TM4RW", "brand": "evereden", "cat": "body", "kind": "Stretch-mark oil + cream", "name": "Evereden Belly Stretch Mark Oil & Stretch Mark Cream, Dermatologist-Tested", "short": "Evereden Belly Oil & Stretch Mark Cream", "price": 79.2, "img": "https://m.media-amazon.com/images/I/61olLpu9HqL._SL1500_.jpg", "link": "https://lasso.to/amazon/zuEFmacggh"},
+ {"id": "B07W7L1Q1Y", "brand": "evereden", "cat": "body", "kind": "Stretch-mark cream", "name": "Evereden Stretch Mark Cream, Pregnancy and Postpartum, Dermatologist-Tested", "short": "Evereden Stretch Mark Cream", "price": 49.0, "img": "https://m.media-amazon.com/images/I/51Z6oxow44L._SL1500_.jpg", "link": "https://lasso.to/amazon/aTKdhkJAuY"},
+ {"id": "B0HC2JV3HN", "brand": "momcozy", "cat": "preg", "kind": "Pregnancy belly band", "name": "Momcozy Pregnancy Belly Band, CozySupport 3D Ergonest Maternity Belly Band", "short": "Momcozy CozySupport Pregnancy Belly Band", "price": 59.99, "img": "https://m.media-amazon.com/images/I/61Tfq5ElrSL._SL1500_.jpg", "link": "https://lasso.to/amazon/jRiBGkIU8m"},
+ {"id": "B0H6QRPFPD", "brand": "momcozy", "cat": "preg", "kind": "Twin pregnancy belly band", "name": "Momcozy Go As You Grow Belly Bands for Pregnant Women-For Twins/Multiples", "short": "Momcozy Go As You Grow Belly Band (Twins)", "price": 69.99, "img": "https://m.media-amazon.com/images/I/612rcw5uM2L._SL1500_.jpg", "link": "https://lasso.to/amazon/akrnnXFy3e"},
+ {"id": "B0GVY2B5MH", "brand": "momcozy", "cat": "preg", "kind": "Pregnancy pillow", "name": "Momcozy New Cooling Pregnancy Pillow - U Shaped Full Body Maternity Pillow", "short": "Momcozy U-Shaped Pregnancy Pillow", "price": 69.99, "img": "https://m.media-amazon.com/images/I/71U9lKVJOaL._AC_SL1500_.jpg", "link": "https://lasso.to/amazon/tkyu1Gyr0X"}
 ];
 /* ===================== END OF SETTINGS ===================== */
 TC.render({ brands:BRANDS, brandRows:BRAND_ROWS, specs:SPECS, presets:PRESETS, cats:CATS, items:ITEMS, extra:{} });
